@@ -3,7 +3,7 @@ import React from 'react';
 import { ExperienceItem } from '../types';
 import NooreLogo from '../Logo/Noore.webp';
 import SHKSCScienceClubLogo from '../Logo/SHKSC Science Club.webp';
-import NDSCLogo from '../Logo/Notre Dame Science Club.webp';
+import NDSCLogo from '../Logo/Notre Dame Science Club.png';
 import NDPCLogo from '../Logo/Notre Dame Photography Club.webp';
 import SHKSCNutritionClubLogo from '../Logo/SHKSC Nutrition Club.webp';
 import PenmaniacsLogo from '../Logo/Penmaniacs.webp';
@@ -63,6 +63,45 @@ const Experience: React.FC = () => {
       accent: 'border-neutral-500/30 shadow-neutral-500/10'
     },
     {
+      role: 'Founder',
+      organization: 'Penmaniacs',
+      period: '2022 – Present',
+      description: [
+        'Building a specialized platform for high-fidelity calligraphy and writing art.',
+        'Curating professional artistic tools and educational resources for script enthusiasts.'
+      ],
+      logo: PenmaniacsLogo,
+      links: [
+        { type: 'facebook', url: 'https://www.facebook.com/penmaniacs.creation' },
+        { type: 'youtube', url: 'https://www.youtube.com/@penmaniacs.creation' }
+      ],
+      accent: 'border-orange-500/30 shadow-orange-500/10'
+    },
+    {
+      role: 'Co-Founder & Director',
+      organization: 'Trimàs',
+      period: '2022 – Present',
+      description: [
+        'Driving a community-led initiative for environmental consciousness and sustainable action.',
+        'Successfully organized the Green Globe Festival and various climate projects.'
+      ],
+      logo: TrimasLogo,
+      links: [{ type: 'facebook', url: 'https://www.facebook.com/trimas.org' }],
+      accent: 'border-cyan-500/30 shadow-cyan-500/10'
+    },
+    {
+      role: 'Founder & President',
+      organization: 'Haven Of Handwriters',
+      period: '2021 – Present',
+      description: [
+        'Leading a niche movement to celebrate the art of manual script with 4,000+ members.',
+        'Growing a vibrant community focused on calligraphic excellence and hand-inked narratives.'
+      ],
+      logo: HavenOfHandwritersLogo,
+      links: [{ type: 'facebook', url: 'https://www.facebook.com/haven.of.handwriters' }],
+      accent: 'border-purple-500/30 shadow-purple-500/10'
+    },
+    {
       role: 'Secretary (Creative Squad)',
       organization: 'Notre Dame Photography Club (NDPC)',
       period: '2024 – 2025',
@@ -79,7 +118,7 @@ const Experience: React.FC = () => {
       accent: 'border-indigo-500/30 shadow-indigo-500/10'
     },
     {
-      role: 'President (Publication) & Organizer',
+      role: 'President (Publication)',
       organization: 'Notre Dame Science Club (NDSC)',
       period: '2023 – 2024',
       description: [
@@ -91,37 +130,26 @@ const Experience: React.FC = () => {
       logo: NDSCLogo,
       links: [
         { type: 'facebook', url: 'https://www.facebook.com/NDSCOfficial' },
-        { type: 'instagram', url: 'https://www.instagram.com/ndsc_official?fbclid=IwY2xjawP57mxleHRuA2FlbQIxMABicmlkETF5SFRlY1FCZlhKSVNsb1Vvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHsWWid3kVqI53-MRQuQu3J0X4livEFAkT5KXcedHCrce6Of4W0XV0LmZbLSM_aem_kV3fH_LRIYYOrhslSU3Kpg' },
+        { type: 'instagram', url: 'https://www.instagram.com/ndsc_official?fbclid=IwY2xjawP57mxleHRuA2FlbQIxMABicmlkETF5SFRlY1FCZlhKSVNsb1Vvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHsWWid3kVqI53-MRQuQu3J0X4livEFAkT5KXcedCrbce6Of4W0XV0LmZbLSM_aem_kV3fH_LRIYYOrhslSU3Kpg' },
         { type: 'website', url: 'https://www.ndscbd.com/' }
       ],
       accent: 'border-amber-400/30 shadow-amber-400/10'
     },
     {
-      role: 'Founder & President',
-      organization: 'Haven Of Handwriters',
-      period: '2023 – Present',
+      role: 'Organizer',
+      organization: 'Notre Dame Science Club (NDSC)',
+      period: '2023 – 2024',
       description: [
-        'Leading a niche movement to celebrate the art of manual script with 4,000+ members.',
-        'Growing a vibrant community focused on calligraphic excellence and hand-inked narratives.'
+        'Actively organized club events and supported publication logistics.',
+        'Collaborated with teams to ensure successful execution of various science festivals.'
       ],
-      logo: HavenOfHandwritersLogo,
-      links: [{ type: 'facebook', url: 'https://www.facebook.com/haven.of.handwriters' }],
-      accent: 'border-purple-500/30 shadow-purple-500/10'
-    },
-    {
-      role: 'Founder',
-      organization: 'Penmaniacs',
-      period: '2023 – Present',
-      description: [
-        'Building a specialized platform for high-fidelity calligraphy and writing art.',
-        'Curating professional artistic tools and educational resources for script enthusiasts.'
-      ],
-      logo: PenmaniacsLogo,
+      logo: NDSCLogo,
       links: [
-        { type: 'facebook', url: 'https://www.facebook.com/penmaniacs.creation' },
-        { type: 'youtube', url: 'https://www.youtube.com/@penmaniacs.creation' }
+        { type: 'facebook', url: 'https://www.facebook.com/NDSCOfficial' },
+        { type: 'instagram', url: 'https://www.instagram.com/ndsc_official?fbclid=IwY2xjawP57mxleHRuA2FlbQIxMABicmlkETF5SFRlY1FCZlhKSVNsb1Vvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHsWWid3kVqI53-MRQuQu3J0X4livEFAkT5KXcedCrbce6Of4W0XV0LmZbLSM_aem_kV3fH_LRIYYOrhslSU3Kpg' },
+        { type: 'website', url: 'https://www.ndscbd.com/' }
       ],
-      accent: 'border-orange-500/30 shadow-orange-500/10'
+      accent: 'border-amber-400/30 shadow-amber-400/10'
     },
     {
       role: 'Assistant General Secretary (Olympiad)',
@@ -140,18 +168,6 @@ const Experience: React.FC = () => {
       accent: 'border-blue-500/30 shadow-blue-500/10'
     },
     {
-      role: 'Co-Founder & Director',
-      organization: 'Trimàs',
-      period: '2022 – Present',
-      description: [
-        'Driving a community-led initiative for environmental consciousness and sustainable action.',
-        'Successfully organized the Green Globe Festival and various climate projects.'
-      ],
-      logo: TrimasLogo,
-      links: [{ type: 'facebook', url: 'https://www.facebook.com/trimas.org' }],
-      accent: 'border-cyan-500/30 shadow-cyan-500/10'
-    },
-    {
       role: 'Vice-President',
       organization: 'SHKSC Nutrition Club',
       period: '2022 – 2023',
@@ -159,6 +175,21 @@ const Experience: React.FC = () => {
         'Spearheaded nutrition awareness campaigns reaching thousands of students.',
         'Directed the club\'s participation in the International Nutrition Olympiad 2022.',
         'Managed organizational growth and membership expansion.'
+      ],
+      logo: SHKSCNutritionClubLogo,
+      links: [
+        { type: 'facebook', url: 'https://www.facebook.com/shkscnc' },
+        { type: 'instagram', url: 'https://www.instagram.com/shksc_nutrition_club/' }
+      ],
+      accent: 'border-emerald-500/30 shadow-emerald-500/10'
+    },
+    {
+      role: 'Office Secretary',
+      organization: 'SHKSC Nutrition Club',
+      period: '2021 – 2022',
+      description: [
+        'Managed club documentation and administrative records.',
+        'Assisted in coordinating club meetings and nutrition awareness sessions.'
       ],
       logo: SHKSCNutritionClubLogo,
       links: [

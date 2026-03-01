@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProfilePhoto from '../Images/ChatGPT Image Feb 3, 2026, 12_06_56 AM.png';
+import ProfilePhoto from '../Images/20260123121346_IMG_4936.JPG.jpeg';
 
 const About: React.FC = () => {
   const socialInfo = [
@@ -89,11 +89,11 @@ const About: React.FC = () => {
           <div className="contents lg:col-span-5 lg:flex lg:flex-col lg:gap-12">
             <div className="relative group order-1 lg:order-none">
               <div className="absolute -inset-4 bg-amber-400/5 rounded-[3rem] blur-2xl group-hover:bg-amber-400/10 transition-all duration-700"></div>
-              <div className="relative aspect-square overflow-hidden rounded-[3rem] border border-neutral-800 bg-neutral-900 shadow-2xl">
+              <div className="relative overflow-hidden rounded-[3rem] border border-neutral-800 bg-neutral-900 shadow-2xl">
                 <img
                   src={ProfilePhoto}
                   alt="Mahmudul Hasan Mridul"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                  className="w-full h-auto transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <div className="absolute bottom-8 left-8 text-left">
@@ -105,16 +105,16 @@ const About: React.FC = () => {
             </div>
 
             {/* Social Links placed BELOW the photo */}
-            <div className="space-y-4 order-3 lg:order-none">
-              <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-6 border-b border-neutral-800/50 pb-4 text-left">Digital Connections</h4>
-              <div className="flex flex-col gap-3">
+            <div className="space-y-4 order-3 lg:order-none text-center lg:text-left">
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-6 border-b border-neutral-800/50 pb-4">Digital Connections</h4>
+              <div className="flex flex-col gap-3 items-center lg:items-stretch">
                 {socialInfo.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-neutral-900/40 rounded-2xl border border-neutral-800 hover:border-amber-400/30 transition-all group"
+                    className="flex items-center gap-4 p-4 bg-neutral-900/40 rounded-2xl border border-neutral-800 hover:border-amber-400/30 transition-all group w-full max-w-sm lg:max-w-none"
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-800 text-neutral-500 group-hover:text-amber-400 group-hover:bg-amber-400/10 transition-all">
                       {social.icon}
@@ -131,13 +131,13 @@ const About: React.FC = () => {
 
           {/* Narrative & Stats Column */}
           <div className="order-2 lg:order-none lg:col-span-7 space-y-12">
-            <div className="text-left">
+            <div className="text-left lg:text-right">
               <h3 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter leading-tight mb-8">
                 Engineering <br />
                 <span className="text-neutral-500 italic">Precise Elegance.</span>
               </h3>
 
-              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed font-light text-left">
+              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed font-light text-left lg:text-justify">
                 <p>
                   I’m an <span className="text-white font-semibold">Industrial and Production Engineering</span> student at the Bangladesh University of Textiles (BUTEX) who enjoys bridging the gap between technical systems and creative leadership. I’m the Founder of <span className="text-amber-400">‘Haven Of Handwriters’</span> and a former President (Publication) at the <span className="text-white">Notre Dame Science Club (NDSC)</span>, where I led teams to execute large-scale initiatives along with several government scholarships.
                 </p>
@@ -159,19 +159,19 @@ const About: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
                 <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">98%</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left">Science Core Avg.</p>
+                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Science Core Avg.</p>
               </div>
               <div>
                 <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">24th</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left">Board Merit Pos.</p>
+                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Board Merit Pos.</p>
               </div>
               <div>
                 <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">07+</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left">Design Years</p>
+                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Design Years</p>
               </div>
               <div>
                 <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">04+</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left">Founded Ventures</p>
+                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Founded Ventures</p>
               </div>
             </div>
           </div>
