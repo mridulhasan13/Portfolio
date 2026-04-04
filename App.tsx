@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './components/About';
-import Experience from './components/Experience';
+import WorkExperience from './components/WorkExperience';
+import Projects from './components/Projects';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Awards from './components/Awards';
@@ -14,7 +15,7 @@ import Creatives from './components/Creatives';
 const App: React.FC = () => {
   const getPageFromHash = () => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'about', 'education', 'experience', 'skills', 'creatives', 'awards', 'contact'];
+    const validPages = ['home', 'about', 'education', 'work-experience', 'projects', 'skills', 'creatives', 'awards', 'contact'];
     return validPages.includes(hash) ? hash : 'home';
   };
 
@@ -78,7 +79,8 @@ const App: React.FC = () => {
       case 'home': return <Home onNavigate={handleNavigate} />;
       case 'about': return <About />;
       case 'education': return <Education />;
-      case 'experience': return <Experience />;
+      case 'work-experience': return <WorkExperience />;
+      case 'projects': return <Projects />;
       case 'skills': return <Skills />;
       case 'creatives': return <Creatives />;
       case 'awards': return <Awards />;

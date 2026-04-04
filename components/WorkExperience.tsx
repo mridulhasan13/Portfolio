@@ -11,7 +11,7 @@ import TrimasLogo from '../Logo/Trimas.webp';
 import HavenOfHandwritersLogo from '../Logo/Haven Of Handwriters.webp';
 import MahmudulsPhotographsLogo from '../Logo/Mahmuduls photographs.webp';
 
-const Experience: React.FC = () => {
+const WorkExperience: React.FC = () => {
   const socialIcons = {
     facebook: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -201,7 +201,7 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-32 bg-black relative overflow-hidden">
+    <section id="work-experience" className="py-32 bg-black relative overflow-hidden">
       {/* Vibrant Background Blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -209,9 +209,7 @@ const Experience: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center mb-24 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
-            The Chronology
-          </div>
+
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
             Experience & <span className="gold-gradient italic">Impact</span>
           </h2>
@@ -297,4 +295,4 @@ const Experience: React.FC = () => {
   );
 };
 
-export default Experience;
+export default WorkExperience;
