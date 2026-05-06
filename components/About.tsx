@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProfilePhoto from '../../../AT103863.JPG.jpeg';
+import ProfilePhoto from '../src/assets/AT103863.JPG.jpeg';
 
 const About: React.FC = () => {
   const socialInfo = [

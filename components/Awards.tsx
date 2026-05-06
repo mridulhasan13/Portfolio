@@ -1,6 +1,6 @@
 
 import React from 'react';
-import exhibitionPhoto1 from '../../../Photo_Mridul_01521757204_4.png';
+import exhibitionPhoto1 from '../src/assets/Photo_Mridul_01521757204_4.png';
 
 const Awards: React.FC = () => {
   const olympiads = [
