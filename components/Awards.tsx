@@ -1,5 +1,6 @@
 
 import React from 'react';
+import exhibitionPhoto1 from '../../../Photo_Mridul_01521757204_4.png';
 
 const Awards: React.FC = () => {
   const olympiads = [
@@ -25,6 +26,17 @@ const Awards: React.FC = () => {
     { title: 'Finalist (Handwriting)', event: 'Classisist Bhasha Utshob', year: '2022', rank: 'FINALIST' },
     { title: 'Testimonial of Gratitude', event: 'Bidyanondo Fundraiser Carnival', year: '2020', rank: 'SERVICE' },
     { title: 'Science Camp Alumnus', event: 'Qudrat-E-Khuda Science Camp', year: '2021', rank: 'ALUMNI' },
+  ];
+
+  const exhibitionPhotos = [
+    { 
+      title: 'Pure Chemicals Ltd. presents নীরবতায় কলরব ৭.০, organized by 𝗔𝗥𝗧𝗲𝘅 – 𝗔𝗿𝘁 & 𝗣𝗵𝗼𝘁𝗼𝗴𝗿𝗮𝗽𝗵𝘆 𝗖𝗹𝘂𝗯 𝗼𝗳 𝗕𝗨𝗧𝗘𝗫', 
+      event: 'ARTex Exhibition', 
+      year: '2025', 
+      rank: 'EXHIBITED', 
+      src: exhibitionPhoto1,
+      link: 'https://www.facebook.com/photo/?fbid=1538635878261494&set=pcb.1538767354915013'
+    }
   ];
 
   return (
@@ -110,6 +122,38 @@ const Awards: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Selected Photographs for Exhibition Section */}
+        <div className="mt-32">
+           <div className="text-center mb-16">
+             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+               Visual Arts
+             </div>
+             <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+               Selected <span className="gold-gradient italic">Photographs</span>
+             </h3>
+             <p className="mt-4 text-neutral-500 font-light max-w-2xl mx-auto">
+               Showcasing visual narratives and moments captured through the lens, selected for national and regional exhibitions.
+             </p>
+           </div>
+           
+           <div className="max-w-5xl mx-auto">
+             {exhibitionPhotos.map((photo, i) => (
+                <a key={i} href={photo.link} target="_blank" rel="noopener noreferrer" className="block group relative rounded-[2.5rem] overflow-hidden border border-neutral-800 bg-neutral-900 aspect-[4/3] md:aspect-[16/9] shadow-2xl cursor-pointer">
+                  <img src={photo.src} alt="Exhibition Photo" className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-16">
+                    <span className="text-amber-400 font-black text-xs md:text-sm uppercase tracking-[0.3em] mb-3 md:mb-4 block">{photo.rank}</span>
+                    <h4 className="text-white font-bold text-lg md:text-2xl leading-snug mb-3 md:mb-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">{photo.title}</h4>
+                    <div className="flex items-center gap-3 md:gap-4 text-neutral-300 text-xs md:text-base font-medium translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">
+                      <span>{photo.event}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      <span>{photo.year}</span>
+                    </div>
+                  </div>
+                </a>
+             ))}
+           </div>
         </div>
 
         {/* Bottom Decorative Element */}
