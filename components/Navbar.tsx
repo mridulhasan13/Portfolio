@@ -167,7 +167,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
           {/* Right Corner: CV Button without dot */}
           <div className="flex items-center gap-6">
             <a
-              href="https://drive.google.com/file/d/1FjCowP3d2Jlp3r8Jd7wEaZ2fZGSDZ1E7/view?usp=sharing"
+              href="https://drive.google.com/file/d/1E7u4zabQusj2L-iVsS5Riw6XAVKAQJ_U/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0 font-extrabold text-xl tracking-tighter text-white hover:text-amber-400 transition-colors select-none group"

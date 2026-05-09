@@ -87,7 +87,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div className="flex flex-col items-center gap-6 mb-8 md:mb-12">
             <span className="text-neutral-600 text-[10px] uppercase font-black tracking-widest">Connect Digitally</span>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-amber-400 hover:border-amber-400/30 hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-1"
+                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-amber-400 hover:border-amber-400/30 hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {social.icon}
                 </a>
