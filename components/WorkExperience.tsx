@@ -124,9 +124,9 @@ const WorkExperience: React.FC = () => {
       description: [
         'Served as the Editor & Chief Designer for AUDRI 24 (Annual flagship publication).',
         'Organized the Annual Science Festival 2023, managing publication logistics.',
-        'Received the Organizer\'s Award for valor and determination (Session 2023-24).'
+        'Received the Honorable Mention for valor and determination (Session 2023-24).'
       ],
-      awards: ['Organizer\'s Award', 'Lifetime Member'],
+      awards: ['Honorable Mention', 'Lifetime Member'],
       logo: NDSCLogo,
       links: [
         { type: 'facebook', url: 'https://www.facebook.com/NDSCOfficial' },
@@ -224,30 +224,30 @@ const WorkExperience: React.FC = () => {
               <div key={index} className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
 
                 {/* Pulsating Marker */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-6 h-6 z-10">
+                <div className="absolute left-0 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-6 h-6 z-10">
                   <div className="absolute inset-0 bg-amber-400 rounded-full animate-ping opacity-20"></div>
                   <div className="absolute inset-1.5 bg-black border-2 border-amber-400 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.6)]"></div>
                 </div>
 
-                <div className="ml-10 md:ml-0 md:w-1/2 px-0 md:px-12 w-full group">
+                <div className="ml-10 md:ml-0 w-auto md:w-1/2 px-0 md:px-12 group">
                   <div className={`relative p-1 rounded-[2.5rem] bg-gradient-to-br from-neutral-800/50 to-neutral-900/50 transition-all duration-500 hover:scale-[1.02] ${exp.accent}`}>
                     <div className="bg-black/80 backdrop-blur-xl rounded-[2.3rem] p-8 h-full border border-white/5">
 
                       {/* Top Header Section */}
-                      <div className={`flex items-start gap-6 mb-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                        <div className="w-20 h-20 shrink-0 bg-white/5 rounded-2xl p-3 border border-neutral-800 flex items-center justify-center group-hover:bg-amber-400/10 transition-colors overflow-hidden">
+                      <div className="flex items-start gap-4 sm:gap-6 mb-8 text-left">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/5 rounded-2xl p-2 sm:p-3 border border-neutral-800 flex items-center justify-center group-hover:bg-amber-400/10 transition-colors overflow-hidden">
                           <img src={exp.logo} alt={exp.organization} className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
                         </div>
-                        <div className={`pt-2 flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                          <div className={`inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-amber-400 text-[9px] font-black uppercase tracking-widest ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                        <div className="pt-1.5 flex-1 text-left min-w-0">
+                          <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-amber-400 text-[9px] font-black uppercase tracking-widest">
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                             {exp.period}
                           </div>
-                          <h4 className="text-3xl font-black text-white leading-[1.1] tracking-tight group-hover:text-amber-400 transition-colors">{exp.role}</h4>
-                          <p className="text-neutral-500 font-bold text-xs mt-2 uppercase tracking-wider">{exp.organization}</p>
+                          <h4 className="text-2xl sm:text-3xl font-black text-white leading-[1.1] tracking-tight group-hover:text-amber-400 transition-colors break-words">{exp.role}</h4>
+                          <p className="text-neutral-500 font-bold text-xs mt-2 uppercase tracking-wider break-words">{exp.organization}</p>
 
                           {/* Social Links */}
-                          <div className={`flex gap-3 mt-4 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+                          <div className="flex gap-3 mt-4 justify-start">
                             {exp.links?.map((link, idx) => (
                               <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-amber-400 hover:border-amber-400/30 transition-all transform hover:scale-110">
                                 {socialIcons[link.type as keyof typeof socialIcons]}
@@ -260,9 +260,9 @@ const WorkExperience: React.FC = () => {
                       {/* Content Description */}
                       <div className="h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent w-full mb-8"></div>
 
-                      <ul className={`space-y-4 ${index % 2 === 0 ? 'md:text-right' : 'text-left'}`}>
+                      <ul className="space-y-4 text-left">
                         {exp.description.map((item, i) => (
-                          <li key={i} className={`flex items-start gap-4 text-sm text-neutral-400 font-light leading-relaxed group-hover:text-neutral-200 transition-colors ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                          <li key={i} className="flex items-start gap-4 text-sm text-neutral-400 font-light leading-relaxed group-hover:text-neutral-200 transition-colors">
                             <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400/50 group-hover:bg-amber-400 shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.3)]"></div>
                             <span>{item}</span>
                           </li>
@@ -271,7 +271,7 @@ const WorkExperience: React.FC = () => {
 
                       {/* Bottom Badges */}
                       {exp.awards && (
-                        <div className={`mt-10 flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                        <div className="mt-10 flex flex-wrap gap-2 justify-start">
                           {exp.awards.map((award, i) => (
                             <span key={i} className="px-4 py-1.5 bg-amber-400/5 border border-amber-400/20 text-amber-400 text-[9px] font-black uppercase tracking-widest rounded-xl flex items-center gap-2">
                               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>

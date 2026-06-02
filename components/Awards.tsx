@@ -29,11 +29,11 @@ const Awards: React.FC = () => {
   ];
 
   const exhibitionPhotos = [
-    { 
-      title: 'Pure Chemicals Ltd. presents নীরবতায় কলরব ৭.০, organized by 𝗔𝗥𝗧𝗲𝘅 – 𝗔𝗿𝘁 & 𝗣𝗵𝗼𝘁𝗼𝗴𝗿𝗮𝗽𝗵𝘆 𝗖𝗹𝘂𝗯 𝗼𝗳 𝗕𝗨𝗧𝗘𝗫', 
-      event: 'ARTex Exhibition', 
-      year: '2025', 
-      rank: 'EXHIBITED', 
+    {
+      title: 'Pure Chemicals Ltd. presents নীরবতায় কলরব ৭.০, organized by 𝗔𝗥𝗧𝗲𝘅 – 𝗔𝗿𝘁 & 𝗣𝗵𝗼𝘁𝗼𝗴𝗿𝗮𝗽𝗵𝘆 𝗖𝗹𝘂𝗯 𝗼𝗳 𝗕𝗨𝗧𝗘𝗫',
+      event: 'ARTex Exhibition',
+      year: '2025',
+      rank: 'EXHIBITED',
       src: exhibitionPhoto1,
       link: 'https://www.facebook.com/photo/?fbid=1538635878261494&set=pcb.1538767354915013'
     }
@@ -44,7 +44,7 @@ const Awards: React.FC = () => {
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10"></div>
-      
+
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-32">
@@ -62,27 +62,27 @@ const Awards: React.FC = () => {
         {/* Featured Award Spotlight */}
         <div className="mb-32">
           <div className="relative group overflow-hidden rounded-[3rem] border border-amber-400/30 bg-neutral-900/40 p-12 backdrop-blur-xl">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/10 blur-3xl -mr-32 -mt-32"></div>
-             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-               <div className="max-w-xl">
-                 <span className="text-amber-400 font-black text-[10px] uppercase tracking-[0.5em] mb-4 block">Major Distinction</span>
-                 <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">24th Merit Position <br/><span className="text-neutral-500">Board Merit List</span></h3>
-                 <p className="text-neutral-400 text-lg font-light leading-relaxed text-left">
-                   Ranked 24th among 500,000+ students in the Dhaka Education Board for the Secondary School Certificate (SSC) examination 2022.
-                 </p>
-               </div>
-               <div className="flex flex-col items-center md:items-end">
-                 <div className="text-8xl font-black text-amber-400 leading-none tracking-tighter mb-2">24</div>
-                 <span className="text-white font-bold uppercase tracking-[0.2em] text-xs">Merit Rank</span>
-                 <div className="w-12 h-1 bg-amber-400 mt-4 rounded-full"></div>
-               </div>
-             </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/10 blur-3xl -mr-32 -mt-32"></div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+              <div className="max-w-xl">
+                <span className="text-amber-400 font-black text-[10px] uppercase tracking-[0.5em] mb-4 block">Major Distinction</span>
+                <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">24th Merit Position <br /><span className="text-neutral-500">Board Merit List</span></h3>
+                <p className="text-neutral-400 text-lg font-light leading-relaxed text-left">
+                  Ranked 24th among 500,000+ students in the Dhaka Education Board for the Secondary School Certificate (SSC) examination 2022.
+                </p>
+              </div>
+              <div className="flex flex-col items-center md:items-end">
+                <div className="text-8xl font-black text-amber-400 leading-none tracking-tighter mb-2">24</div>
+                <span className="text-white font-bold uppercase tracking-[0.2em] text-xs">Merit Rank</span>
+                <div className="w-12 h-1 bg-amber-400 mt-4 rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Categories Grid */}
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
-          
+
           {/* Olympiad Section */}
           <div className="space-y-8">
             <div className="flex items-center gap-4 mb-8">
@@ -126,43 +126,43 @@ const Awards: React.FC = () => {
 
         {/* Selected Photographs for Exhibition Section */}
         <div className="mt-32">
-           <div className="text-center mb-16">
-             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
-               Visual Arts
-             </div>
-             <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
-               Selected <span className="gold-gradient italic">Photographs</span>
-             </h3>
-             <p className="mt-4 text-neutral-500 font-light max-w-2xl mx-auto">
-               Showcasing visual narratives and moments captured through the lens, selected for national and regional exhibitions.
-             </p>
-           </div>
-           
-           <div className="max-w-5xl mx-auto">
-             {exhibitionPhotos.map((photo, i) => (
-                <a key={i} href={photo.link} target="_blank" rel="noopener noreferrer" className="block group relative rounded-[2.5rem] overflow-hidden border border-neutral-800 bg-neutral-900 aspect-[4/3] md:aspect-[16/9] shadow-2xl cursor-pointer">
-                  <img src={photo.src} alt="Exhibition Photo" className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-16">
-                    <span className="text-amber-400 font-black text-xs md:text-sm uppercase tracking-[0.3em] mb-3 md:mb-4 block">{photo.rank}</span>
-                    <h4 className="text-white font-bold text-lg md:text-2xl leading-snug mb-3 md:mb-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">{photo.title}</h4>
-                    <div className="flex items-center gap-3 md:gap-4 text-neutral-300 text-xs md:text-base font-medium translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">
-                      <span>{photo.event}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                      <span>{photo.year}</span>
-                    </div>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+              Visual Arts
+            </div>
+            <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+              Selected <span className="gold-gradient italic">Photographs</span>
+            </h3>
+            <p className="mt-4 text-neutral-500 font-light max-w-2xl mx-auto">
+              Showcasing visual narratives and moments captured through the lens, selected for national and regional exhibitions.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            {exhibitionPhotos.map((photo, i) => (
+              <a key={i} href={photo.link} target="_blank" rel="noopener noreferrer" className="block group relative rounded-[2.5rem] overflow-hidden border border-neutral-800 bg-neutral-900 aspect-[4/3] md:aspect-[16/9] shadow-2xl cursor-pointer">
+                <img src={photo.src} alt="Exhibition Photo" className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-16">
+                  <span className="text-amber-400 font-black text-xs md:text-sm uppercase tracking-[0.3em] mb-3 md:mb-4 block">{photo.rank}</span>
+                  <h4 className="text-white font-bold text-lg md:text-2xl leading-snug mb-3 md:mb-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">{photo.title}</h4>
+                  <div className="flex items-center gap-3 md:gap-4 text-neutral-300 text-xs md:text-base font-medium translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">
+                    <span>{photo.event}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    <span>{photo.year}</span>
                   </div>
-                </a>
-             ))}
-           </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Decorative Element */}
         <div className="mt-40 pt-20 border-t border-neutral-900 text-center">
-           <div className="inline-flex items-center gap-4 text-neutral-600">
-              <div className="w-8 h-px bg-neutral-800"></div>
-              <p className="text-[10px] font-black uppercase tracking-[0.6em]">Academic Chronicle 2018-2025</p>
-              <div className="w-8 h-px bg-neutral-800"></div>
-           </div>
+          <div className="inline-flex items-center gap-4 text-neutral-600">
+            <div className="w-8 h-px bg-neutral-800"></div>
+            <p className="text-[10px] font-black uppercase tracking-[0.6em]">Academic Chronicle 2018-2025</p>
+            <div className="w-8 h-px bg-neutral-800"></div>
+          </div>
         </div>
       </div>
     </section>

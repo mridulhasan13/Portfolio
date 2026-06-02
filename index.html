@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Mahmudul Hasan Mridul | Mridul Hasan | Mahmudul Mridul | Portfolio</title>
     <meta name="description" content="Official Portfolio of Mahmudul Hasan Mridul (also known as Mridul Hasan or Mahmudul Mridul). Industrial and Production Engineering student, Founder of Haven Of Handwriters, Developer, and Designer from Bangladesh.">
     <meta name="keywords" content="Mahmudul, Mahmudul Hasan, Mridul, Mahmudul Mridul, Mridul Hasan, M H Mridul, Mahmudul Hasan Mridul Portfolio, Mridul Portfolio, Engineer, Developer, Designer, BUTEX, Bangladesh">
@@ -117,6 +117,34 @@
             }
         }
 
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-32px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Twinkling star effect */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        .animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+        .animate-twinkle-delay { animation: twinkle 3s ease-in-out 1.5s infinite; }
+
         @keyframes marquee {
             0% {
                 transform: translateX(0);
@@ -169,6 +197,25 @@
 <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <script>
+      // Scroll-reveal: auto-observe elements with .reveal or .reveal-left
+      function initReveal() {
+        const els = document.querySelectorAll('.reveal, .reveal-left');
+        if (!els.length) return;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(el => io.observe(el));
+      }
+      // Re-run on every React navigation (hash change)
+      window.addEventListener('hashchange', () => setTimeout(initReveal, 120));
+      // Initial run after DOM is ready
+      document.addEventListener('DOMContentLoaded', () => setTimeout(initReveal, 300));
+      // Also run after each React render cycle settles
+      const orig = window.requestAnimationFrame;
+      let raftimer = 0;
+      window.addEventListener('load', () => setTimeout(initReveal, 400));
+    </script>
 </body>
 
 </html>

@@ -1,11 +1,28 @@
 
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    if (!sectionRef.current || !glowRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glowRef.current.style.left = `${x}px`;
+    glowRef.current.style.top = `${y}px`;
+    glowRef.current.style.opacity = '1';
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (glowRef.current) glowRef.current.style.opacity = '0';
+  }, []);
+
   const socialLinks = [
     {
       name: 'Email',
@@ -74,12 +91,39 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section id="home-top" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black py-12 md:py-20">
+    <section
+      id="home-top"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black py-12 md:py-20"
+    >
+      {/* Mouse-follow spotlight glow */}
+      <div
+        ref={glowRef}
+        className="pointer-events-none absolute w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%)',
+          opacity: 0,
+          transition: 'opacity 0.3s ease',
+          zIndex: 0,
+        }}
+      />
+
+      {/* Static ambient blobs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[150px] rounded-full -z-10"></div>
 
+      {/* Decorative grid lines */}
+      <div className="absolute inset-0 -z-10" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
+        backgroundSize: '80px 80px'
+      }} />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center">
         <div className="max-w-4xl mx-auto">
+
+
           <h1 className="text-4xl sm:text-5xl md:text-9xl font-extrabold text-white leading-[0.9] tracking-tighter mb-8 md:mb-16">
             Mahmudul <br />
             Hasan <span className="gold-gradient italic pr-4">Mridul</span>
@@ -119,6 +163,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </div>
         </div>
       </div>
+
+
     </section>
   );
 };

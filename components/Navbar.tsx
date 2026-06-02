@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface NavbarProps {
   activeSection: string;
@@ -9,6 +9,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navItems = [
     { name: 'HOME', id: 'home' },
@@ -92,11 +93,16 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                 if (item.isDropdown) {
                   const isActive = activeSection === 'work-experience' || activeSection === 'projects';
                   return (
-                    <div 
-                      key={item.id} 
-                      className="relative group"
-                      onMouseEnter={() => setActiveDropdown(item.id)}
-                      onMouseLeave={() => setActiveDropdown(null)}
+                    <div
+                      key={item.id}
+                      className="relative"
+                      onMouseEnter={() => {
+                        if (closeTimer.current) clearTimeout(closeTimer.current);
+                        setActiveDropdown(item.id);
+                      }}
+                      onMouseLeave={() => {
+                        closeTimer.current = setTimeout(() => setActiveDropdown(null), 150);
+                      }}
                     >
                       <button
                         onClick={(e) => {
@@ -106,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                         className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] font-black tracking-widest transition-all duration-300 outline-none ${
                             isActive
                             ? 'text-amber-400 bg-amber-400/10'
-                            : 'text-neutral-500 hover:text-white group-hover:text-white'
+                            : 'text-neutral-500 hover:text-white'
                           }`}
                       >
                         {item.name}
@@ -115,24 +121,34 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                         </svg>
                       </button>
 
-                      {/* Dropdown Menu */}
-                      <div className={`absolute top-[120%] left-1/2 -translate-x-1/2 w-[280px] pt-4 transition-all duration-300 ease-out z-50 ${activeDropdown === item.id ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 pointer-events-none'}`}>
-                        <div className="bg-[#0f0f11]/95 rounded-2xl p-3 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl relative overflow-hidden shadow-2xl">
-                          {/* Inner glowing top edge styling */}
+                      {/* Dropdown Menu — starts immediately below button, no gap */}
+                      <div
+                        className={`absolute top-full left-1/2 -translate-x-1/2 w-[280px] pt-2 transition-all duration-200 ease-out z-[70] ${activeDropdown === item.id ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1 pointer-events-none'}`}
+                        onMouseEnter={() => {
+                          if (closeTimer.current) clearTimeout(closeTimer.current);
+                        }}
+                        onMouseLeave={() => {
+                          closeTimer.current = setTimeout(() => setActiveDropdown(null), 150);
+                        }}
+                      >
+                        <div className="bg-[#0a0a0c] rounded-2xl p-3 border border-white/[0.08] shadow-[0_16px_48px_rgba(0,0,0,0.9)] relative overflow-hidden">
                           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
-                          
+
                           <div className="flex flex-col gap-1.5">
                             {item.subItems?.map((subItem) => (
                               <button
                                 key={subItem.id}
-                                onClick={() => handleNavClick(subItem.id)}
-                                className={`group/item flex items-center gap-4 p-3 rounded-xl transition-all duration-300 text-left outline-none hover:bg-neutral-800/80 ${activeSection === subItem.id ? 'bg-amber-400/10 border border-amber-400/30' : 'border border-transparent'}`}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  handleNavClick(subItem.id);
+                                }}
+                                className={`group/item flex items-center gap-4 p-3 rounded-xl transition-all duration-200 text-left outline-none hover:bg-neutral-800/80 w-full ${activeSection === subItem.id ? 'bg-amber-400/10 border border-amber-400/30' : 'border border-transparent'}`}
                               >
-                                <div className="w-11 h-11 shrink-0 bg-neutral-900 rounded-[14px] flex items-center justify-center border border-white/5 group-hover/item:border-amber-400/20 group-hover/item:shadow-[0_0_15px_rgba(251,191,36,0.15)] transition-all duration-300">
+                                <div className="w-11 h-11 shrink-0 bg-neutral-900 rounded-[14px] flex items-center justify-center border border-white/5 group-hover/item:border-amber-400/20 group-hover/item:shadow-[0_0_15px_rgba(251,191,36,0.15)] transition-all duration-200">
                                   {subItem.icon}
                                 </div>
                                 <div>
-                                  <div className={`text-base tracking-tight font-bold mb-0.5 transition-colors duration-300 ${activeSection === subItem.id ? 'text-amber-400' : 'text-neutral-200 group-hover/item:text-white'}`}>
+                                  <div className={`text-base tracking-tight font-bold mb-0.5 transition-colors duration-200 ${activeSection === subItem.id ? 'text-amber-400' : 'text-neutral-200 group-hover/item:text-white'}`}>
                                     {subItem.name}
                                   </div>
                                   <div className="text-[13px] text-neutral-500 font-medium leading-tight">
@@ -167,7 +183,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
           {/* Right Corner: CV Button without dot */}
           <div className="flex items-center gap-6">
             <a
-              href="https://drive.google.com/file/d/1E7u4zabQusj2L-iVsS5Riw6XAVKAQJ_U/view?usp=sharing"
+              href="https://drive.google.com/file/d/18IR61Cu_dPkVzGkrwOOYhY6uAN2CFjtZ/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0 font-extrabold text-xl tracking-tighter text-white hover:text-amber-400 transition-colors select-none group"

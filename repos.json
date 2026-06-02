@@ -1,0 +1,89 @@
+[
+  {
+    "name": "AIPE-BUTEX",
+    "description": "Official website for the Association of Industrial & Production Engineers-BUTEX",
+    "languages": [
+      "HTML 97.9%",
+      "CSS 1.6%",
+      "JavaScript 0.5%"
+    ],
+    "url": "https://github.com/mridulhasan13/AIPE-BUTEX",
+    "demoUrl": "",
+    "updatedAt": "2026-06-01T10:28:46Z",
+    "isPrivate": true
+  },
+  {
+    "name": "UniGrid",
+    "description": "UniGrid is an enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web. Built with Flutter, Firebase, and Supabase, it centralizes real-time communication, dynamic calendars, grading ledgers, and multi-file repositories into a secure, scalable, and high-performance cross-platform solution.",
+    "languages": [
+      "Dart 76.4%",
+      "HTML 17.0%",
+      "C++ 3.1%",
+      "CMake 2.3%",
+      "Swift 0.4%",
+      "JavaScript 0.4%",
+      "C 0.2%",
+      "PowerShell 0.2%",
+      "Java 0.1%",
+      "Kotlin 0.0%",
+      "Objective-C 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/UniGrid",
+    "demoUrl": "",
+    "updatedAt": "2026-05-29T20:37:41Z",
+    "isPrivate": false
+  },
+  {
+    "name": "Portfolio",
+    "description": "I created my portfolio.Here is the code of this project...",
+    "languages": [
+      "TypeScript 93.7%",
+      "HTML 3.7%",
+      "JavaScript 1.5%",
+      "Python 1.1%"
+    ],
+    "url": "https://github.com/mridulhasan13/Portfolio",
+    "demoUrl": "",
+    "updatedAt": "2026-05-09T20:19:47Z",
+    "isPrivate": false
+  },
+  {
+    "name": "Vote-for-IPE-CR",
+    "description": "",
+    "languages": [
+      "HTML 100.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/Vote-for-IPE-CR",
+    "demoUrl": "",
+    "updatedAt": "2026-04-18T22:18:08Z",
+    "isPrivate": false
+  },
+  {
+    "name": "Notemate.seu",
+    "description": "",
+    "languages": [
+      "JavaScript 94.0%",
+      "CSS 5.9%",
+      "HTML 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/Notemate.seu",
+    "demoUrl": "",
+    "updatedAt": "2026-04-01T00:57:13Z",
+    "isPrivate": false
+  },
+  {
+    "name": "Smart-Tutoring-Monitor",
+    "description": "",
+    "languages": [
+      "TypeScript 90.6%",
+      "JavaScript 5.3%",
+      "Python 3.0%",
+      "CSS 0.7%",
+      "HTML 0.4%"
+    ],
+    "url": "https://github.com/mridulhasan13/Smart-Tutoring-Monitor",
+    "demoUrl": "",
+    "updatedAt": "2026-02-21T08:55:13Z",
+    "isPrivate": false
+  }
+]

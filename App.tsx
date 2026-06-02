@@ -20,6 +20,7 @@ const App: React.FC = () => {
   };
 
   const [currentPage, setCurrentPage] = useState(getPageFromHash());
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Handle browser back/forward buttons
   useEffect(() => {
@@ -36,6 +37,14 @@ const App: React.FC = () => {
     window.location.hash = page;
   };
 
+  // Show/hide back-to-top button based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Manual scroll restoration
   useEffect(() => {
@@ -98,6 +107,20 @@ const App: React.FC = () => {
       </main>
 
       <Footer onNavigate={handleNavigate} />
+
+      {/* Floating Back-to-Top Button */}
+      <button
+        id="back-to-top-btn"
+        aria-label="Back to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-amber-400 text-black rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(251,191,36,0.4)] hover:bg-amber-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(251,191,36,0.6)] active:scale-95 transition-all duration-300 ${
+          showBackToTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'
+        }`}
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
     </div>
   );
 };

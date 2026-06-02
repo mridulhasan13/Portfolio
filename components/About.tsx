@@ -1,6 +1,58 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ProfilePhoto from '../src/assets/AT103863.JPG.jpeg';
+
+function useCountUp(end: number, duration: number = 1800, suffix: string = '') {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true); },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(end);
+    };
+    requestAnimationFrame(step);
+  }, [started, end, duration]);
+
+  return { count, ref, suffix };
+}
+
+const StatItem: React.FC<{ end: number; suffix: string; label: string; prefix?: string }> = ({ end, suffix, label, prefix = '' }) => {
+  const { count, ref } = useCountUp(end, 1800);
+  return (
+    <div ref={ref}>
+      <h4 className="text-4xl font-black text-white mb-1 tracking-tighter tabular-nums">
+        {prefix}{count}{suffix}
+      </h4>
+      <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">{label}</p>
+    </div>
+  );
+};
+
+const StatsGrid: React.FC = () => (
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <StatItem end={98} suffix="%" label="Science Core Avg." />
+    <StatItem end={24} suffix="th" label="Board Merit Pos." />
+    <StatItem end={7} suffix="+" label="Design Years" />
+    <StatItem end={4} suffix="+" label="Founded Ventures" />
+  </div>
+);
 
 const About: React.FC = () => {
   const socialInfo = [
@@ -82,13 +134,13 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Main Section Headline - Centered & with social icon */}
         <div className="mb-24 text-center">
-          <div className="flex items-center justify-center gap-6 mb-4">
-            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-amber-400/10 border border-amber-400/20 text-amber-400">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-4">
+            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-amber-400/10 border border-amber-400/20 text-amber-400 shrink-0">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none uppercase">
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-white tracking-tighter leading-none uppercase text-center">
               About <span className="gold-gradient italic">Me</span>
             </h2>
           </div>
@@ -147,7 +199,7 @@ const About: React.FC = () => {
                 <span className="text-neutral-500 italic">Precise Elegance.</span>
               </h3>
 
-              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed font-light text-left lg:text-justify">
+              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed font-light text-justify">
                 <p>
                   I’m an <span className="text-white font-semibold">Industrial and Production Engineering</span> student at the Bangladesh University of Textiles (BUTEX) who enjoys bridging the gap between technical systems and creative leadership. I’m the Founder of <span className="text-amber-400">‘Haven Of Handwriters’</span> and a former President (Publication) at the <span className="text-white">Notre Dame Science Club (NDSC)</span>, where I led teams to execute large-scale initiatives along with several government scholarships.
                 </p>
@@ -166,24 +218,7 @@ const About: React.FC = () => {
             <div className="h-px bg-neutral-900 w-full"></div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">98%</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Science Core Avg.</p>
-              </div>
-              <div>
-                <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">24th</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Board Merit Pos.</p>
-              </div>
-              <div>
-                <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">07+</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Design Years</p>
-              </div>
-              <div>
-                <h4 className="text-4xl font-black text-white mb-1 tracking-tighter">04+</h4>
-                <p className="text-neutral-500 text-[9px] uppercase font-black tracking-widest text-left lg:text-right">Founded Ventures</p>
-              </div>
-            </div>
+            <StatsGrid />
           </div>
         </div>
       </div>

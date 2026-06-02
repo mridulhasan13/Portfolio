@@ -58,7 +58,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     { title: '24th Merit Position', event: 'Dhaka Education Board (SSC)', year: '2022', rank: 'BOARD MERIT' },
     { title: 'Champion', event: 'Physics Olympiad (Students Corner)', year: '2022', rank: 'CHAMPION' },
     { title: 'Regional Winner', event: '19th Bangladesh Math Olympiad', year: '2021', rank: 'WINNER' },
-    { title: "Organizer's Award", event: 'Notre Dame Science Club', year: '2024', rank: 'VALOR' },
+    { title: "Honorable Mention", event: 'Notre Dame Science Club', year: '2024', rank: 'VALOR' },
   ];
 
 
@@ -136,7 +136,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
           <div className="flex justify-center border-t border-neutral-900/50 pt-12">
             <button
-              onClick={() => onNavigate('experience')}
+              onClick={() => onNavigate('work-experience')}
               className="group flex flex-col items-center gap-4 text-white font-black text-[10px] uppercase tracking-[0.4em] hover:text-amber-400 transition-colors"
             >
               Explore Full Journey
@@ -241,17 +241,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </svg>
             </button>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                name: 'Notemate.seu',
-                description: 'A dedicated academic resource and note management platform tailored for university students.',
-                languages: ['JavaScript 94.0%', 'CSS 5.9%'],
-                url: 'https://github.com/mridulhasan13/Notemate.seu',
-                accent: 'group-hover:border-amber-400/30',
+                name: 'UniGrid',
+                description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories.',
+                languages: ['Dart 76.4%', 'HTML 17.0%', 'C++ 3.1%', 'CMake 2.3%'],
+                url: 'https://github.com/mridulhasan13/UniGrid',
+                demoUrl: 'https://drive.google.com/drive/folders/1gkXsru_AZc5AHcoaQf1wX8y4QewPNTZg?usp=sharing',
+                accent: 'group-hover:border-blue-500/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]',
+                badge: 'bg-blue-500/5 border-blue-500/20 text-blue-400',
+                textHover: 'group-hover:text-blue-400',
+                glowColor: 'from-blue-500/20 to-transparent',
+                isPrivate: false,
                 icon: (
-                  <img src="/notemate-logo.png" alt="Notemate Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
+                  <img src="/unigrid-logo.png" alt="UniGrid Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
+                )
+              },
+              {
+                name: 'AIPE-BUTEX',
+                description: 'Official website for the Association of Industrial & Production Engineers-BUTEX, showcasing organizational news, events, and member directories.',
+                languages: ['HTML 97.9%', 'CSS 1.6%', 'JavaScript 0.5%'],
+                url: 'https://github.com/mridulhasan13/AIPE-BUTEX',
+                demoUrl: 'https://aipe-butex.netlify.app',
+                accent: 'group-hover:border-amber-400/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(251,191,36,0.15)]',
+                badge: 'bg-amber-400/5 border-amber-400/20 text-amber-400',
+                textHover: 'group-hover:text-amber-400',
+                glowColor: 'from-amber-400/20 to-transparent',
+                isPrivate: true,
+                icon: (
+                  <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               },
               {
@@ -260,27 +282,24 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 languages: ['TypeScript 90.6%', 'JavaScript 5.3%', 'Python 3.0%'],
                 url: 'https://github.com/mridulhasan13/Smart-Tutoring-Monitor',
                 demoUrl: 'https://smarttutoringmonitor.netlify.app/',
-                accent: 'group-hover:border-blue-500/30',
+                accent: 'group-hover:border-rose-500/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(244,63,94,0.15)]',
+                badge: 'bg-rose-500/5 border-rose-500/20 text-rose-400',
+                textHover: 'group-hover:text-rose-400',
+                glowColor: 'from-rose-500/20 to-transparent',
+                isPrivate: false,
                 icon: (
                   <img src="/stm-logo.png" alt="Smart Tutoring Monitor Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
-              },
-              {
-                name: 'Portfolio',
-                description: 'My personal portfolio website built with React, TypeScript, and Tailwind CSS, featuring modern glassmorphism and dynamic animations.',
-                languages: ['TypeScript 95.7%', 'HTML 2.9%', 'Python 1.4%'],
-                url: 'https://github.com/mridulhasan13/Portfolio',
-                demoUrl: 'https://mahmudulhasanmridul.netlify.app/',
-                accent: 'group-hover:border-rose-500/30',
-                icon: (
-                  <img src="/m-logo.svg" alt="Mridul Logo" className="w-7 h-7 object-contain opacity-80 group-hover:opacity-100 drop-shadow-md group-hover:scale-110 transition-all duration-300" />
-                )
               }
             ].map((project, index) => (
-              <div 
-                key={index} 
-                className={`group relative flex flex-col justify-between p-8 rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_30px_-5px_rgba(0,0,0,0.5)] ${project.accent}`}
+              <div
+                key={index}
+                className={`group relative flex flex-col justify-between p-8 rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${project.glow} ${project.accent} overflow-hidden`}
               >
+                {/* Glowing Color Bleed inside the card */}
+                <div className={`absolute -right-16 -top-16 w-48 h-48 bg-gradient-to-br ${project.glowColor} blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none -z-10`}></div>
+
                 {/* Action Buttons Top Right */}
                 <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
                   <a href={project.url} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
@@ -288,7 +307,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                     </svg>
                   </a>
-                  
+
                   {project.demoUrl && (
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
                       <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -304,12 +323,23 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <div className="w-12 h-12 rounded-xl bg-neutral-800 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-neutral-800 transition-all duration-500">
                     {project.icon}
                   </div>
-                  
-                  <h3 className="text-2xl font-black text-white tracking-tight mb-3 group-hover:text-amber-400 transition-colors text-left">
-                    {project.name}
-                  </h3>
-                  
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-8 text-left">
+
+                  <div className="flex items-center flex-wrap gap-2 mb-3">
+                    <h3 className={`text-2xl font-black text-white tracking-tight transition-colors duration-300 text-left ${project.textHover}`}>
+                      {project.name}
+                    </h3>
+                    {project.isPrivate && (
+                      <span className="px-2 py-0.5 bg-white/5 border border-white/10 text-white/60 text-[8px] font-bold uppercase tracking-wider rounded-md inline-flex items-center gap-1 backdrop-blur-md">
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        Private
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-neutral-400 text-sm leading-relaxed mb-8 text-left min-h-[72px]">
                     {project.description}
                   </p>
                 </div>
@@ -317,7 +347,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <div className="flex items-center justify-between mt-auto">
                   <div className="flex flex-wrap gap-1.5 mt-1">
                     {project.languages.map((lang, i) => (
-                      <span key={i} className="px-2 py-1 bg-amber-400/5 border border-amber-400/20 text-amber-400 text-[8px] font-bold uppercase tracking-wider rounded-lg">
+                      <span key={i} className={`px-2 py-1 border text-[8px] font-bold uppercase tracking-wider rounded-lg transition-colors duration-300 ${project.badge}`}>
                         {lang}
                       </span>
                     ))}
