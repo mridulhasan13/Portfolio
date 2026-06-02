@@ -221,25 +221,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <section className="py-12 md:py-24 bg-black border-b border-neutral-900 overflow-hidden relative">
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-500/[0.03] blur-[150px] rounded-full -z-10 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-10 md:mb-16">
-            <div>
-              <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-left">Technical Arsenal</h3>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
-                Engineering <span className="gold-gradient italic">Solutions.</span>
-              </h2>
-              <p className="text-neutral-400 text-lg leading-relaxed font-light mt-4 max-w-2xl text-left">
-                Developing modern, high-performance web applications with a focus on seamless user experience, intuitive data visualization, and scalable academic tooling.
-              </p>
-            </div>
-            <button
-              onClick={() => onNavigate('projects')}
-              className="group inline-flex items-center gap-4 text-white font-black text-[10px] uppercase tracking-[0.4em] hover:text-amber-400 transition-colors"
-            >
-              EXPLORE ALL PROJECTS
-              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+          <div className="mb-10 md:mb-16">
+            <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-left">Technical Arsenal</h3>
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
+              Engineering <span className="gold-gradient italic">Solutions.</span>
+            </h2>
+            <p className="text-neutral-400 text-lg leading-relaxed font-light mt-4 max-w-2xl text-left">
+              Developing modern, high-performance web applications with a focus on seamless user experience, intuitive data visualization, and scalable academic tooling.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -355,6 +344,18 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 flex justify-center">
+            <button
+              onClick={() => onNavigate('projects')}
+              className="group inline-flex items-center gap-4 text-white font-black text-[10px] uppercase tracking-[0.4em] hover:text-amber-400 transition-colors"
+            >
+              EXPLORE ALL PROJECTS
+              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
