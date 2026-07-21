@@ -134,18 +134,18 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
           </div>
         </div>
-        <div className="pt-6 md:pt-10 border-t border-neutral-900/50 flex flex-col md:flex-row items-center justify-between gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-          <div className="flex items-center gap-4">
+        <div className="pt-6 md:pt-10 border-t border-neutral-900/50 grid grid-cols-1 md:grid-cols-3 items-center gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
+          <div className="flex items-center justify-center md:justify-start gap-4">
             <div className="hidden md:block w-8 h-px bg-neutral-800"></div>
             <p className="text-neutral-500 text-[9px] uppercase font-black tracking-[0.5em]">&copy; 2026</p>
           </div>
-          <div className="text-center">
+          <div className="text-center flex flex-col items-center justify-center">
             <p className="text-neutral-400 text-[10px] uppercase font-black tracking-[0.7em] mb-1">
               MAHMUDUL HASAN <span className="gold-gradient">MRIDUL</span>
             </p>
             <div className="hidden md:block h-0.5 w-12 bg-amber-400/20 mx-auto rounded-full"></div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center md:justify-end gap-4">
             <p className="text-neutral-500 text-[9px] uppercase font-black tracking-[0.5em]">ALL RIGHTS RESERVED</p>
             <div className="hidden md:block w-8 h-px bg-neutral-800"></div>
           </div>

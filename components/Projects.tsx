@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
           description: 'UniGrid is an enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web. Built with Flutter, Firebase, and Supabase, it centralizes real-time communication, dynamic calendars, grading ledgers, and multi-file repositories into a secure, scalable, and high-performance cross-platform solution.',
           languages: ['Dart 76.4%', 'HTML 17.0%'],
           url: 'https://github.com/mridulhasan13/UniGrid',
-          demoUrl: 'https://drive.google.com/drive/folders/1gkXsru_AZc5AHcoaQf1wX8y4QewPNTZg?usp=sharing',
+          demoUrl: 'https://unigrid.netlify.app/',
           updatedAt: '2026-05-29T00:00:00Z'
         },
         {
@@ -145,6 +145,16 @@ const Projects: React.FC = () => {
     if (lowerName.includes('aipe-butex')) {
       return <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />;
     }
+    if (lowerName.includes('butexdc')) {
+      return <img src="/butexdc-logo.png" alt="BUTEX Debating Club Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />;
+    }
+    if (lowerName.includes('satprp') || lowerName.includes('sat-prp')) {
+      return (
+        <svg className="w-6 h-6 text-neutral-400 group-hover:text-amber-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        </svg>
+      );
+    }
     if (lowerName.includes('vote-for-ipe-cr') || lowerName.includes('vote')) {
       return (
         <svg className="w-6 h-6 text-neutral-400 group-hover:text-rose-500 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -167,16 +177,34 @@ const Projects: React.FC = () => {
       return 'https://aipe-butex.netlify.app';
     }
     if (lowerName.includes('unigrid')) {
-      return 'https://drive.google.com/drive/folders/1gkXsru_AZc5AHcoaQf1wX8y4QewPNTZg?usp=sharing';
+      return 'https://unigrid.netlify.app/';
     }
     if (lowerName.includes('vote-for-ipe-cr') || lowerName.includes('vote')) {
       return 'https://voteforipe.netlify.app/';
+    }
+    if (lowerName.includes('notebot')) {
+      return 'https://notebot3.netlify.app';
+    }
+    if (lowerName.includes('butexdc')) {
+      return 'https://butexdc.netlify.app';
+    }
+    if (lowerName.includes('satprp') || lowerName.includes('sat-prp')) {
+      return 'https://sat-prp4.netlify.app/';
     }
     return originalDemoUrl || '';
   };
 
   const getProjectDescription = (name: string, originalDescription?: string) => {
     const lowerName = name.toLowerCase();
+    if (lowerName.includes('satprp') || lowerName.includes('sat-prp')) {
+      return 'An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.';
+    }
+    if (lowerName.includes('notebot')) {
+      return 'An automated academic note management and assistant platform designed to streamline study resources for students. This is an updated UI model of https://notebot.netlify.app/';
+    }
+    if (lowerName.includes('butexdc')) {
+      return 'Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.';
+    }
     if (lowerName.includes('notemate')) {
       return 'A dedicated academic resource and note management platform tailored for university students.';
     }
@@ -198,6 +226,29 @@ const Projects: React.FC = () => {
     return originalDescription || '';
   };
 
+  const renderFormattedDescription = (text: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(urlRegex);
+
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-400 hover:text-amber-300 underline underline-offset-2 font-medium transition-colors cursor-pointer relative z-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section id="projects" className="py-32 bg-black relative overflow-hidden min-h-screen">
       {/* Vibrant Background Blobs */}
@@ -213,10 +264,21 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsList.map((project, index) => {
-            const style = getProjectStyle(project.name, index);
-            const demoUrl = getProjectDemoUrl(project.name, project.demoUrl);
-            const description = getProjectDescription(project.name, project.description);
+          {(() => {
+            const SORT_ORDER = ['unigrid', 'aipe', 'butexdc', 'smart', 'notebot', 'satprp'];
+            const sortedProjects = [...projectsList].sort((a, b) => {
+              const getIndex = (name: string) => {
+                const lower = name.toLowerCase();
+                const idx = SORT_ORDER.findIndex(key => lower.includes(key));
+                return idx !== -1 ? idx : 99;
+              };
+              return getIndex(a.name) - getIndex(b.name);
+            });
+
+            return sortedProjects.map((project, index) => {
+              const style = getProjectStyle(project.name, index);
+              const demoUrl = getProjectDemoUrl(project.name, project.demoUrl);
+              const description = getProjectDescription(project.name, project.description);
             
             // Clean up languages: Only show those with >= 1.0% usage and cap to maximum of 4 items
             const filteredLanguages = project.languages
@@ -240,14 +302,37 @@ const Projects: React.FC = () => {
 
                 {/* Action Buttons Top Right */}
                 <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
-                    <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </a>
+                  {project.isPrivate ? (
+                    <div 
+                      title="Private Repository — Source code protected" 
+                      className="p-2 rounded-xl bg-white/5 border border-white/10 text-neutral-500 cursor-not-allowed opacity-60 flex items-center justify-center"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      </svg>
+                    </div>
+                  ) : (
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      title="View GitHub Repository"
+                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300"
+                    >
+                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      </svg>
+                    </a>
+                  )}
                   
                   {demoUrl && (
-                    <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+                    <a 
+                      href={demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      title="Live Demo"
+                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300"
+                    >
                       <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                         <polyline points="15 3 21 3 21 9" />
@@ -278,7 +363,7 @@ const Projects: React.FC = () => {
                   </div>
                   
                   <p className="text-neutral-400 text-sm leading-relaxed mb-8 min-h-[72px]">
-                    {description}
+                    {renderFormattedDescription(description)}
                   </p>
                 </div>
 
@@ -293,7 +378,8 @@ const Projects: React.FC = () => {
                 </div>
               </div>
             );
-          })}
+          });
+        })()}
         </div>
       </div>
     </section>

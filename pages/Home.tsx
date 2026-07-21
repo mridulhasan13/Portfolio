@@ -22,6 +22,29 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+  const renderFormattedDescription = (text: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(urlRegex);
+
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-400 hover:text-amber-300 underline underline-offset-2 font-medium transition-colors cursor-pointer relative z-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   const socialIcons = {
     facebook: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -238,7 +261,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories.',
                 languages: ['Dart 76.4%', 'HTML 17.0%', 'C++ 3.1%', 'CMake 2.3%'],
                 url: 'https://github.com/mridulhasan13/UniGrid',
-                demoUrl: 'https://drive.google.com/drive/folders/1gkXsru_AZc5AHcoaQf1wX8y4QewPNTZg?usp=sharing',
+                demoUrl: 'https://unigrid.netlify.app/',
                 accent: 'group-hover:border-blue-500/40',
                 glow: 'hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]',
                 badge: 'bg-blue-500/5 border-blue-500/20 text-blue-400',
@@ -247,6 +270,22 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 isPrivate: false,
                 icon: (
                   <img src="/unigrid-logo.png" alt="UniGrid Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
+                )
+              },
+              {
+                name: 'BUTEXDC',
+                description: 'Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.',
+                languages: ['JavaScript 54.0%', 'CSS 41.3%', 'HTML 4.7%'],
+                url: 'https://github.com/mridulhasan13/butexdc.2',
+                demoUrl: 'https://butexdc.netlify.app',
+                accent: 'group-hover:border-orange-500/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(249,115,22,0.15)]',
+                badge: 'bg-orange-500/5 border-orange-500/20 text-orange-400',
+                textHover: 'group-hover:text-orange-400',
+                glowColor: 'from-orange-500/20 to-transparent',
+                isPrivate: false,
+                icon: (
+                  <img src="/butexdc-logo.png" alt="BUTEX Debating Club Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               },
               {
@@ -263,22 +302,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 isPrivate: true,
                 icon: (
                   <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
-                )
-              },
-              {
-                name: 'Smart-Tutoring-Monitor',
-                description: 'An intelligent system designed to monitor and enhance tutoring sessions with smart analytics and tracking.',
-                languages: ['TypeScript 90.6%', 'JavaScript 5.3%', 'Python 3.0%'],
-                url: 'https://github.com/mridulhasan13/Smart-Tutoring-Monitor',
-                demoUrl: 'https://smarttutoringmonitor.netlify.app/',
-                accent: 'group-hover:border-rose-500/40',
-                glow: 'hover:shadow-[0_0_50px_rgba(244,63,94,0.15)]',
-                badge: 'bg-rose-500/5 border-rose-500/20 text-rose-400',
-                textHover: 'group-hover:text-rose-400',
-                glowColor: 'from-rose-500/20 to-transparent',
-                isPrivate: false,
-                icon: (
-                  <img src="/stm-logo.png" alt="Smart Tutoring Monitor Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               }
             ].map((project, index) => (
@@ -329,7 +352,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   </div>
 
                   <p className="text-neutral-400 text-sm leading-relaxed mb-8 text-left min-h-[72px]">
-                    {project.description}
+                    {renderFormattedDescription(project.description)}
                   </p>
                 </div>
 

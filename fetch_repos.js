@@ -63,9 +63,22 @@ async function main() {
       throw new Error(`Invalid response format from GitHub API: ${JSON.stringify(repos)}`);
     }
     
-    // Filter out forks if desired, or keep them. Let's keep non-forks.
-    const originalRepos = repos.filter(repo => !repo.fork);
-    console.log(`Found ${originalRepos.length} original repositories.`);
+    const EXCLUDED_REPOS = [
+      'vote-for-ipe-cr',
+      'notemate.seu',
+      'standard_business',
+      'approaching-web',
+      'ipe-butex',
+      'premium_business'
+    ];
+
+    // Filter out forks and user-excluded repositories
+    const originalRepos = repos.filter(repo => {
+      if (repo.fork) return false;
+      const lower = repo.name.toLowerCase();
+      return !EXCLUDED_REPOS.includes(lower);
+    });
+    console.log(`Found ${originalRepos.length} filtered repositories.`);
 
     const projectsData = [];
 
@@ -87,12 +100,35 @@ async function main() {
         }
       }
 
+      let demoUrl = repo.homepage || '';
+      let description = repo.description || '';
+      const nameLower = repo.name.toLowerCase();
+
+      if (nameLower.includes('unigrid')) {
+        demoUrl = 'https://unigrid.netlify.app/';
+      } else if (nameLower.includes('aipe-butex')) {
+        demoUrl = 'https://aipe-butex.netlify.app';
+      } else if (nameLower.includes('smart-tutoring')) {
+        demoUrl = 'https://smarttutoringmonitor.netlify.app/';
+      } else if (nameLower.includes('vote-for-ipe-cr')) {
+        demoUrl = 'https://voteforipe.netlify.app/';
+      } else if (nameLower.includes('notebot')) {
+        demoUrl = 'https://notebot3.netlify.app';
+        if (!description) description = 'An automated academic note management and assistant platform designed to streamline study resources for students. This is an updated UI model of https://notebot.netlify.app/';
+      } else if (nameLower.includes('butexdc')) {
+        demoUrl = 'https://butexdc.netlify.app';
+        if (!description) description = 'Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.';
+      } else if (nameLower.includes('satprp') || nameLower.includes('sat-prp')) {
+        demoUrl = 'https://sat-prp4.netlify.app/';
+        if (!description) description = 'An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.';
+      }
+
       projectsData.push({
         name: repo.name,
-        description: repo.description || '',
+        description: description,
         languages: languages,
         url: repo.html_url,
-        demoUrl: repo.homepage || '',
+        demoUrl: demoUrl,
         updatedAt: repo.updated_at,
         isPrivate: repo.private || false
       });
@@ -101,8 +137,16 @@ async function main() {
       await new Promise(r => setTimeout(r, 200));
     }
 
-    // Sort projects from latest to oldest based on updatedAt
-    projectsData.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+    // Sort projects in user's requested order: UniGrid -> AIPE -> BUTEXDC -> Smart -> Notebot3 -> satprp
+    const SORT_ORDER = ['unigrid', 'aipe', 'butexdc', 'smart', 'notebot', 'satprp'];
+    projectsData.sort((a, b) => {
+      const getIndex = (name) => {
+        const lower = name.toLowerCase();
+        const idx = SORT_ORDER.findIndex(key => lower.includes(key));
+        return idx !== -1 ? idx : 99;
+      };
+      return getIndex(a.name) - getIndex(b.name);
+    });
 
     fs.writeFileSync('repos.json', JSON.stringify(projectsData, null, 2));
     console.log(`Successfully wrote ${projectsData.length} projects to repos.json`);

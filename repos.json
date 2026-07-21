@@ -1,5 +1,27 @@
 [
   {
+    "name": "UniGrid",
+    "description": "UniGrid is an enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web. Built with Flutter, Firebase, and Supabase, it centralizes real-time communication, dynamic calendars, grading ledgers, and multi-file repositories into a secure, scalable, and high-performance cross-platform solution.",
+    "languages": [
+      "Dart 79.2%",
+      "HTML 14.4%",
+      "C++ 2.6%",
+      "CMake 2.0%",
+      "JavaScript 0.9%",
+      "Swift 0.4%",
+      "PowerShell 0.2%",
+      "Shell 0.2%",
+      "C 0.1%",
+      "Java 0.1%",
+      "Kotlin 0.0%",
+      "Objective-C 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/UniGrid",
+    "demoUrl": "https://unigrid.netlify.app/",
+    "updatedAt": "2026-07-21T19:53:33Z",
+    "isPrivate": false
+  },
+  {
     "name": "AIPE-BUTEX",
     "description": "Official website for the Association of Industrial & Production Engineers-BUTEX",
     "languages": [
@@ -8,67 +30,21 @@
       "JavaScript 0.5%"
     ],
     "url": "https://github.com/mridulhasan13/AIPE-BUTEX",
-    "demoUrl": "",
+    "demoUrl": "https://aipe-butex.netlify.app",
     "updatedAt": "2026-06-01T10:28:46Z",
     "isPrivate": true
   },
   {
-    "name": "UniGrid",
-    "description": "UniGrid is an enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web. Built with Flutter, Firebase, and Supabase, it centralizes real-time communication, dynamic calendars, grading ledgers, and multi-file repositories into a secure, scalable, and high-performance cross-platform solution.",
+    "name": "butexdc.2",
+    "description": "Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.",
     "languages": [
-      "Dart 76.4%",
-      "HTML 17.0%",
-      "C++ 3.1%",
-      "CMake 2.3%",
-      "Swift 0.4%",
-      "JavaScript 0.4%",
-      "C 0.2%",
-      "PowerShell 0.2%",
-      "Java 0.1%",
-      "Kotlin 0.0%",
-      "Objective-C 0.0%"
+      "JavaScript 54.0%",
+      "CSS 41.3%",
+      "HTML 4.7%"
     ],
-    "url": "https://github.com/mridulhasan13/UniGrid",
-    "demoUrl": "",
-    "updatedAt": "2026-05-29T20:37:41Z",
-    "isPrivate": false
-  },
-  {
-    "name": "Portfolio",
-    "description": "I created my portfolio.Here is the code of this project...",
-    "languages": [
-      "TypeScript 93.7%",
-      "HTML 3.7%",
-      "JavaScript 1.5%",
-      "Python 1.1%"
-    ],
-    "url": "https://github.com/mridulhasan13/Portfolio",
-    "demoUrl": "",
-    "updatedAt": "2026-05-09T20:19:47Z",
-    "isPrivate": false
-  },
-  {
-    "name": "Vote-for-IPE-CR",
-    "description": "",
-    "languages": [
-      "HTML 100.0%"
-    ],
-    "url": "https://github.com/mridulhasan13/Vote-for-IPE-CR",
-    "demoUrl": "",
-    "updatedAt": "2026-04-18T22:18:08Z",
-    "isPrivate": false
-  },
-  {
-    "name": "Notemate.seu",
-    "description": "",
-    "languages": [
-      "JavaScript 94.0%",
-      "CSS 5.9%",
-      "HTML 0.0%"
-    ],
-    "url": "https://github.com/mridulhasan13/Notemate.seu",
-    "demoUrl": "",
-    "updatedAt": "2026-04-01T00:57:13Z",
+    "url": "https://github.com/mridulhasan13/butexdc.2",
+    "demoUrl": "https://butexdc.netlify.app",
+    "updatedAt": "2026-06-29T10:35:02Z",
     "isPrivate": false
   },
   {
@@ -82,8 +58,50 @@
       "HTML 0.4%"
     ],
     "url": "https://github.com/mridulhasan13/Smart-Tutoring-Monitor",
-    "demoUrl": "",
+    "demoUrl": "https://smarttutoringmonitor.netlify.app/",
     "updatedAt": "2026-02-21T08:55:13Z",
+    "isPrivate": false
+  },
+  {
+    "name": "notebot.3",
+    "description": "An automated academic note management and assistant platform designed to streamline study resources for students. This is an updated UI model of https://notebot.netlify.app/",
+    "languages": [
+      "JavaScript 91.5%",
+      "CSS 8.0%",
+      "TypeScript 0.4%",
+      "HTML 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/notebot.3",
+    "demoUrl": "https://notebot3.netlify.app",
+    "updatedAt": "2026-06-19T19:49:46Z",
+    "isPrivate": true
+  },
+  {
+    "name": "satprp",
+    "description": "An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.",
+    "languages": [
+      "JavaScript 98.6%",
+      "Python 1.1%",
+      "CSS 0.3%",
+      "HTML 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/satprp",
+    "demoUrl": "https://sat-prp4.netlify.app/",
+    "updatedAt": "2026-07-04T05:18:22Z",
+    "isPrivate": true
+  },
+  {
+    "name": "Portfolio",
+    "description": "I created my portfolio.Here is the code of this project...",
+    "languages": [
+      "TypeScript 92.6%",
+      "HTML 4.4%",
+      "JavaScript 2.1%",
+      "Python 0.9%"
+    ],
+    "url": "https://github.com/mridulhasan13/Portfolio",
+    "demoUrl": "",
+    "updatedAt": "2026-06-02T12:28:48Z",
     "isPrivate": false
   }
 ]
