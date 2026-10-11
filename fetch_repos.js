@@ -68,8 +68,7 @@ async function main() {
       'notemate.seu',
       'standard_business',
       'approaching-web',
-      'ipe-butex',
-      'premium_business'
+      'ipe-butex'
     ];
 
     // Filter out forks and user-excluded repositories
@@ -101,13 +100,34 @@ async function main() {
       }
 
       let demoUrl = repo.homepage || '';
+      let playStoreUrl = repo.playStoreUrl || '';
+      let adminUrl = repo.adminUrl || '';
+      let credentials = repo.credentials || null;
+      let projectUrl = repo.html_url || '';
       let description = repo.description || '';
       const nameLower = repo.name.toLowerCase();
 
       if (nameLower.includes('unigrid')) {
         demoUrl = 'https://unigrid.netlify.app/';
+        playStoreUrl = 'https://play.google.com/store/apps/details?id=com.unigrid.app';
+        credentials = {
+          username: 'demo.reviewer@unigrid.app',
+          password: 'UniGrid@2026',
+          label: 'UniGrid — Reviewer Access'
+        };
+        projectUrl = '';
+        description = 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories. [Details of the app](https://info-unigrid.netlify.app/)';
       } else if (nameLower.includes('aipe-butex')) {
         demoUrl = 'https://aipe-butex.netlify.app';
+      } else if (nameLower.includes('premium')) {
+        demoUrl = 'https://premium-b.netlify.app/';
+        adminUrl = 'https://premium-b.netlify.app/admin.html';
+        credentials = {
+          username: 'login@test.com',
+          password: '123456',
+          label: 'Mimosa Pizza — Staff Portal'
+        };
+        description = 'A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.';
       } else if (nameLower.includes('smart-tutoring')) {
         demoUrl = 'https://smarttutoringmonitor.netlify.app/';
       } else if (nameLower.includes('vote-for-ipe-cr')) {
@@ -120,6 +140,11 @@ async function main() {
         if (!description) description = 'Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.';
       } else if (nameLower.includes('satprp') || nameLower.includes('sat-prp')) {
         demoUrl = 'https://sat-prp4.netlify.app/';
+        credentials = {
+          username: 'sat6066@preparation.com',
+          password: '60606060',
+          label: 'SAT Prep — Student Portal'
+        };
         if (!description) description = 'An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.';
       }
 
@@ -127,8 +152,11 @@ async function main() {
         name: repo.name,
         description: description,
         languages: languages,
-        url: repo.html_url,
+        url: projectUrl,
         demoUrl: demoUrl,
+        playStoreUrl: playStoreUrl,
+        ...(adminUrl ? { adminUrl } : {}),
+        ...(credentials ? { credentials } : {}),
         updatedAt: repo.updated_at,
         isPrivate: repo.private || false
       });
@@ -137,8 +165,8 @@ async function main() {
       await new Promise(r => setTimeout(r, 200));
     }
 
-    // Sort projects in user's requested order: UniGrid -> AIPE -> BUTEXDC -> Smart -> Notebot3 -> satprp
-    const SORT_ORDER = ['unigrid', 'aipe', 'butexdc', 'smart', 'notebot', 'satprp'];
+    // Sort projects: UniGrid -> premium_business -> satprp -> AIPE -> BUTEXDC -> Smart -> Notebot3
+    const SORT_ORDER = ['unigrid', 'premium', 'satprp', 'aipe', 'butexdc', 'smart', 'notebot'];
     projectsData.sort((a, b) => {
       const getIndex = (name) => {
         const lower = name.toLowerCase();

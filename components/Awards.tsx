@@ -39,6 +39,37 @@ const Awards: React.FC = () => {
     }
   ];
 
+  const mediaCoverages = [
+    {
+      outlet: 'Textile Times',
+      badge: 'FEATURED ARTICLE',
+      title: 'BUTEX Student Develops UniGrid, an All-in-One App to Simplify Academic Life',
+      bengaliTitle: "বুটেক্সিয়ানদের একাডেমিক জীবন সহজ করতে অল-ইন-ওয়ান অ্যাপ 'UniGrid' তৈরি করলেন ৫১ তম ব্যাচের শিক্ষার্থী মৃদুল",
+      description: 'Featured for engineering UniGrid — an all-in-one digital platform designed to simplify academic activities for university students by centralizing class routines, departmental notices with file attachments, lecture slides, study materials, and automated class test reminders.',
+      year: '2026',
+      image: '/news-textiletimes.png',
+      primaryLink: 'https://lnkd.in/p/gjRUXt4s',
+      links: [
+        { name: 'LinkedIn', url: 'https://lnkd.in/p/gjRUXt4s' },
+        { name: 'Facebook', url: 'https://www.facebook.com/share/p/1GZiiuJYAv/' },
+        { name: 'Instagram', url: 'https://www.instagram.com/p/DeR5ob4nxRD/' }
+      ]
+    },
+    {
+      outlet: 'The Seven Digit Post',
+      badge: 'PRESS COVERAGE',
+      title: 'Campus Tech Spotlight: Student Innovation Behind the UniGrid Platform',
+      bengaliTitle: "বুটেক্সিয়ানদের একাডেমিক জীবন সহজ করতে অল-ইন-ওয়ান অ্যাপ 'UniGrid' তৈরি করলেন ৫১ তম ব্যাচের শিক্ষার্থী মৃদুল",
+      description: 'Campus media feature showcasing Mahmudul Hasan Mridul (51st Batch, Department of IPE, BUTEX) and his software engineering work on the UniGrid student ecosystem.',
+      year: '2026',
+      image: '/news-thesevendigitpost.png',
+      primaryLink: 'https://www.facebook.com/share/p/1GkntcE2SL/',
+      links: [
+        { name: 'Facebook', url: 'https://www.facebook.com/share/p/1GkntcE2SL/' }
+      ]
+    }
+  ];
+
   return (
     <section id="awards" className="py-32 bg-black min-h-screen relative overflow-hidden">
       {/* Dynamic Background Elements */}
@@ -122,6 +153,102 @@ const Awards: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Press & Media Features Section */}
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+              Media Spotlight
+            </div>
+            <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+              Featured in <span className="gold-gradient italic">the News</span>
+            </h3>
+            <p className="mt-4 text-neutral-500 font-light max-w-2xl mx-auto">
+              Media appearances and press coverage highlighting software engineering achievements, technological innovation, and campus leadership.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto auto-rows-fr">
+            {mediaCoverages.map((item, i) => (
+              <div 
+                key={i}
+                className="group relative p-8 md:p-10 rounded-[2rem] border border-neutral-900 bg-neutral-900/20 hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div className="relative z-10 text-left flex flex-col flex-1">
+                  {/* News Clipping Poster Image */}
+                  {item.image && (
+                    <a
+                      href={item.primaryLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
+                      style={{ aspectRatio: '4 / 5' }}
+                      title="Click to view full feature"
+                    >
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
+                    </a>
+                  )}
+
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
+                      {item.badge}
+                    </span>
+                    <span className="text-neutral-500 font-bold text-xs">{item.year}</span>
+                  </div>
+
+                  <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
+                    {item.outlet}
+                  </p>
+
+                  <h4 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-4 min-h-[56px] md:min-h-[64px] flex items-center">
+                    {item.title}
+                  </h4>
+
+                  <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="relative z-10 mt-auto pt-4 border-t border-neutral-800/80 flex items-center justify-between gap-3 min-h-[52px]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
+                    {item.links.map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+
+                  <a
+                    href={item.primaryLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
+                  >
+                    <span>View Feature</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Selected Photographs for Exhibition Section */}

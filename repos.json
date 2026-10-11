@@ -1,7 +1,7 @@
 [
   {
     "name": "UniGrid",
-    "description": "UniGrid is an enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web. Built with Flutter, Firebase, and Supabase, it centralizes real-time communication, dynamic calendars, grading ledgers, and multi-file repositories into a secure, scalable, and high-performance cross-platform solution.",
+    "description": "An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories. [Details of the app](https://info-unigrid.netlify.app/)",
     "languages": [
       "Dart 79.2%",
       "HTML 14.4%",
@@ -16,10 +16,54 @@
       "Kotlin 0.0%",
       "Objective-C 0.0%"
     ],
-    "url": "https://github.com/mridulhasan13/UniGrid",
+    "url": "",
     "demoUrl": "https://unigrid.netlify.app/",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.unigrid.app",
+    "credentials": {
+      "username": "demo.reviewer@unigrid.app",
+      "password": "UniGrid@2026",
+      "label": "UniGrid — Reviewer Access"
+    },
     "updatedAt": "2026-07-21T19:53:33Z",
     "isPrivate": false
+  },
+  {
+    "name": "premium_business",
+    "description": "A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.",
+    "languages": [
+      "HTML 69.7%",
+      "CSS 18.4%",
+      "JavaScript 11.9%"
+    ],
+    "url": "https://github.com/mridulhasan13/premium_business",
+    "demoUrl": "https://premium-b.netlify.app/",
+    "adminUrl": "https://premium-b.netlify.app/admin.html",
+    "credentials": {
+      "username": "login@test.com",
+      "password": "123456",
+      "label": "Mimosa Pizza — Staff Portal"
+    },
+    "updatedAt": "2026-06-20T02:18:14Z",
+    "isPrivate": true
+  },
+  {
+    "name": "satprp",
+    "description": "An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.",
+    "languages": [
+      "JavaScript 98.6%",
+      "Python 1.1%",
+      "CSS 0.3%",
+      "HTML 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/satprp",
+    "demoUrl": "https://sat-prp4.netlify.app/",
+    "credentials": {
+      "username": "sat6066@preparation.com",
+      "password": "60606060",
+      "label": "SAT Prep — Student Portal"
+    },
+    "updatedAt": "2026-07-04T05:18:22Z",
+    "isPrivate": true
   },
   {
     "name": "AIPE-BUTEX",
@@ -74,20 +118,6 @@
     "url": "https://github.com/mridulhasan13/notebot.3",
     "demoUrl": "https://notebot3.netlify.app",
     "updatedAt": "2026-06-19T19:49:46Z",
-    "isPrivate": true
-  },
-  {
-    "name": "satprp",
-    "description": "An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.",
-    "languages": [
-      "JavaScript 98.6%",
-      "Python 1.1%",
-      "CSS 0.3%",
-      "HTML 0.0%"
-    ],
-    "url": "https://github.com/mridulhasan13/satprp",
-    "demoUrl": "https://sat-prp4.netlify.app/",
-    "updatedAt": "2026-07-04T05:18:22Z",
     "isPrivate": true
   },
   {

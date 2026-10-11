@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import NDSCLogo from '../Logo/Notre Dame Science Club.png';
 import NDPCLogo from '../Logo/NDPC 1-01.png';
@@ -23,26 +23,61 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const renderFormattedDescription = (text: string) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const parts = text.split(urlRegex);
+    const credRegex = /(?:Admin panel|Staff portal|Demo)?:\s*\[(.*?)\]\((https?:\/\/[^\s\)]+)\)\s*\(User:\s*([^\s|]+)\s*\|\s*Pass:\s*([^\s)]+)\)\.?/i;
+    const cleanText = text.replace(credRegex, '').trim();
 
-    return parts.map((part, index) => {
-      if (part.match(urlRegex)) {
-        return (
+    const regex = /\[(.*?)\]\((https?:\/\/[^\s\)]+)\)|(https?:\/\/[^\s]+)/g;
+    const elements: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(cleanText)) !== null) {
+      if (match.index > lastIndex) {
+        elements.push(cleanText.slice(lastIndex, match.index));
+      }
+
+      if (match[1] && match[2]) {
+        const label = match[1];
+        const url = match[2];
+        elements.push(
           <a
-            key={index}
-            href={part}
+            key={match.index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-400 hover:text-amber-300 underline underline-offset-2 font-medium transition-colors cursor-pointer relative z-20 inline-flex items-center gap-0.5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span>{label}</span>
+            <svg className="w-3 h-3 inline-block opacity-70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        );
+      } else if (match[3]) {
+        const url = match[3];
+        elements.push(
+          <a
+            key={match.index}
+            href={url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-amber-400 hover:text-amber-300 underline underline-offset-2 font-medium transition-colors cursor-pointer relative z-20"
             onClick={(e) => e.stopPropagation()}
           >
-            {part}
+            {url}
           </a>
         );
       }
-      return part;
-    });
+
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < cleanText.length) {
+      elements.push(cleanText.slice(lastIndex));
+    }
+
+    return elements.length > 0 ? elements : cleanText;
   };
 
   const socialIcons = {
@@ -64,6 +99,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     website: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    ),
+    linkedin: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
       </svg>
     )
   };
@@ -179,7 +219,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Pioneering spaces for environmental impact, calligraphic excellence, and visual narratives.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {[
               {
                 title: 'Trimàs',
@@ -216,24 +256,24 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 ]
               }
             ].map((item, i) => (
-              <div key={i} className="group p-8 bg-neutral-900/20 rounded-[2rem] border border-neutral-800 hover:border-amber-400/20 transition-all flex flex-col items-center text-center">
-                <div className="w-20 h-20 mb-6 rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center p-3 bg-neutral-900 group-hover:scale-110 transition-transform">
+              <div key={i} className="group p-4 sm:p-6 md:p-8 bg-neutral-900/20 rounded-2xl sm:rounded-3xl md:rounded-[2rem] border border-neutral-800 hover:border-amber-400/20 transition-all flex flex-col items-center text-center">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-3 sm:mb-4 md:mb-6 rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center p-2.5 md:p-3 bg-neutral-900 group-hover:scale-110 transition-transform">
                   <img
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-contain transition-all brightness-75 group-hover:brightness-100"
                   />
                 </div>
-                <h4 className="text-lg font-bold text-white mb-2 leading-tight">{item.title}</h4>
-                <p className="text-amber-400 text-[8px] uppercase font-black tracking-widest mb-4">{item.role}</p>
-                <div className="flex gap-4 mb-4">
+                <h4 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1.5 md:mb-2 leading-tight">{item.title}</h4>
+                <p className="text-amber-400 text-[7px] sm:text-[8px] uppercase font-black tracking-widest mb-3 md:mb-4">{item.role}</p>
+                <div className="flex gap-3 md:gap-4 mb-3 md:mb-4">
                   {item.links?.map((link, idx) => (
                     <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-amber-400 transition-all transform hover:scale-110">
                       {socialIcons[link.type as keyof typeof socialIcons]}
                     </a>
                   ))}
                 </div>
-                <p className="text-neutral-500 text-xs leading-relaxed line-clamp-3 text-center">{item.desc}</p>
+                <p className="text-neutral-500 text-[11px] md:text-xs leading-relaxed line-clamp-3 text-center">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -258,10 +298,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             {[
               {
                 name: 'UniGrid',
-                description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories.',
+                description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories. [Details of the app](https://info-unigrid.netlify.app/)',
                 languages: ['Dart 76.4%', 'HTML 17.0%', 'C++ 3.1%', 'CMake 2.3%'],
-                url: 'https://github.com/mridulhasan13/UniGrid',
+                url: '',
                 demoUrl: 'https://unigrid.netlify.app/',
+                playStoreUrl: 'https://play.google.com/store/apps/details?id=com.unigrid.app',
                 accent: 'group-hover:border-blue-500/40',
                 glow: 'hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]',
                 badge: 'bg-blue-500/5 border-blue-500/20 text-blue-400',
@@ -270,22 +311,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 isPrivate: false,
                 icon: (
                   <img src="/unigrid-logo.png" alt="UniGrid Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
-                )
-              },
-              {
-                name: 'BUTEXDC',
-                description: 'Official website for the BUTEX Debating Club (Est. 1993) built with Vanilla JS, featuring interactive event showcases, debate archives, and member directories.',
-                languages: ['JavaScript 54.0%', 'CSS 41.3%', 'HTML 4.7%'],
-                url: 'https://github.com/mridulhasan13/butexdc.2',
-                demoUrl: 'https://butexdc.netlify.app',
-                accent: 'group-hover:border-orange-500/40',
-                glow: 'hover:shadow-[0_0_50px_rgba(249,115,22,0.15)]',
-                badge: 'bg-orange-500/5 border-orange-500/20 text-orange-400',
-                textHover: 'group-hover:text-orange-400',
-                glowColor: 'from-orange-500/20 to-transparent',
-                isPrivate: false,
-                icon: (
-                  <img src="/butexdc-logo.png" alt="BUTEX Debating Club Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               },
               {
@@ -303,6 +328,24 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 icon: (
                   <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
+              },
+              {
+                name: 'premium_business',
+                description: 'A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.',
+                languages: ['HTML 69.7%', 'CSS 18.4%', 'JavaScript 11.9%'],
+                url: 'https://github.com/mridulhasan13/premium_business',
+                demoUrl: 'https://premium-b.netlify.app/',
+                accent: 'group-hover:border-orange-500/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(249,115,22,0.15)]',
+                badge: 'bg-orange-500/5 border-orange-500/20 text-orange-400',
+                textHover: 'group-hover:text-orange-400',
+                glowColor: 'from-orange-500/20 to-transparent',
+                isPrivate: true,
+                icon: (
+                  <svg className="w-6 h-6 text-neutral-400 group-hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.5m7.5 0a48.667 48.667 0 00-7.5 0" />
+                  </svg>
+                )
               }
             ].map((project, index) => (
               <div
@@ -314,14 +357,40 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
                 {/* Action Buttons Top Right */}
                 <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
-                    <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </a>
+                  {project.playStoreUrl ? (
+                    <a 
+                      href={project.playStoreUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      title="Get it on Google Play"
+                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(66,133,244,0.3)] transition-all duration-300 flex items-center justify-center"
+                    >
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" viewBox="0 0 28.99 31.99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.54 15.28.12 29.34a3.66 3.66 0 0 0 5.33 2.16l15.1-8.6Z" fill="#EA4335" />
+                        <path d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.54 3.54 0 0 0 1.5-4.79 3.62 3.62 0 0 0-1.5-1.5z" fill="#FBBC04" />
+                        <path d="M.12 2.66a3.57 3.57 0 0 0-.12.92v24.84a3.57 3.57 0 0 0 .12.92L14 15.64Z" fill="#4285F4" />
+                        <path d="m13.64 16 6.94-6.85L5.5.51A3.73 3.73 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z" fill="#34A853" />
+                      </svg>
+                    </a>
+                  ) : project.isPrivate ? (
+                    <div 
+                      title="Private Repository — Source code protected" 
+                      className="p-2 rounded-xl bg-white/5 border border-white/10 text-neutral-500 cursor-not-allowed opacity-60 flex items-center justify-center"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      </svg>
+                    </div>
+                  ) : project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" title="View GitHub Repository" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      </svg>
+                    </a>
+                  ) : null}
 
                   {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" title="Live Demo" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
                       <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                         <polyline points="15 3 21 3 21 9" />
@@ -351,9 +420,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     )}
                   </div>
 
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-8 text-left min-h-[72px]">
+                  <div className="text-neutral-400 text-sm leading-relaxed mb-4 text-left min-h-[56px]">
                     {renderFormattedDescription(project.description)}
-                  </p>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between mt-auto">
@@ -379,6 +448,188 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured in the News Section */}
+      <section className="py-16 md:py-24 bg-neutral-950/70 border-b border-neutral-900 overflow-hidden relative">
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-amber-400/[0.03] blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                Press Coverage
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
+                Featured in <span className="gold-gradient italic">the News.</span>
+              </h2>
+            </div>
+            <p className="text-neutral-400 text-sm md:text-base font-light max-w-md text-left md:text-right">
+              Recognized in news media for engineering UniGrid and delivering high-impact digital solutions for university students.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
+            {/* Card 1: Textile Times */}
+            <div className="group relative p-6 md:p-8 rounded-[2rem] border border-white/5 bg-gradient-to-br from-neutral-900/60 to-black backdrop-blur-xl hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none -z-10"></div>
+              
+              <div className="text-left flex flex-col flex-1">
+                {/* Full Uncropped Official News Clipping Poster */}
+                <a 
+                  href="https://lnkd.in/p/gjRUXt4s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
+                  style={{ aspectRatio: '4 / 5' }}
+                  title="Click to view full feature on LinkedIn"
+                >
+                  <img 
+                    src="/news-textiletimes.png" 
+                    alt="Textile Times News Feature - UniGrid by Mahmudul Hasan Mridul"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
+                </a>
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
+                    Featured Article
+                  </span>
+                  <span className="text-neutral-500 font-bold text-xs">2026</span>
+                </div>
+
+                <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
+                  Textile Times
+                </p>
+
+                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-3 min-h-[56px] md:min-h-[64px] flex items-center">
+                  BUTEX Student Develops UniGrid, an All-in-One App to Simplify Academic Life
+                </h3>
+
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
+                  A comprehensive feature on Mahmudul Hasan Mridul (51st batch, Department of IPE, BUTEX) developing UniGrid — an enterprise-grade digital platform that unifies class routines, departmental notices, lecture slides, study materials, and automated class test reminders in one hub.
+                </p>
+              </div>
+
+              <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-3 min-h-[52px]">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
+                  <a
+                    href="https://lnkd.in/p/gjRUXt4s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://www.facebook.com/share/p/1GZiiuJYAv/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://www.instagram.com/p/DeR5ob4nxRD/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-rose-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                  >
+                    Instagram
+                  </a>
+                </div>
+
+                <a
+                  href="https://lnkd.in/p/gjRUXt4s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
+                >
+                  <span>Open Story</span>
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2: The Seven Digit Post */}
+            <div className="group relative p-6 md:p-8 rounded-[2rem] border border-white/5 bg-gradient-to-br from-neutral-900/60 to-black backdrop-blur-xl hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none -z-10"></div>
+              
+              <div className="text-left flex flex-col flex-1">
+                {/* Full Uncropped Official News Clipping Poster */}
+                <a 
+                  href="https://www.facebook.com/share/p/1GkntcE2SL/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
+                  style={{ aspectRatio: '4 / 5' }}
+                  title="Click to view full feature on Facebook"
+                >
+                  <img 
+                    src="/news-thesevendigitpost.png" 
+                    alt="The Seven Digit Post Feature - UniGrid by Mahmudul Hasan Mridul"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
+                </a>
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
+                    Campus Spotlight
+                  </span>
+                  <span className="text-neutral-500 font-bold text-xs">2026</span>
+                </div>
+
+                <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
+                  The Seven Digit Post
+                </p>
+
+                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-3 min-h-[56px] md:min-h-[64px] flex items-center">
+                  Student Innovation Spotlight: Engineering UniGrid for the BUTEX Community
+                </h3>
+
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
+                  Spotlighting student software engineering and digital transformation within BUTEX, highlighting Mahmudul Hasan Mridul's creation of UniGrid to centralize campus schedules, departmental notices, lecture slides, and academic tools into a unified platform.
+                </p>
+              </div>
+
+              <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-3 min-h-[52px]">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
+                  <a
+                    href="https://www.facebook.com/share/p/1GkntcE2SL/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                  >
+                    Facebook
+                  </a>
+                </div>
+
+                <a
+                  href="https://www.facebook.com/share/p/1GkntcE2SL/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
+                >
+                  <span>Open Story</span>
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -449,15 +700,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8">Honors & <span className="gold-gradient italic">Recognition.</span></h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {featuredAwards.map((award, i) => (
-              <div key={i} className="group p-8 bg-neutral-900/10 border border-neutral-900 rounded-[2rem] hover:border-amber-400/30 transition-all">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-amber-400 font-black text-[8px] uppercase tracking-[0.3em]">{award.rank}</span>
-                  <span className="text-neutral-700 font-bold text-[8px] uppercase">{award.year}</span>
+              <div key={i} className="group p-4 sm:p-6 md:p-8 bg-neutral-900/10 border border-neutral-900 rounded-2xl sm:rounded-3xl md:rounded-[2rem] hover:border-amber-400/30 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-6">
+                    <span className="text-amber-400 font-black text-[7px] sm:text-[8px] uppercase tracking-[0.2em] sm:tracking-[0.3em]">{award.rank}</span>
+                    <span className="text-neutral-500 md:text-neutral-700 font-bold text-[8px] uppercase">{award.year}</span>
+                  </div>
+                  <h4 className="text-sm sm:text-base md:text-xl font-bold text-white mb-1.5 md:mb-2 leading-tight group-hover:text-amber-400 transition-colors text-left">{award.title}</h4>
                 </div>
-                <h4 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-amber-400 transition-colors text-left">{award.title}</h4>
-                <p className="text-neutral-500 text-[10px] font-medium leading-relaxed uppercase tracking-wider text-left">{award.event}</p>
+                <p className="text-neutral-500 text-[9px] sm:text-[10px] font-medium leading-relaxed uppercase tracking-wider text-left mt-2">{award.event}</p>
               </div>
             ))}
           </div>

@@ -75,11 +75,11 @@ const Skills: React.FC = () => {
             <div className="h-px bg-neutral-800 flex-grow max-w-[100px]"></div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 md:flex md:flex-wrap md:justify-center md:gap-3 max-w-5xl mx-auto">
             {allSkillsAlphabetical.map((skill, idx) => (
               <div
                 key={idx}
-                className="px-6 py-3 bg-neutral-900/50 border border-neutral-800 rounded-2xl text-neutral-400 text-xs font-bold uppercase tracking-widest hover:border-amber-400/40 hover:text-white transition-all duration-300 hover:scale-105 hover:bg-neutral-800 shadow-lg"
+                className="w-full md:w-auto px-3 py-2.5 sm:px-4 sm:py-3 md:px-6 md:py-3 bg-neutral-900/50 border border-neutral-800 rounded-xl md:rounded-2xl text-neutral-400 text-[10px] sm:text-[11px] md:text-xs font-bold uppercase tracking-wider md:tracking-widest hover:border-amber-400/40 hover:text-white transition-all duration-300 hover:scale-105 hover:bg-neutral-800 shadow-lg flex items-center justify-center text-center leading-snug"
               >
                 {skill}
               </div>
@@ -95,20 +95,22 @@ const Skills: React.FC = () => {
             <div className="h-px bg-neutral-800 flex-grow max-w-[100px]"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8">
             {coreCategories.map((cat, idx) => (
-              <div key={idx} className="group relative p-10 bg-neutral-900/20 rounded-[3rem] border border-neutral-800 hover:border-amber-400/30 transition-all duration-500 flex flex-col items-center text-center overflow-hidden">
+              <div key={idx} className="group relative p-4 sm:p-6 md:p-10 bg-neutral-900/20 rounded-2xl sm:rounded-3xl md:rounded-[3rem] border border-neutral-800 hover:border-amber-400/30 transition-all duration-500 flex flex-col items-center text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                <div className="w-16 h-16 rounded-2xl bg-amber-400/10 flex items-center justify-center text-amber-400 mb-8 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(251,191,36,0.1)]">
-                  {cat.icon}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-amber-400/10 flex items-center justify-center text-amber-400 mb-3 sm:mb-4 md:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(251,191,36,0.1)]">
+                  <div className="scale-75 sm:scale-90 md:scale-100 flex items-center justify-center">
+                    {cat.icon}
+                  </div>
                 </div>
 
-                <h4 className="text-white font-black text-xl mb-8 tracking-tighter uppercase">{cat.title}</h4>
+                <h4 className="text-white font-black text-sm sm:text-base md:text-xl mb-3 sm:mb-4 md:mb-8 tracking-tighter uppercase">{cat.title}</h4>
 
-                <div className="flex flex-wrap justify-center gap-2 mt-auto">
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-auto">
                   {cat.skills.map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-black/40 text-neutral-500 text-[10px] font-black uppercase tracking-wider rounded-lg border border-neutral-800 group-hover:border-neutral-700 group-hover:text-neutral-300 transition-all">
+                    <span key={i} className="px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 bg-black/40 text-neutral-500 text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-wider rounded-md sm:rounded-lg border border-neutral-800 group-hover:border-neutral-700 group-hover:text-neutral-300 transition-all text-center leading-tight">
                       {skill}
                     </span>
                   ))}
