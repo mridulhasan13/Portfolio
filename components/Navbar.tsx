@@ -76,8 +76,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[60] flex justify-center pt-3 sm:pt-5 md:pt-6 px-3 sm:px-4 transition-all duration-500 ${scrolled ? 'translate-y-[-8px]' : ''}`}>
-        <div className={`max-w-7xl w-full glass rounded-full px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3 flex justify-between items-center border transition-all duration-500 ${scrolled ? 'border-amber-400/20 shadow-amber-400/5' : 'border-white/10 shadow-2xl'}`}>
+      <nav className="fixed top-0 left-0 right-0 z-[60] flex justify-center pt-4 sm:pt-5 md:pt-6 px-3.5 sm:px-6 transition-all duration-500">
+        <div className={`max-w-7xl w-full glass rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 flex justify-between items-center border transition-all duration-500 ${scrolled ? 'border-amber-400/20 shadow-amber-400/5' : 'border-white/10 shadow-2xl'}`}>
           {/* Left Corner: Logo with Color Swap Effect */}
           <div
             onClick={() => handleNavClick('home')}
