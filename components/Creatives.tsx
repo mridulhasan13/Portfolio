@@ -82,8 +82,8 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ url, title }) => {
         alt={title}
         loading="lazy"
         decoding="async"
-        containerClassName="w-full min-h-[140px] sm:min-h-[200px]"
-        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+        containerClassName="w-full"
+        className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
         loaderText="Loading visual..."
       />
     </div>
