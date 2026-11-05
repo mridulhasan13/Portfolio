@@ -1,16 +1,18 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import About from './components/About';
-import WorkExperience from './components/WorkExperience';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Skills from './components/Skills';
-import Awards from './components/Awards';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Creatives from './components/Creatives';
+
+// Code-split pages for near-instant loading times
+const About = lazy(() => import('./components/About'));
+const WorkExperience = lazy(() => import('./components/WorkExperience'));
+const Projects = lazy(() => import('./components/Projects'));
+const Education = lazy(() => import('./components/Education'));
+const Skills = lazy(() => import('./components/Skills'));
+const Awards = lazy(() => import('./components/Awards'));
+const Contact = lazy(() => import('./components/Contact'));
+const Creatives = lazy(() => import('./components/Creatives'));
 
 const App: React.FC = () => {
   const getPageFromHash = () => {
@@ -84,25 +86,31 @@ const App: React.FC = () => {
   }, [currentPage]);
 
   const renderPage = () => {
-    switch (currentPage) {
-      case 'home': return <Home onNavigate={handleNavigate} />;
-      case 'about': return <About />;
-      case 'education': return <Education />;
-      case 'work-experience': return <WorkExperience />;
-      case 'projects': return <Projects />;
-      case 'skills': return <Skills />;
-      case 'creatives': return <Creatives />;
-      case 'awards': return <Awards />;
-      case 'contact': return <Contact />;
-      default: return <Home onNavigate={handleNavigate} />;
-    }
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-black" />}>
+        {(() => {
+          switch (currentPage) {
+            case 'home': return <Home onNavigate={handleNavigate} />;
+            case 'about': return <About />;
+            case 'education': return <Education />;
+            case 'work-experience': return <WorkExperience />;
+            case 'projects': return <Projects />;
+            case 'skills': return <Skills />;
+            case 'creatives': return <Creatives />;
+            case 'awards': return <Awards />;
+            case 'contact': return <Contact />;
+            default: return <Home onNavigate={handleNavigate} />;
+          }
+        })()}
+      </Suspense>
+    );
   };
 
   return (
-    <div className="min-h-screen bg-black text-neutral-200 selection:bg-amber-400 selection:text-black">
+    <div className="min-h-screen bg-black text-neutral-200 selection:bg-amber-400 selection:text-black w-full max-w-full overflow-x-hidden">
       <Navbar activeSection={currentPage} onNavigate={handleNavigate} />
 
-      <main className="page-transition">
+      <main className="page-transition w-full max-w-full overflow-x-hidden">
         {renderPage()}
       </main>
 

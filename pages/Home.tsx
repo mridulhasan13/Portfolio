@@ -1,21 +1,22 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
-import NDSCLogo from '../Logo/Notre Dame Science Club.png';
-import NDPCLogo from '../Logo/NDPC 1-01.png';
-import SHKSCNutritionClubLogo from '../Logo/SHKSC Nutrition Club.png';
-import SHKSCScienceClubLogo from '../Logo/shkscsc-01.png';
-import TrimasLogo from '../Logo/Trimas.png';
-import HavenOfHandwritersLogo from '../Logo/Haven Of Handwriters.png';
-import PenmaniacsLogo from '../Logo/Penmaniacs.png';
-import MahmudulsPhotographsLogo from '../Logo/Mahmuduls photographs.png';
-import EditorialImage from '../Images/rwqr.png';
-import GalleryImg3 from '../Website/3.png';
-import GalleryImg87 from '../Website/87.jpeg';
-import GalleryImg1 from '../Website/1.png';
-import GalleryImg15 from '../Website/15.png';
-import DesignImgBreakdown from '../Design/70 Final logo Breakdown-01.png';
-import DesignImgGold from '../Design/Gold Madel.png';
+import ImageWithPreview from '../components/ImageWithPreview';
+import NDSCLogo from '../Logo/Notre Dame Science Club.webp';
+import NDPCLogo from '../Logo/Notre Dame Photography Club.webp';
+import SHKSCNutritionClubLogo from '../Logo/SHKSC Nutrition Club.webp';
+import SHKSCScienceClubLogo from '../Logo/SHKSC Science Club.webp';
+import TrimasLogo from '../Logo/Trimas.webp';
+import HavenOfHandwritersLogo from '../Logo/Haven Of Handwriters.webp';
+import PenmaniacsLogo from '../Logo/Penmaniacs.webp';
+import MahmudulsPhotographsLogo from '../Logo/Mahmuduls photographs.webp';
+import EditorialImage from '../Images/rwqr.webp';
+import GalleryImg3 from '../Website/3.webp';
+import GalleryImg87 from '../Website/87.webp';
+import GalleryImg1 from '../Website/1.webp';
+import GalleryImg15 from '../Website/15.webp';
+import DesignImgBreakdown from '../Design/70 Final logo Breakdown-01.webp';
+import DesignImgGold from '../Design/Gold Madel.webp';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -127,12 +128,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
 
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full max-w-full overflow-x-hidden">
       <Hero onNavigate={onNavigate} />
 
       {/* Leadership Teaser */}
-      <section className="py-12 md:py-24 border-t border-neutral-900">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-24 border-t border-neutral-900 w-full max-w-full overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-10 md:mb-20">
             <div>
               <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-left">Leadership & Impact</h3>
@@ -210,8 +211,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Founded Ventures Section */}
-      <section className="py-12 md:py-24 bg-black border-y border-neutral-900">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-24 bg-black border-y border-neutral-900 w-full max-w-full overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
             <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6">The Entrepreneurial Wing</h3>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8">Founded Ventures</h2>
@@ -281,9 +282,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Technical Arsenal / Projects Section */}
-      <section className="py-12 md:py-24 bg-black border-b border-neutral-900 overflow-hidden relative">
+      <section className="py-12 md:py-24 bg-black border-b border-neutral-900 overflow-hidden relative w-full max-w-full">
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-500/[0.03] blur-[150px] rounded-full -z-10 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="mb-10 md:mb-16">
             <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-left">Technical Arsenal</h3>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
@@ -294,7 +295,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
             {[
               {
                 name: 'UniGrid',
@@ -310,12 +311,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 glowColor: 'from-blue-500/20 to-transparent',
                 isPrivate: false,
                 icon: (
-                  <img src="/unigrid-logo.png" alt="UniGrid Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
+                  <img src="/unigrid-logo.png" alt="UniGrid Logo" className="w-5 h-5 sm:w-8 sm:h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               },
               {
                 name: 'AIPE-BUTEX',
-                description: 'Official website for the Association of Industrial & Production Engineers-BUTEX, showcasing organizational news, events, and member directories.',
+                description: 'Official digital web portal for the Association of Industrial & Production Engineers-BUTEX (IPE). Centralizes departmental announcements, executive committee rosters, alumni directories, student publications, and seminar registrations.',
                 languages: ['HTML 97.9%', 'CSS 1.6%', 'JavaScript 0.5%'],
                 url: 'https://github.com/mridulhasan13/AIPE-BUTEX',
                 demoUrl: 'https://aipe-butex.netlify.app',
@@ -326,7 +327,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 glowColor: 'from-amber-400/20 to-transparent',
                 isPrivate: true,
                 icon: (
-                  <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-8 h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
+                  <img src="/aipe-butex-logo.png" alt="AIPE BUTEX Logo" className="w-5 h-5 sm:w-8 sm:h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               },
               {
@@ -342,56 +343,65 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 glowColor: 'from-orange-500/20 to-transparent',
                 isPrivate: true,
                 icon: (
-                  <svg className="w-6 h-6 text-neutral-400 group-hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-6 sm:h-6 text-neutral-400 group-hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.5m7.5 0a48.667 48.667 0 00-7.5 0" />
                   </svg>
+                )
+              },
+              {
+                name: 'butexdc.2',
+                description: 'Official website for the BUTEX Debating Club (Est. 1993) featuring interactive event showcases, debate archives, and member directories.',
+                languages: ['JavaScript 54.0%', 'CSS 41.3%', 'HTML 4.7%'],
+                url: 'https://github.com/mridulhasan13/butexdc.2',
+                demoUrl: 'https://butexdc.netlify.app',
+                accent: 'group-hover:border-emerald-500/40',
+                glow: 'hover:shadow-[0_0_50px_rgba(16,185,129,0.15)]',
+                badge: 'bg-emerald-500/5 border-emerald-500/20 text-emerald-400',
+                textHover: 'group-hover:text-emerald-400',
+                glowColor: 'from-emerald-500/20 to-transparent',
+                isPrivate: false,
+                icon: (
+                  <img src="/butexdc-logo.png" alt="BUTEX Debating Club Logo" className="w-5 h-5 sm:w-8 sm:h-8 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300" />
                 )
               }
             ].map((project, index) => (
               <div
                 key={index}
-                className={`group relative flex flex-col justify-between p-8 rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${project.glow} ${project.accent} overflow-hidden`}
+                className={`group relative flex flex-col justify-between p-3.5 sm:p-6 md:p-8 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${project.glow} ${project.accent} overflow-hidden`}
               >
                 {/* Glowing Color Bleed inside the card */}
                 <div className={`absolute -right-16 -top-16 w-48 h-48 bg-gradient-to-br ${project.glowColor} blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none -z-10`}></div>
 
                 {/* Action Buttons Top Right */}
-                <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
+                <div className="absolute top-3.5 right-3.5 sm:top-8 sm:right-8 flex items-center gap-1 sm:gap-2 z-10">
                   {project.playStoreUrl ? (
                     <a 
                       href={project.playStoreUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       title="Get it on Google Play"
-                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(66,133,244,0.3)] transition-all duration-300 flex items-center justify-center"
+                      className="group/btn p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(66,133,244,0.3)] transition-all duration-300 flex items-center justify-center"
                     >
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" viewBox="0 0 28.99 31.99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover/btn:scale-110" viewBox="0 0 28.99 31.99" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.54 15.28.12 29.34a3.66 3.66 0 0 0 5.33 2.16l15.1-8.6Z" fill="#EA4335" />
                         <path d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.54 3.54 0 0 0 1.5-4.79 3.62 3.62 0 0 0-1.5-1.5z" fill="#FBBC04" />
                         <path d="M.12 2.66a3.57 3.57 0 0 0-.12.92v24.84a3.57 3.57 0 0 0 .12.92L14 15.64Z" fill="#4285F4" />
                         <path d="m13.64 16 6.94-6.85L5.5.51A3.73 3.73 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z" fill="#34A853" />
                       </svg>
                     </a>
-                  ) : project.isPrivate ? (
-                    <div 
-                      title="Private Repository — Source code protected" 
-                      className="p-2 rounded-xl bg-white/5 border border-white/10 text-neutral-500 cursor-not-allowed opacity-60 flex items-center justify-center"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
-                    </div>
-                  ) : project.url ? (
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" title="View GitHub Repository" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
-                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  ) : null}
+
+                  {!project.isPrivate && project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" title="View GitHub Repository" className="group/btn p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                       </svg>
                     </a>
                   ) : null}
 
                   {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" title="Live Demo" className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
-                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" title="Live Demo" className="group/btn p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                         <polyline points="15 3 21 3 21 9" />
                         <line x1="10" y1="14" x2="21" y2="3" />
@@ -401,17 +411,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-neutral-800 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-neutral-800 transition-all duration-500">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-neutral-800 border border-white/10 flex items-center justify-center mb-3 sm:mb-6 group-hover:scale-110 group-hover:bg-neutral-800 transition-all duration-500">
                     {project.icon}
                   </div>
 
-                  <div className="flex items-center flex-wrap gap-2 mb-3">
-                    <h3 className={`text-2xl font-black text-white tracking-tight transition-colors duration-300 text-left ${project.textHover}`}>
+                  <div className="flex items-center flex-wrap gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                    <h3 className={`text-xs sm:text-lg md:text-2xl font-black text-white tracking-tight transition-colors duration-300 text-left ${project.textHover}`}>
                       {project.name}
                     </h3>
                     {project.isPrivate && (
-                      <span className="px-2 py-0.5 bg-white/5 border border-white/10 text-white/60 text-[8px] font-bold uppercase tracking-wider rounded-md inline-flex items-center gap-1 backdrop-blur-md">
-                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <span className="px-1.5 py-0.5 bg-white/5 border border-white/10 text-white/60 text-[7px] sm:text-[8px] font-bold uppercase tracking-wider rounded-md inline-flex items-center gap-0.5 sm:gap-1 backdrop-blur-md">
+                        <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
@@ -420,15 +430,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     )}
                   </div>
 
-                  <div className="text-neutral-400 text-sm leading-relaxed mb-4 text-left min-h-[56px]">
+                  <div className="text-neutral-400 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-4 text-left line-clamp-3 sm:line-clamp-none min-h-[44px] sm:min-h-[56px]">
                     {renderFormattedDescription(project.description)}
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between mt-auto">
-                  <div className="flex flex-wrap gap-1.5 mt-1">
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-1">
                     {project.languages.map((lang, i) => (
-                      <span key={i} className={`px-2 py-1 border text-[8px] font-bold uppercase tracking-wider rounded-lg transition-colors duration-300 ${project.badge}`}>
+                      <span key={i} className={`px-1.5 py-0.5 sm:px-2 sm:py-1 border text-[7px] sm:text-[8px] font-bold uppercase tracking-wider rounded-md sm:rounded-lg transition-colors duration-300 ${project.badge}`}>
                         {lang}
                       </span>
                     ))}
@@ -453,9 +463,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Featured in the News Section */}
-      <section className="py-16 md:py-24 bg-neutral-950/70 border-b border-neutral-900 overflow-hidden relative">
+      <section className="py-16 md:py-24 bg-neutral-950/70 border-b border-neutral-900 overflow-hidden relative w-full max-w-full">
         <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-amber-400/[0.03] blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2"></div>
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
@@ -474,170 +484,143 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
-            {/* Card 1: Textile Times */}
-            <div className="group relative p-6 md:p-8 rounded-[2rem] border border-white/5 bg-gradient-to-br from-neutral-900/60 to-black backdrop-blur-xl hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none -z-10"></div>
-              
-              <div className="text-left flex flex-col flex-1">
-                {/* Full Uncropped Official News Clipping Poster */}
-                <a 
-                  href="https://lnkd.in/p/gjRUXt4s"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
-                  style={{ aspectRatio: '4 / 5' }}
-                  title="Click to view full feature on LinkedIn"
-                >
-                  <img 
-                    src="/news-textiletimes.png" 
-                    alt="Textile Times News Feature - UniGrid by Mahmudul Hasan Mridul"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
-                </a>
-
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
-                    Featured Article
-                  </span>
-                  <span className="text-neutral-500 font-bold text-xs">2026</span>
-                </div>
-
-                <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
-                  Textile Times
-                </p>
-
-                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-3 min-h-[56px] md:min-h-[64px] flex items-center">
-                  BUTEX Student Develops UniGrid, an All-in-One App to Simplify Academic Life
-                </h3>
-
-                <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
-                  A comprehensive feature on Mahmudul Hasan Mridul (51st batch, Department of IPE, BUTEX) developing UniGrid — an enterprise-grade digital platform that unifies class routines, departmental notices, lecture slides, study materials, and automated class test reminders in one hub.
-                </p>
-              </div>
-
-              <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-3 min-h-[52px]">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
-                  <a
-                    href="https://lnkd.in/p/gjRUXt4s"
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 auto-rows-fr">
+            {[
+              {
+                outlet: 'Channel 24',
+                badge: 'National TV Spotlight',
+                date: '2026',
+                title: "Academic Life Made Effortless: Channel 24 Spotlights BUTEX Student Mridul's 'UniGrid' App",
+                desc: "Prominently featured on Channel 24 national television — chronicling how Mahmudul Hasan Mridul (51st Batch, BUTEX IPE) engineered the UniGrid all-in-one ecosystem to eliminate student communication chaos, automate notices, and streamline routine tracking.",
+                img: '/news-channel24.webp',
+                primaryLink: 'https://www.channel24bd.tv/education/article/353583/%E0%A6%8F%E0%A6%95%E0%A6%BE%E0%A6%A1%E0%A7%87%E0%A6%AE%E0%A6%BF%E0%A6%95-%E0%A6%95%E0%A6%BE%E0%A6%9C-%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87-%E0%A6%AC%E0%A7%81%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80-%E0%A6%AE%E0%A7%83%E0%A6%A6%E0%A7%81%E0%A6%B2%E0%A7%87%E0%A6%B0-%E2%80%98%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1%E2%80%99-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA',
+                links: [
+                  { name: 'Channel 24', url: 'https://www.channel24bd.tv/education/article/353583/%E0%A6%8F%E0%A6%95%E0%A6%BE%E0%A6%A1%E0%A7%87%E0%A6%AE%E0%A6%BF%E0%A6%95-%E0%A6%95%E0%A6%BE%E0%A6%9C-%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87-%E0%A6%AC%E0%A7%81%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80-%E0%A6%AE%E0%A7%83%E0%A6%A6%E0%A7%81%E0%A6%B2%E0%A7%87%E0%A6%B0-%E2%80%98%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1%E2%80%99-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA' }
+                ]
+              },
+              {
+                outlet: 'The Business Standard (TBS Graduates)',
+                badge: 'National Daily',
+                date: '2026',
+                title: 'BUTEX Student Builds UniGrid to Bring Class Routines, Notes, and Notices Under One Roof',
+                desc: 'Special feature by TBS Graduates (The Business Standard) highlighting how UniGrid centralizes university schedules, grading ledgers, and automated CT announcements — featuring real-world feedback from departmental CRs and students.',
+                img: '/news-tbsgraduates.webp',
+                primaryLink: 'https://tbsgraduates.net/campus/butex-student-builds-unigrid-to-bring-class-routines-notes-and-notices-under-one-roof/',
+                links: [
+                  { name: 'TBS Web', url: 'https://tbsgraduates.net/campus/butex-student-builds-unigrid-to-bring-class-routines-notes-and-notices-under-one-roof/' }
+                ]
+              },
+              {
+                outlet: 'Textile Times',
+                badge: 'Industry Spotlight',
+                date: '2026',
+                title: 'BUTEX Student Develops UniGrid, an All-in-One App to Simplify Academic Life',
+                desc: 'A comprehensive feature on Mahmudul Hasan Mridul (51st batch, Department of IPE, BUTEX) developing UniGrid — an enterprise-grade digital platform that unifies class routines, departmental notices, lecture slides, study materials, and automated class test reminders in one hub.',
+                img: '/news-textiletimes.webp',
+                primaryLink: 'https://lnkd.in/p/gjRUXt4s',
+                links: [
+                  { name: 'LinkedIn', url: 'https://lnkd.in/p/gjRUXt4s' },
+                  { name: 'Facebook', url: 'https://www.facebook.com/share/p/1GZiiuJYAv/' },
+                  { name: 'Instagram', url: 'https://www.instagram.com/p/DeR5ob4nxRD/' }
+                ]
+              },
+              {
+                outlet: 'The Seven Digit Post',
+                badge: 'Campus Spotlight',
+                date: '2026',
+                title: 'Student Innovation Spotlight: Engineering UniGrid for the BUTEX Community',
+                desc: "Spotlighting student software engineering and digital transformation within BUTEX, highlighting Mahmudul Hasan Mridul's creation of UniGrid to centralize campus schedules, departmental notices, lecture slides, and academic tools into a unified platform.",
+                img: '/news-thesevendigitpost.webp',
+                primaryLink: 'https://www.facebook.com/share/p/1GkntcE2SL/',
+                links: [
+                  { name: 'Facebook', url: 'https://www.facebook.com/share/p/1GkntcE2SL/' }
+                ]
+              }
+            ].map((story, i) => (
+              <div 
+                key={i} 
+                className="group relative p-3.5 sm:p-6 md:p-8 rounded-2xl sm:rounded-[2rem] border border-white/5 bg-gradient-to-br from-neutral-900/60 to-black backdrop-blur-xl hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none -z-10"></div>
+                
+                <div className="text-left flex flex-col flex-1">
+                  {/* Full Uncropped Official News Clipping Poster */}
+                  <a 
+                    href={story.primaryLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                    className="block relative mb-3 sm:mb-6 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0 aspect-square"
+                    style={{ aspectRatio: '1 / 1' }}
+                    title={`Click to view full feature on ${story.outlet}`}
                   >
-                    LinkedIn
+                    <ImageWithPreview 
+                      src={story.img} 
+                      alt={`${story.outlet} News Feature - UniGrid by Mahmudul Hasan Mridul`}
+                      containerClassName="w-full h-full flex items-center justify-center bg-neutral-950"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-[1.01]"
+                      loaderText="Loading clipping..."
+                    />
+                    <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none z-20"></div>
                   </a>
-                  <a
-                    href="https://www.facebook.com/share/p/1GZiiuJYAv/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    href="https://www.instagram.com/p/DeR5ob4nxRD/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-rose-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
-                  >
-                    Instagram
-                  </a>
+
+                  <div className="flex items-center justify-between mb-2 sm:mb-4 gap-1">
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[7px] sm:text-[9px] uppercase tracking-[0.15em] sm:tracking-[0.2em] truncate">
+                      {story.badge}
+                    </span>
+                    <span className="text-neutral-500 font-bold text-[9px] sm:text-xs shrink-0">{story.date}</span>
+                  </div>
+
+                  <p className="text-[8px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-black text-neutral-400 mb-1 sm:mb-2 line-clamp-1">
+                    {story.outlet}
+                  </p>
+
+                  <h3 className="text-xs sm:text-lg md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-1.5 sm:mb-3 line-clamp-3 sm:line-clamp-none min-h-[44px] sm:min-h-[56px] md:min-h-[64px] flex items-center">
+                    {story.title}
+                  </h3>
+
+                  <p className="text-neutral-400 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6 font-light line-clamp-3 sm:line-clamp-none flex-1">
+                    {story.desc}
+                  </p>
                 </div>
 
-                <a
-                  href="https://lnkd.in/p/gjRUXt4s"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
-                >
-                  <span>Open Story</span>
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+                <div className="mt-auto pt-2.5 sm:pt-4 border-t border-white/10 flex items-center justify-between gap-2 sm:gap-3 min-h-[38px] sm:min-h-[52px]">
+                  <div className="hidden sm:flex items-center gap-2 flex-wrap">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
+                    {story.links.map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
 
-            {/* Card 2: The Seven Digit Post */}
-            <div className="group relative p-6 md:p-8 rounded-[2rem] border border-white/5 bg-gradient-to-br from-neutral-900/60 to-black backdrop-blur-xl hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none -z-10"></div>
-              
-              <div className="text-left flex flex-col flex-1">
-                {/* Full Uncropped Official News Clipping Poster */}
-                <a 
-                  href="https://www.facebook.com/share/p/1GkntcE2SL/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
-                  style={{ aspectRatio: '4 / 5' }}
-                  title="Click to view full feature on Facebook"
-                >
-                  <img 
-                    src="/news-thesevendigitpost.png" 
-                    alt="The Seven Digit Post Feature - UniGrid by Mahmudul Hasan Mridul"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
-                </a>
-
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
-                    Campus Spotlight
-                  </span>
-                  <span className="text-neutral-500 font-bold text-xs">2026</span>
-                </div>
-
-                <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
-                  The Seven Digit Post
-                </p>
-
-                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-3 min-h-[56px] md:min-h-[64px] flex items-center">
-                  Student Innovation Spotlight: Engineering UniGrid for the BUTEX Community
-                </h3>
-
-                <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
-                  Spotlighting student software engineering and digital transformation within BUTEX, highlighting Mahmudul Hasan Mridul's creation of UniGrid to centralize campus schedules, departmental notices, lecture slides, and academic tools into a unified platform.
-                </p>
-              </div>
-
-              <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-3 min-h-[52px]">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
                   <a
-                    href="https://www.facebook.com/share/p/1GkntcE2SL/"
+                    href={story.primaryLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/40 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0 w-full sm:w-auto justify-between sm:justify-start"
                   >
-                    Facebook
+                    <span>Open Story</span>
+                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </a>
                 </div>
-
-                <a
-                  href="https://www.facebook.com/share/p/1GkntcE2SL/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
-                >
-                  <span>Open Story</span>
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Editorial Mastery Section */}
-      <section className="py-12 md:py-24 bg-neutral-950 overflow-hidden relative border-b border-neutral-900">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-24 bg-neutral-950 overflow-hidden relative border-b border-neutral-900 w-full max-w-full">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16">
             <div className="flex-1">
               <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-left">Editorial Mastery</h3>
@@ -676,13 +659,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
             </div>
             <div className="flex-1 w-full max-w-lg aspect-[4/5] bg-neutral-900 rounded-[3rem] border border-neutral-800 shadow-2xl overflow-hidden relative group">
-              <img
+              <ImageWithPreview
                 src={EditorialImage}
                 alt="AUDRI 24 Preview"
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-1000 brightness-75 group-hover:brightness-100"
+                loaderText="Loading signature book..."
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
-              <div className="absolute bottom-10 left-10 text-left">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 pointer-events-none z-20"></div>
+              <div className="absolute bottom-10 left-10 text-left pointer-events-none z-30">
                 <p className="text-amber-400 font-black text-[9px] uppercase tracking-widest mb-2">Editor's Signature Project</p>
                 <h4 className="text-white text-3xl font-black tracking-tighter">Audri'24</h4>
               </div>
@@ -692,9 +677,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Honors & Recognition Teaser */}
-      <section className="py-16 md:py-32 bg-black border-b border-neutral-900 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-amber-400/[0.03] blur-[100px] md:blur-[150px] rounded-full -z-10"></div>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 md:py-32 bg-black border-b border-neutral-900 relative w-full max-w-full overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-amber-400/[0.03] blur-[80px] md:blur-[150px] rounded-full -z-10 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="text-center mb-10 md:mb-20">
             <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6">Hall of Fame</h3>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8">Honors & <span className="gold-gradient italic">Recognition.</span></h2>
@@ -727,8 +712,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Visual Showcase Teaser */}
-      <section className="py-16 md:py-32 bg-black overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-16">
+      <section className="py-16 md:py-32 bg-black overflow-hidden relative w-full max-w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full mb-8 md:mb-16">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-lg">
               <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-6 text-center md:text-left">Gallery Teaser</h3>
@@ -745,14 +730,20 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </button>
           </div>
           {/* Marquee Rows */}
-          <div className="relative flex overflow-hidden group mb-8">
+          <div className="relative w-full max-w-full min-w-0 overflow-hidden group mb-8">
             {/* Added pr-8 to match gap-8 for perfect loop */}
             <div className="flex animate-marquee gap-8 whitespace-nowrap py-12 px-4 pr-8 items-center">
               {/* Repeat items 4 times to ensure smooth infinite loop on wide screens */}
               {[...row1Items, ...row1Items, ...row1Items, ...row1Items].map((item, i) => (
                 <div key={i} className={`relative shrink-0 rounded-[2rem] overflow-hidden bg-neutral-900 border border-neutral-800 shadow-xl h-[200px] md:h-[400px] w-auto cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-amber-400/40`} onClick={() => onNavigate('creatives')}>
-                  <img src={item.url} className="w-auto h-full object-contain" alt={item.title} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <ImageWithPreview 
+                    src={item.url} 
+                    containerClassName="w-auto h-full"
+                    className="w-auto h-full object-contain" 
+                    alt={item.title} 
+                    loaderText="Loading..."
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-20">
                     <span className="text-amber-400 font-black text-xs uppercase tracking-[0.2em] transform translate-y-4 hover:translate-y-0 transition-transform duration-300">{item.title}</span>
                   </div>
                 </div>

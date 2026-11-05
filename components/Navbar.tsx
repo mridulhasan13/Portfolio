@@ -76,12 +76,12 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[60] flex justify-center pt-6 px-4 transition-all duration-500 ${scrolled ? 'translate-y-[-10px]' : ''}`}>
-        <div className={`max-w-7xl w-full glass rounded-full px-8 py-3 flex justify-between items-center border transition-all duration-500 ${scrolled ? 'border-amber-400/20 shadow-amber-400/5' : 'border-white/10 shadow-2xl'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[60] flex justify-center pt-3 sm:pt-5 md:pt-6 px-3 sm:px-4 transition-all duration-500 ${scrolled ? 'translate-y-[-8px]' : ''}`}>
+        <div className={`max-w-7xl w-full glass rounded-full px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3 flex justify-between items-center border transition-all duration-500 ${scrolled ? 'border-amber-400/20 shadow-amber-400/5' : 'border-white/10 shadow-2xl'}`}>
           {/* Left Corner: Logo with Color Swap Effect */}
           <div
             onClick={() => handleNavClick('home')}
-            className="flex-shrink-0 font-extrabold text-xl tracking-tighter text-white hover:text-amber-400 transition-colors cursor-pointer select-none group"
+            className="flex-shrink-0 font-extrabold text-sm sm:text-base md:text-xl tracking-tight text-white hover:text-amber-400 transition-colors cursor-pointer select-none group"
           >
             MH<span className="text-amber-400 group-hover:text-white transition-colors">MRIDUL</span>
           </div>
@@ -181,29 +181,29 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
           </div>
 
           {/* Right Corner: CV Button without dot */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
             <a
               href="https://drive.google.com/file/d/18IR61Cu_dPkVzGkrwOOYhY6uAN2CFjtZ/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 font-extrabold text-xl tracking-tighter text-white hover:text-amber-400 transition-colors select-none group"
+              className="flex-shrink-0 font-extrabold text-xs sm:text-sm md:text-base tracking-tight text-white hover:text-amber-400 transition-colors select-none group"
             >
               C<span className="text-amber-400 group-hover:text-white transition-colors">V</span>
             </a>
 
             {/* Mobile Toggle Button */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex items-center">
               <button
                 onClick={toggleMenu}
-                className="text-white p-2 hover:text-amber-400 transition-colors outline-none focus:outline-none"
+                className="text-white p-1 hover:text-amber-400 transition-colors outline-none focus:outline-none flex items-center justify-center"
                 aria-label="Toggle Menu"
               >
                 {isOpen ? (
-                  <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 ) : (
-                  <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 )}

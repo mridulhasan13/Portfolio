@@ -98,86 +98,101 @@ const Projects: React.FC = () => {
 
   // Use loaded projects or fallback to hardcoded ones if the list is empty
   const hasLoadedProjects = Array.isArray(rawProjects) && rawProjects.length > 0;
-  
-  const projectsList: ProjectItem[] = hasLoadedProjects 
-    ? (rawProjects as ProjectItem[]) 
+
+  const projectsList: ProjectItem[] = hasLoadedProjects
+    ? (rawProjects as ProjectItem[])
     : [
-        {
-          name: 'UniGrid',
-          description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories. [Details of the app](https://info-unigrid.netlify.app/)',
-          languages: ['Dart 76.4%', 'HTML 17.0%'],
-          url: '',
-          demoUrl: 'https://unigrid.netlify.app/',
-          playStoreUrl: 'https://play.google.com/store/apps/details?id=com.unigrid.app',
-          credentials: {
-            username: 'demo.reviewer@unigrid.app',
-            password: 'UniGrid@2026',
-            label: 'UniGrid — Reviewer Access'
-          },
-          updatedAt: '2026-05-29T00:00:00Z'
+      {
+        name: 'UniGrid',
+        description: 'An enterprise-grade academic hub unifying the campus ecosystem across Android, iOS, and Web with real-time communication, grading ledgers, and secure file repositories. [Details of the app](https://info.unigrid.live/)',
+        languages: ['Dart 76.4%', 'HTML 17.0%'],
+        url: '',
+        demoUrl: 'https://unigrid.live/',
+        playStoreUrl: 'https://play.google.com/store/apps/details?id=com.unigrid.app',
+        credentials: {
+          username: 'demo.reviewer@unigrid.app',
+          password: 'UniGrid@2026',
+          label: 'UniGrid — Reviewer Access'
         },
-        {
-          name: 'premium_business',
-          description: 'A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.',
-          languages: ['HTML 69.7%', 'CSS 18.4%', 'JavaScript 11.9%'],
-          url: 'https://github.com/mridulhasan13/premium_business',
-          demoUrl: 'https://premium-b.netlify.app/',
-          adminUrl: 'https://premium-b.netlify.app/admin.html',
-          credentials: {
-            username: 'login@test.com',
-            password: '123456',
-            label: 'Mimosa Pizza — Staff Portal'
-          },
-          updatedAt: '2026-06-20T02:18:14Z',
-          isPrivate: true
+        updatedAt: '2026-05-29T00:00:00Z'
+      },
+      {
+        name: 'premium_business',
+        description: 'A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.',
+        languages: ['HTML 69.7%', 'CSS 18.4%', 'JavaScript 11.9%'],
+        url: 'https://github.com/mridulhasan13/premium_business',
+        demoUrl: 'https://premium-b.netlify.app/',
+        adminUrl: 'https://premium-b.netlify.app/admin.html',
+        credentials: {
+          username: 'login@test.com',
+          password: '123456',
+          label: 'Mimosa Pizza — Staff Portal'
         },
-        {
-          name: 'satprp',
-          description: 'An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.',
-          languages: ['JavaScript 98.6%', 'Python 1.1%'],
-          url: 'https://github.com/mridulhasan13/satprp',
-          demoUrl: 'https://sat-prp4.netlify.app/',
-          credentials: {
-            username: 'sat6066@preparation.com',
-            password: '60606060',
-            label: 'SAT Prep — Student Portal'
-          },
-          updatedAt: '2026-07-04T05:18:22Z',
-          isPrivate: true
+        updatedAt: '2026-06-20T02:18:14Z',
+        isPrivate: true
+      },
+      {
+        name: 'satprp',
+        description: 'An interactive diagnostic, tracking, and mock testing platform designed to help students master the Scholastic Assessment Test (SAT) with real-time scoring and custom analytics.',
+        languages: ['JavaScript 98.6%', 'Python 1.1%'],
+        url: 'https://github.com/mridulhasan13/satprp',
+        demoUrl: 'https://sat-prp4.netlify.app/',
+        credentials: {
+          username: 'sat6066@preparation.com',
+          password: '60606060',
+          label: 'SAT Prep — Student Portal'
         },
-        {
-          name: 'AIPE-BUTEX',
-          description: 'Official website for the Association of Industrial & Production Engineers-BUTEX',
-          languages: ['HTML 97.9%', 'CSS 1.6%', 'JavaScript 0.5%'],
-          url: 'https://github.com/mridulhasan13/AIPE-BUTEX',
-          demoUrl: 'https://aipe-butex.netlify.app',
-          updatedAt: '2026-06-01T00:00:00Z',
-          isPrivate: true
-        },
-        {
-          name: 'Notemate.seu',
-          description: 'A dedicated academic resource and note management platform tailored for university students.',
-          languages: ['JavaScript 94.0%', 'CSS 5.9%'],
-          url: 'https://github.com/mridulhasan13/Notemate.seu',
-          updatedAt: '2026-04-01T00:00:00Z'
-        },
-        {
-          name: 'Smart-Tutoring-Monitor',
-          description: 'An intelligent system designed to monitor and enhance tutoring sessions with smart analytics and tracking.',
-          languages: ['TypeScript 90.6%', 'JavaScript 5.3%', 'Python 3.0%'],
-          url: 'https://github.com/mridulhasan13/Smart-Tutoring-Monitor',
-          demoUrl: 'https://smarttutoringmonitor.netlify.app/',
-          updatedAt: '2026-02-21T00:00:00Z'
-        },
-        {
-          name: 'Portfolio',
-          description: 'My personal portfolio website built with React, TypeScript, and Tailwind CSS, featuring modern glassmorphism and dynamic animations.',
-          languages: ['TypeScript 95.7%', 'HTML 2.9%', 'Python 1.4%'],
-          url: 'https://github.com/mridulhasan13/Portfolio',
-          demoUrl: 'https://mahmudulhasanmridul.netlify.app/',
-          updatedAt: '2026-05-09T00:00:00Z'
-        }
-      ];
+        updatedAt: '2026-07-04T05:18:22Z',
+        isPrivate: true
+      },
+      {
+        name: 'AIPE-BUTEX',
+        description: 'Official website for the Association of Industrial & Production Engineers-BUTEX',
+        languages: ['HTML 97.9%', 'CSS 1.6%', 'JavaScript 0.5%'],
+        url: 'https://github.com/mridulhasan13/AIPE-BUTEX',
+        demoUrl: 'https://aipe-butex.netlify.app',
+        updatedAt: '2026-06-01T00:00:00Z',
+        isPrivate: true
+      },
+      {
+        name: 'Notemate.seu',
+        description: 'A dedicated academic resource and note management platform tailored for university students.',
+        languages: ['JavaScript 94.0%', 'CSS 5.9%'],
+        url: 'https://github.com/mridulhasan13/Notemate.seu',
+        updatedAt: '2026-04-01T00:00:00Z'
+      },
+      {
+        name: 'Smart-Tutoring-Monitor',
+        description: 'An intelligent system designed to monitor and enhance tutoring sessions with smart analytics and tracking.',
+        languages: ['TypeScript 90.6%', 'JavaScript 5.3%', 'Python 3.0%'],
+        url: 'https://github.com/mridulhasan13/Smart-Tutoring-Monitor',
+        demoUrl: 'https://smarttutoringmonitor.netlify.app/',
+        updatedAt: '2026-02-21T00:00:00Z'
+      },
+      {
+        name: 'Portfolio',
+        description: 'My personal portfolio website built with React, TypeScript, and Tailwind CSS, featuring modern glassmorphism and dynamic animations.',
+        languages: ['TypeScript 95.7%', 'HTML 2.9%', 'Python 1.4%'],
+        url: 'https://github.com/mridulhasan13/Portfolio',
+        demoUrl: 'https://mahmudulhasanmridul.netlify.app/',
+        updatedAt: '2026-05-09T00:00:00Z'
+      }
+    ];
+
+  const getProjectDisplayName = (name: string) => {
+    const lower = name.toLowerCase();
+    if (lower.includes('unigrid')) return 'UniGrid';
+    if (lower.includes('premium')) return 'Premium Business';
+    if (lower.includes('satprp') || lower.includes('sat-prp')) return 'SAT Prep';
+    if (lower.includes('aipe')) return 'AIPE-BUTEX';
+    if (lower.includes('butexdc')) return 'BUTEX DC';
+    if (lower.includes('notebot')) return 'NoteBot';
+    if (lower.includes('notemate')) return 'NoteMate';
+    if (lower.includes('smart-tutoring') || lower.includes('tutoring')) return 'Smart Tutoring';
+    if (lower.includes('vote-for-ipe-cr') || lower.includes('vote')) return 'Vote for IPE CR';
+    if (lower === 'portfolio' || lower === 'mh-mridul---portfolio') return 'Portfolio';
+    return name.replace(/[_-]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  };
 
   const getProjectStyle = (name: string, index: number): StyleProps => {
     const lowerName = name.toLowerCase();
@@ -189,7 +204,7 @@ const Projects: React.FC = () => {
     if (lowerName.includes('smart-tutoring') || lowerName.includes('tutoring')) return PROJECT_STYLES.smart;
     if (lowerName.includes('notemate')) return PROJECT_STYLES.notemate;
     if (lowerName === 'portfolio' || lowerName === 'mh-mridul---portfolio') return PROJECT_STYLES.portfolio;
-    
+
     // Cycle styles for other repositories based on index
     const keys = Object.keys(PROJECT_STYLES);
     const key = keys[index % keys.length];
@@ -230,7 +245,7 @@ const Projects: React.FC = () => {
         </svg>
       );
     }
-    
+
     if (lowerName.includes('premium')) {
       return (
         <svg className="w-6 h-6 text-neutral-400 group-hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -238,7 +253,7 @@ const Projects: React.FC = () => {
         </svg>
       );
     }
-    
+
     // Sleek default SVG code icon
     return (
       <svg className="w-6 h-6 text-neutral-400 group-hover:text-amber-400 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -299,21 +314,21 @@ const Projects: React.FC = () => {
       return {
         username: 'sat6066@preparation.com',
         password: '60606060',
-        label: 'SAT Prep — Student Portal'
+        label: 'SAT Prep Portal'
       };
     }
     if (lowerName.includes('unigrid')) {
       return {
         username: 'demo.reviewer@unigrid.app',
         password: 'UniGrid@2026',
-        label: 'UniGrid — Reviewer Access'
+        label: 'UniGrid Hub'
       };
     }
     if (lowerName.includes('premium')) {
       return {
         username: 'login@test.com',
         password: '123456',
-        label: 'Mimosa Pizza — Staff Portal'
+        label: 'Staff Portal'
       };
     }
     if (originalCredentials) return originalCredentials;
@@ -343,7 +358,7 @@ const Projects: React.FC = () => {
         tagColor: 'text-purple-400',
         copyIconHover: 'group-hover/cred:text-purple-400',
         launchLabel: 'Launch Platform',
-        footerBadge: 'Student Portal Access'
+        footerBadge: 'Student Portal'
       };
     }
     if (lower.includes('unigrid')) {
@@ -357,7 +372,7 @@ const Projects: React.FC = () => {
         tagColor: 'text-blue-400',
         copyIconHover: 'group-hover/cred:text-blue-400',
         launchLabel: 'Launch Hub',
-        footerBadge: 'Reviewer Access'
+        footerBadge: 'Reviewer'
       };
     }
     return {
@@ -370,7 +385,7 @@ const Projects: React.FC = () => {
       tagColor: 'text-amber-400',
       copyIconHover: 'group-hover/cred:text-amber-400',
       launchLabel: 'Launch Portal',
-      footerBadge: 'Live Demo Access'
+      footerBadge: 'Staff Portal'
     };
   };
 
@@ -398,7 +413,7 @@ const Projects: React.FC = () => {
       return 'A digital voting system built for class representative elections in the Industrial & Production Engineering department.';
     }
     if (lowerName.includes('aipe-butex')) {
-      return 'Official website for the Association of Industrial & Production Engineers-BUTEX, showcasing organizational news, events, and member directories.';
+      return 'Official digital web portal for the Association of Industrial & Production Engineers-BUTEX (IPE). Centralizes departmental announcements, executive committee rosters, alumni directories, student publications, and seminar registrations.';
     }
     if (lowerName.includes('premium')) {
       return 'A full-featured commercial restaurant web platform for Mimosa Pizza featuring dining menus, table reservations, inventory tracking, and staff management.';
@@ -476,20 +491,20 @@ const Projects: React.FC = () => {
 
 
   return (
-    <section id="projects" className="py-32 bg-black relative overflow-hidden min-h-screen">
+    <section id="projects" className="scroll-mt-28 md:scroll-mt-32 pt-32 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-32 bg-black relative overflow-hidden min-h-screen w-full max-w-full">
       {/* Vibrant Background Blobs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2"></div>
-      <div className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-amber-400/[0.02] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-amber-400/[0.02] -z-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col items-center mb-24 text-center mt-20">
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="flex flex-col items-center mb-12 sm:mb-16 md:mb-20 text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
             My <span className="gold-gradient italic">Projects</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {(() => {
             const SORT_ORDER = ['unigrid', 'premium', 'satprp', 'aipe', 'butexdc', 'smart', 'notebot'];
             const sortedProjects = [...projectsList].sort((a, b) => {
@@ -508,260 +523,238 @@ const Projects: React.FC = () => {
               const adminUrl = getProjectAdminUrl(project.name, project.adminUrl);
               const credentials = getProjectCredentials(project.name, project.credentials, project.description);
               const description = getProjectDescription(project.name, project.description);
-            
-            // Clean up languages: Only show those with >= 1.0% usage and cap to maximum of 4 items
-            const filteredLanguages = project.languages
-              .filter(lang => {
-                const match = lang.match(/([\d.]+)/);
-                if (match) {
-                  const percentage = parseFloat(match[1]);
-                  return percentage >= 1.0;
-                }
-                return true;
-              })
-              .slice(0, 4);
 
-            return (
-              <div 
-                key={index} 
-                className={`group relative flex flex-col justify-between p-8 rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${style.glow} ${style.accent} overflow-hidden`}
-              >
-                {/* Glowing Color Bleed inside the card */}
-                <div className={`absolute -right-16 -top-16 w-48 h-48 bg-gradient-to-br ${style.glowColor} blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none -z-10`}></div>
+              // Clean up languages: Only show those with >= 1.0% usage and cap to maximum of 4 items
+              const filteredLanguages = project.languages
+                .filter(lang => {
+                  const match = lang.match(/([\d.]+)/);
+                  if (match) {
+                    const percentage = parseFloat(match[1]);
+                    return percentage >= 1.0;
+                  }
+                  return true;
+                })
+                .slice(0, 4);
 
-                {/* Action Buttons Top Right */}
-                <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
-                  {playStoreUrl ? (
-                    <a 
-                      href={playStoreUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      title="Get it on Google Play"
-                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(66,133,244,0.3)] transition-all duration-300 flex items-center justify-center"
-                    >
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" viewBox="0 0 28.99 31.99" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.54 15.28.12 29.34a3.66 3.66 0 0 0 5.33 2.16l15.1-8.6Z" fill="#EA4335" />
-                        <path d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.54 3.54 0 0 0 1.5-4.79 3.62 3.62 0 0 0-1.5-1.5z" fill="#FBBC04" />
-                        <path d="M.12 2.66a3.57 3.57 0 0 0-.12.92v24.84a3.57 3.57 0 0 0 .12.92L14 15.64Z" fill="#4285F4" />
-                        <path d="m13.64 16 6.94-6.85L5.5.51A3.73 3.73 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z" fill="#34A853" />
-                      </svg>
-                    </a>
-                  ) : project.isPrivate ? (
-                    <div 
-                      title="Private Repository — Source code protected" 
-                      className="p-2 rounded-xl bg-white/5 border border-white/10 text-neutral-500 cursor-not-allowed opacity-60 flex items-center justify-center"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
+              return (
+                <div
+                  key={index}
+                  className={`group relative flex flex-col justify-between p-3.5 sm:p-6 md:p-8 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-neutral-900/80 to-black border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${style.glow} ${style.accent} overflow-hidden`}
+                >
+                  {/* Glowing Color Bleed inside the card */}
+                  <div className={`absolute -right-16 -top-16 w-48 h-48 bg-gradient-to-br ${style.glowColor} blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none -z-10`}></div>
+
+                  {/* Top Bar: Icon + Direct Action Buttons */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-neutral-800/90 border border-white/10 flex items-center justify-center group-hover:scale-105 group-hover:bg-neutral-800 transition-all duration-300 shrink-0">
+                      {getProjectIcon(project.name)}
                     </div>
-                  ) : project.url ? (
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      title="View GitHub Repository"
-                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300"
-                    >
-                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
-                    </a>
-                  ) : null}
 
-                  {adminUrl && adminUrl !== demoUrl && (
-                    <a 
-                      href={adminUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      title="Staff Portal (Admin Demo)"
-                      className="group/btn p-2 rounded-xl bg-amber-400/10 border border-amber-400/20 group-hover:border-amber-400/40 hover:bg-amber-400/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] transition-all duration-300 flex items-center justify-center text-amber-400"
-                    >
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-                    </a>
-                  )}
-                  
-                  {demoUrl && (
-                    <a 
-                      href={demoUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      title="Live Demo"
-                      className="group/btn p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/20 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300"
-                    >
-                      <svg className="w-4 h-4 text-neutral-400 group-hover:text-neutral-200 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      {playStoreUrl && (
+                        <a
+                          href={playStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Get it on Google Play"
+                          className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300 flex items-center justify-center shrink-0"
+                        >
+                          <svg className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 28.99 31.99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.54 15.28.12 29.34a3.66 3.66 0 0 0 5.33 2.16l15.1-8.6Z" fill="#EA4335" />
+                            <path d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.54 3.54 0 0 0 1.5-4.79 3.62 3.62 0 0 0-1.5-1.5z" fill="#FBBC04" />
+                            <path d="M.12 2.66a3.57 3.57 0 0 0-.12.92v24.84a3.57 3.57 0 0 0 .12.92L14 15.64Z" fill="#4285F4" />
+                            <path d="m13.64 16 6.94-6.85L5.5.51A3.73 3.73 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z" fill="#34A853" />
+                          </svg>
+                        </a>
+                      )}
 
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-neutral-800 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-neutral-800 transition-all duration-500">
-                    {getProjectIcon(project.name)}
-                  </div>
-                  
-                  <div className="flex items-center flex-wrap gap-2 mb-3">
-                    <h3 className={`text-2xl font-black text-white tracking-tight transition-colors duration-300 ${style.textHover}`}>
-                      {project.name}
-                    </h3>
-                    {project.isPrivate && (
-                      <span className="px-2 py-0.5 bg-white/5 border border-white/10 text-white/60 text-[8px] font-bold uppercase tracking-wider rounded-md inline-flex items-center gap-1 backdrop-blur-md">
-                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                        Private
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="text-neutral-400 text-sm leading-relaxed mb-4 min-h-[56px]">
-                    {renderFormattedDescription(description)}
+                      {!project.isPrivate && project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="View GitHub Repository"
+                          className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center text-neutral-400 hover:text-white shrink-0"
+                        >
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                          </svg>
+                        </a>
+                      )}
+
+                      {demoUrl && (
+                        <a
+                          href={demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Live Demo"
+                          className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300 flex items-center justify-center text-neutral-400 hover:text-amber-400 shrink-0"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  {(() => {
-                    const portalUrl = adminUrl || demoUrl;
-                    const credTheme = getCredentialTheme(project.name);
-                    
-                    if (!portalUrl || !credentials) return null;
+                  <div>
+                    <div className="flex items-center flex-wrap gap-2 mb-2">
+                      <h3 className={`text-base sm:text-lg md:text-xl font-bold text-white tracking-tight transition-colors duration-300 ${style.textHover}`}>
+                        {getProjectDisplayName(project.name)}
+                      </h3>
+                      {project.isPrivate && (
+                        <span className="px-2 py-0.5 bg-neutral-800/80 border border-neutral-700/60 text-neutral-400 text-[9px] font-semibold uppercase tracking-wider rounded-md inline-flex items-center gap-1 backdrop-blur-md">
+                          <svg className="w-2.5 h-2.5 text-neutral-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                          </svg>
+                          Private
+                        </span>
+                      )}
+                    </div>
 
-                    return (
-                      <div className={`mb-6 p-3.5 rounded-2xl bg-gradient-to-br ${credTheme.cardBg} border ${credTheme.border} backdrop-blur-md flex flex-col gap-3 shadow-xl shadow-black/40 relative z-20 transition-all duration-300`}>
-                        {/* Portal Header */}
-                        <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2.5">
-                          <div className="flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                            </span>
-                            <span className="text-[11px] font-bold text-neutral-200 tracking-wide flex items-center gap-1.5">
-                              <svg className={`w-3.5 h-3.5 ${credTheme.iconColor}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    <div className="text-neutral-400 text-xs sm:text-sm font-light leading-relaxed mb-4 min-h-[36px]">
+                      {renderFormattedDescription(description)}
+                    </div>
+
+                    {(() => {
+                      const portalUrl = adminUrl || demoUrl;
+                      const credTheme = getCredentialTheme(project.name);
+
+                      if (!portalUrl || !credentials) return null;
+
+                      return (
+                        <div className={`mb-4 p-3 rounded-2xl bg-neutral-950/80 border ${credTheme.border} backdrop-blur-md flex flex-col gap-2.5 shadow-xl shadow-black/40 relative z-20 transition-all duration-300`}>
+                          {/* Portal Header */}
+                          <div className="flex items-center justify-between gap-2 border-b border-white/5 pb-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="relative flex h-2 w-2 shrink-0">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                              </span>
+                              <span className="text-[11px] font-bold text-neutral-200 tracking-wide truncate">
+                                {credentials.label || 'Demo Access'}
+                              </span>
+                            </div>
+                            <a
+                              href={portalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`px-2.5 py-1 text-[10px] font-bold rounded-lg transition-all duration-300 inline-flex items-center gap-1 shadow-sm border ${credTheme.btn} shrink-0`}
+                              onClick={(e) => e.stopPropagation()}
+                              title="Launch in new tab"
+                            >
+                              <span>{credTheme.launchLabel}</span>
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                               </svg>
-                              {credentials.label || 'Demo Access'}
-                            </span>
+                            </a>
                           </div>
-                          <a
-                            href={portalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-2.5 py-1 text-[10px] font-bold rounded-lg transition-all duration-300 inline-flex items-center gap-1.5 shadow-sm cursor-pointer border ${credTheme.btn}`}
-                            onClick={(e) => e.stopPropagation()}
-                            title="Open Portal in new tab"
-                          >
-                            <span>{credTheme.launchLabel}</span>
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                          </a>
-                        </div>
 
-                        {/* Credentials Copy Pills */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {credentials.username && (
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleCopy(credentials.username!, `user-${project.name}`);
-                              }}
-                              className={`group/cred flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-black/70 hover:bg-black border ${credTheme.pillBorder} transition-all text-left cursor-pointer`}
-                              title="Click to copy username"
-                            >
-                              <div className="flex flex-col min-w-0">
-                                <span className="text-[8px] uppercase tracking-wider font-bold text-neutral-400">User</span>
-                                <span className={`text-[11px] font-mono text-neutral-200 ${credTheme.valueHover} transition-colors truncate font-semibold`}>
-                                  {credentials.username}
-                                </span>
-                              </div>
-                              <div className={`shrink-0 text-neutral-400 ${credTheme.copyIconHover} transition-colors`}>
-                                {copiedField === `user-${project.name}` ? (
-                                  <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
-                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Copied
+                          {/* Credentials Copy Pills */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {credentials.username && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleCopy(credentials.username!, `user-${project.name}`);
+                                }}
+                                className={`group/cred flex items-center justify-between gap-2 p-2 rounded-xl bg-black/60 hover:bg-black/90 border ${credTheme.pillBorder} transition-all text-left cursor-pointer`}
+                                title="Click to copy username"
+                              >
+                                <div className="flex flex-col min-w-0 flex-1">
+                                  <span className="text-[8px] uppercase tracking-wider font-semibold text-neutral-500">Username</span>
+                                  <span className={`text-[10px] sm:text-[11px] font-mono text-neutral-200 ${credTheme.valueHover} transition-colors truncate font-medium`}>
+                                    {credentials.username}
                                   </span>
-                                ) : (
-                                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                                  </svg>
-                                )}
-                              </div>
-                            </button>
-                          )}
-
-                          {credentials.password && (
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleCopy(credentials.password!, `pass-${project.name}`);
-                              }}
-                              className={`group/cred flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-black/70 hover:bg-black border ${credTheme.pillBorder} transition-all text-left cursor-pointer`}
-                              title="Click to copy password"
-                            >
-                              <div className="flex flex-col min-w-0">
-                                <span className="text-[8px] uppercase tracking-wider font-bold text-neutral-400">Pass</span>
-                                <span className={`text-[11px] font-mono text-neutral-200 ${credTheme.valueHover} transition-colors truncate font-semibold`}>
-                                  {credentials.password}
-                                </span>
-                              </div>
-                              <div className={`shrink-0 text-neutral-400 ${credTheme.copyIconHover} transition-colors`}>
-                                {copiedField === `pass-${project.name}` ? (
-                                  <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
-                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </div>
+                                <div className={`shrink-0 text-neutral-500 ${credTheme.copyIconHover} transition-colors p-1`}>
+                                  {copiedField === `user-${project.name}` ? (
+                                    <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
+                                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    </span>
+                                  ) : (
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                                     </svg>
-                                    Copied
+                                  )}
+                                </div>
+                              </button>
+                            )}
+
+                            {credentials.password && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleCopy(credentials.password!, `pass-${project.name}`);
+                                }}
+                                className={`group/cred flex items-center justify-between gap-2 p-2 rounded-xl bg-black/60 hover:bg-black/90 border ${credTheme.pillBorder} transition-all text-left cursor-pointer`}
+                                title="Click to copy password"
+                              >
+                                <div className="flex flex-col min-w-0 flex-1">
+                                  <span className="text-[8px] uppercase tracking-wider font-semibold text-neutral-500">Password</span>
+                                  <span className={`text-[10px] sm:text-[11px] font-mono text-neutral-200 ${credTheme.valueHover} transition-colors truncate font-medium`}>
+                                    {credentials.password}
                                   </span>
-                                ) : (
-                                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                                  </svg>
-                                )}
-                              </div>
-                            </button>
-                          )}
-                        </div>
+                                </div>
+                                <div className={`shrink-0 text-neutral-500 ${credTheme.copyIconHover} transition-colors p-1`}>
+                                  {copiedField === `pass-${project.name}` ? (
+                                    <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
+                                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    </span>
+                                  ) : (
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                    </svg>
+                                  )}
+                                </div>
+                              </button>
+                            )}
+                          </div>
 
-                        {/* Footer Hint */}
-                        <div className="text-[9px] text-neutral-400 font-sans flex items-center justify-between pt-0.5">
-                          <span className="flex items-center gap-1">
-                            <svg className="w-2.5 h-2.5 text-neutral-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <circle cx="12" cy="12" r="10" />
-                              <line x1="12" y1="16" x2="12" y2="12" />
-                              <line x1="12" y1="8" x2="12.01" y2="8" />
-                            </svg>
-                            Click credential to copy
-                          </span>
-                          <span className={`${credTheme.tagColor} font-semibold tracking-wide`}>{credTheme.footerBadge}</span>
+                          {/* Footer Hint */}
+                          <div className="text-[9px] text-neutral-500 flex items-center justify-between pt-0.5 px-0.5">
+                            <span className="flex items-center gap-1">
+                              <svg className="w-3 h-3 text-neutral-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="16" x2="12" y2="12" />
+                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                              </svg>
+                              Click field to copy
+                            </span>
+                            {copiedField?.includes(project.name) && (
+                              <span className="text-emerald-400 font-semibold animate-pulse">Copied to clipboard!</span>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })()}
-                </div>
+                      );
+                    })()}
+                  </div>
 
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex flex-wrap gap-1.5 mt-1">
-                    {filteredLanguages.map((lang, i) => (
-                      <span key={i} className={`px-2 py-1 border text-[8px] font-bold uppercase tracking-wider rounded-lg transition-colors duration-300 ${style.badge}`}>
-                        {lang}
-                      </span>
-                    ))}
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
+                    <div className="flex flex-wrap gap-1.5">
+                      {filteredLanguages.map((lang, i) => (
+                        <span key={i} className={`px-2 py-0.5 border text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider rounded-md transition-colors duration-300 ${style.badge}`}>
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          });
-        })()}
+              );
+            });
+          })()}
         </div>
       </div>
     </section>

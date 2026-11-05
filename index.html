@@ -10,8 +10,9 @@
     <meta property="og:title" content="Mahmudul Hasan Mridul | Mridul Hasan | Portfolio">
     <meta property="og:description" content="Official Portfolio of Mahmudul Hasan Mridul. Discover my projects, experience, and creatives.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mhmridul.me/">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://github.com/mridulhasan13/Portfolio" />
+    <link rel="canonical" href="https://mhmridul.me/" />
     
     <!-- Structured Data for Google Knowledge Graph -->
     <script type="application/ld+json">
@@ -20,7 +21,7 @@
       "@type": "Person",
       "name": "Mahmudul Hasan Mridul",
       "alternateName": ["Mahmudul", "Mridul", "Mahmudul Mridul", "Mridul Hasan", "M H Mridul"],
-      "url": "https://github.com/mridulhasan13/Portfolio",
+      "url": "https://mhmridul.me/",
       "sameAs": [
         "https://www.linkedin.com/in/mahmudul-hasan-mridul1/",
         "https://github.com/mridulhasan13",
@@ -48,11 +49,24 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <style>
+        html,
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #000000;
             color: #e5e5e5;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #root {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            position: relative;
         }
 
         h1,
@@ -82,6 +96,11 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient.italic {
+            display: inline-block;
+            padding-right: 0.18em;
         }
 
         ::-webkit-scrollbar {
@@ -144,6 +163,19 @@
         }
         .animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
         .animate-twinkle-delay { animation: twinkle 3s ease-in-out 1.5s infinite; }
+
+        /* Shimmer loading sweep for image previews */
+        @keyframes shimmer-sweep {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        .animate-shimmer-sweep {
+            animation: shimmer-sweep 1.8s infinite ease-in-out;
+        }
 
         @keyframes marquee {
             0% {

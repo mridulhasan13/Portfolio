@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import ImageWithPreview from './ImageWithPreview';
 
 // Imports for all Website images (Photography)
 import Img1 from '../Website/1.webp';
@@ -73,27 +74,18 @@ interface GalleryItemProps {
   index: number;
 }
 
-const GalleryItem: React.FC<GalleryItemProps> = ({ url, title, index }) => {
-  const [loaded, setLoaded] = useState(false);
-
+const GalleryItem: React.FC<GalleryItemProps> = ({ url, title }) => {
   return (
-    <div className="break-inside-avoid group relative overflow-hidden rounded-[2rem] bg-neutral-900 border border-neutral-800 transition-all duration-500 hover:scale-[1.02] hover:border-amber-400/20 hover:shadow-2xl mb-6">
-      <div className={`w-full transition-opacity duration-700 ease-in-out ${loaded ? 'opacity-100' : 'opacity-0 min-h-[200px]'}`}>
-        <img
-          src={url}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setLoaded(true)}
-          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-      </div>
-      {/* Minimal overlay per request for 'unique' feel */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 pointer-events-none">
-        <span className="text-amber-400 font-bold text-[10px] uppercase tracking-[0.2em] transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-          {title} {index + 1 < 10 ? `0${index + 1}` : index + 1}
-        </span>
-      </div>
+    <div className="break-inside-avoid group relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-amber-400/40 transition-all duration-500 hover:shadow-[0_0_25px_rgba(251,191,36,0.15)] mb-2.5 sm:mb-4 md:mb-6">
+      <ImageWithPreview
+        src={url}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        containerClassName="w-full min-h-[140px] sm:min-h-[200px]"
+        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+        loaderText="Loading visual..."
+      />
     </div>
   );
 };
@@ -156,33 +148,32 @@ const Creatives: React.FC = () => {
 
 
   return (
-    <section id="creatives" className="py-32 bg-black min-h-screen relative overflow-hidden">
+    <section id="creatives" className="scroll-mt-32 md:scroll-mt-36 pt-32 pb-16 sm:pt-36 sm:pb-24 md:pt-40 md:pb-32 bg-black min-h-screen relative overflow-hidden w-full max-w-full">
       {/* Background Accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
-
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
             The Visual <span className="gold-gradient italic">Vault</span>
           </h2>
-          <p className="mt-8 text-neutral-500 max-w-2xl mx-auto font-light text-lg">
+          <p className="mt-4 sm:mt-6 text-neutral-400 max-w-2xl mx-auto font-light text-sm sm:text-base md:text-lg">
             A comprehensive collection of 40+ curated frames exploring the intersection of industrial precision and artistic narrative.
           </p>
         </div>
 
         {/* Photography Subsection */}
-        <div className="mb-40">
-          <div className="flex items-center gap-6 mb-16">
+        <div className="mb-16 sm:mb-24 md:mb-32">
+          <div className="flex items-center gap-6 mb-8 sm:mb-12">
             <div className="flex flex-col">
               <span className="text-amber-400 font-black text-[10px] uppercase tracking-[0.4em] mb-2">Section 01</span>
-              <h4 className="text-3xl font-black text-white tracking-tight uppercase">Photographic Stills</h4>
+              <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">Photographic Stills</h4>
             </div>
             <div className="h-px bg-gradient-to-r from-neutral-800 to-transparent flex-grow"></div>
           </div>
 
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-2.5 sm:gap-4 md:gap-6 space-y-2.5 sm:space-y-4 md:space-y-6">
             {isLoaded && photography.map((item, i) => (
               <GalleryItem key={i} url={item.url} title={item.title} index={i} />
             ))}
@@ -191,15 +182,15 @@ const Creatives: React.FC = () => {
 
         {/* Graphics Subsection */}
         <div>
-          <div className="flex items-center gap-6 mb-16">
+          <div className="flex items-center gap-6 mb-8 sm:mb-12">
             <div className="flex flex-col">
               <span className="text-amber-400 font-black text-[10px] uppercase tracking-[0.4em] mb-2">Section 02</span>
-              <h4 className="text-3xl font-black text-white tracking-tight uppercase">Graphics & Identity</h4>
+              <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">Graphics & Identity</h4>
             </div>
             <div className="h-px bg-gradient-to-r from-neutral-800 to-transparent flex-grow"></div>
           </div>
 
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-2.5 sm:gap-4 md:gap-6 space-y-2.5 sm:space-y-4 md:space-y-6">
             {isLoaded && graphics.map((item, i) => (
               <GalleryItem key={i} url={item.url} title={item.title} index={i} />
             ))}
@@ -207,8 +198,8 @@ const Creatives: React.FC = () => {
         </div>
 
         {/* Closing Tag */}
-        <div className="mt-40 pt-20 border-t border-neutral-900 text-center">
-          <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mx-auto mb-8 animate-pulse"></div>
+        <div className="mt-20 sm:mt-32 pt-12 sm:pt-16 border-t border-neutral-900 text-center">
+          <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mx-auto mb-6 animate-pulse"></div>
           <p className="text-neutral-600 text-[10px] font-black uppercase tracking-[0.6em]">For more visuals contact</p>
         </div>
       </div>

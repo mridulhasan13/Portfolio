@@ -54,13 +54,13 @@ const Skills: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" className="scroll-mt-20 py-32 bg-black relative overflow-hidden">
+    <section id="skills" className="scroll-mt-32 md:scroll-mt-36 pt-32 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-32 bg-black relative overflow-hidden w-full max-w-full">
       {/* Background Accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent"></div>
-      <div className="absolute top-40 -left-40 w-96 h-96 bg-amber-400/5 blur-[120px] rounded-full"></div>
+      <div className="absolute top-40 -left-40 w-96 h-96 bg-amber-400/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h3 className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Technical Arsenal</h3>
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
             Skills & <span className="gold-gradient italic">Expertise</span>

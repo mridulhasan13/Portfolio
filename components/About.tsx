@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import ProfilePhoto from '../src/assets/AT103863.JPG.jpeg';
+import ImageWithPreview from './ImageWithPreview';
+import ProfilePhoto from '../src/assets/AT103863.JPG.webp';
 
 function useCountUp(end: number, duration: number = 1800, suffix: string = '') {
   const [count, setCount] = useState(0);
@@ -130,10 +131,10 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="scroll-mt-20 pt-32 pb-20 bg-black min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="scroll-mt-32 md:scroll-mt-36 pt-32 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 bg-black min-h-screen w-full max-w-full overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
         {/* Main Section Headline - Centered & with social icon */}
-        <div className="mb-24 text-center">
+        <div className="mb-12 sm:mb-16 md:mb-20 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-4">
             <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-amber-400/10 border border-amber-400/20 text-amber-400 shrink-0">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,19 +147,22 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="w-full flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch lg:items-start">
           {/* Portrait Image Column */}
           <div className="contents lg:col-span-5 lg:flex lg:flex-col lg:gap-12">
-            <div className="relative group order-1 lg:order-none">
+            <div className="relative group order-1 lg:order-none w-full">
               <div className="absolute -inset-4 bg-amber-400/5 rounded-[3rem] blur-2xl group-hover:bg-amber-400/10 transition-all duration-700"></div>
-              <div className="relative overflow-hidden rounded-[3rem] border border-neutral-800 bg-neutral-900 shadow-2xl">
-                <img
+              <div className="relative overflow-hidden rounded-[3rem] border border-neutral-800 bg-neutral-900 shadow-2xl w-full">
+                <ImageWithPreview
                   src={ProfilePhoto}
                   alt="Mahmudul Hasan Mridul"
-                  className="w-full h-auto transition-all duration-1000"
+                  priority={true}
+                  containerClassName="w-full h-auto min-h-[350px]"
+                  className="w-full h-auto transition-all duration-700"
+                  loaderText="Loading portrait..."
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-8 left-8 text-left">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-20"></div>
+                <div className="absolute bottom-8 left-8 text-left pointer-events-none z-30">
                   <p className="text-amber-400 font-black text-[10px] uppercase tracking-widest mb-1">Mridul</p>
                   <h4 className="text-white font-bold text-xl">Dhaka, Bangladesh</h4>
                 </div>
@@ -167,23 +171,23 @@ const About: React.FC = () => {
             </div>
 
             {/* Social Links placed BELOW the photo */}
-            <div className="space-y-4 order-3 lg:order-none text-center lg:text-left">
+            <div className="space-y-4 order-3 lg:order-none text-left w-full">
               <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-6 border-b border-neutral-800/50 pb-4">Digital Connections</h4>
-              <div className="flex flex-col gap-3 items-center lg:items-stretch">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 w-full">
                 {socialInfo.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-neutral-900/40 rounded-2xl border border-neutral-800 hover:border-amber-400/30 transition-all group w-full max-w-sm lg:max-w-none"
+                    className="flex items-center gap-4 p-3.5 sm:p-4 bg-neutral-900/40 rounded-2xl border border-neutral-800 hover:border-amber-400/30 transition-all group w-full"
                   >
-                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-800 text-neutral-500 group-hover:text-amber-400 group-hover:bg-amber-400/10 transition-all">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-800 text-neutral-500 group-hover:text-amber-400 group-hover:bg-amber-400/10 transition-all shrink-0">
                       {social.icon}
                     </div>
-                    <div className="flex flex-col overflow-hidden text-left">
+                    <div className="flex flex-col overflow-hidden text-left min-w-0 flex-1">
                       <span className="text-amber-400 font-black text-[8px] uppercase tracking-[0.1em]">{social.name}</span>
-                      <span className="text-neutral-400 font-medium text-xs truncate group-hover:text-white transition-colors">{social.label}</span>
+                      <span className="text-neutral-400 font-medium text-xs sm:text-sm truncate group-hover:text-white transition-colors">{social.label}</span>
                     </div>
                   </a>
                 ))}
@@ -192,7 +196,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Narrative & Stats Column */}
-          <div className="order-2 lg:order-none lg:col-span-7 space-y-12">
+          <div className="order-2 lg:order-none lg:col-span-7 space-y-12 w-full">
             <div className="text-left lg:text-right">
               <h3 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter leading-tight mb-8">
                 Engineering <br />

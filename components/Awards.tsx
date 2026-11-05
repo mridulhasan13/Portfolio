@@ -1,6 +1,7 @@
 
 import React from 'react';
-import exhibitionPhoto1 from '../src/assets/Photo_Mridul_01521757204_4.png';
+import ImageWithPreview from './ImageWithPreview';
+import exhibitionPhoto1 from '../src/assets/Photo_Mridul_01521757204_4.webp';
 
 const Awards: React.FC = () => {
   const olympiads = [
@@ -41,13 +42,39 @@ const Awards: React.FC = () => {
 
   const mediaCoverages = [
     {
+      outlet: 'Channel 24',
+      badge: 'NATIONAL TV SPOTLIGHT',
+      title: "Academic Life Made Effortless: Channel 24 Spotlights BUTEX Student Mridul's 'UniGrid' App",
+      bengaliTitle: "একাডেমিক কাজ সহজ করতে বুটেক্স শিক্ষার্থী মৃদুলের ‘ইউনিগ্রিড’ অ্যাপ",
+      description: "Prominently featured on Channel 24 national television — chronicling how Mahmudul Hasan Mridul (51st Batch, BUTEX IPE) engineered the UniGrid all-in-one ecosystem to eliminate student communication chaos, automate notices, and streamline routine tracking.",
+      year: '2026',
+      image: '/news-channel24.webp',
+      primaryLink: 'https://www.channel24bd.tv/education/article/353583/%E0%A6%8F%E0%A6%95%E0%A6%BE%E0%A6%A1%E0%A7%87%E0%A6%AE%E0%A6%BF%E0%A6%95-%E0%A6%95%E0%A6%BE%E0%A6%9C-%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87-%E0%A6%AC%E0%A7%81%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80-%E0%A6%AE%E0%A7%83%E0%A6%A6%E0%A7%81%E0%A6%B2%E0%A7%87%E0%A6%B0-%E2%80%98%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1%E2%80%99-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA',
+      links: [
+        { name: 'Channel 24 Web', url: 'https://www.channel24bd.tv/education/article/353583/%E0%A6%8F%E0%A6%95%E0%A6%BE%E0%A6%A1%E0%A7%87%E0%A6%AE%E0%A6%BF%E0%A6%95-%E0%A6%95%E0%A6%BE%E0%A6%9C-%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87-%E0%A6%AC%E0%A7%81%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80-%E0%A6%AE%E0%A7%83%E0%A6%A6%E0%A7%81%E0%A6%B2%E0%A7%87%E0%A6%B0-%E2%80%98%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%A1%E2%80%99-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA' }
+      ]
+    },
+    {
+      outlet: 'The Business Standard (TBS Graduates)',
+      badge: 'NATIONAL DAILY',
+      title: 'BUTEX Student Builds UniGrid to Bring Class Routines, Notes, and Notices Under One Roof',
+      bengaliTitle: "বুটেক্সিয়ানদের ক্লাস রুটিন ও নোটিশ এক প্ল্যাটফর্মে আনতে ইউনিগ্রিড অ্যাপ",
+      description: 'Special feature by TBS Graduates (The Business Standard) highlighting how UniGrid centralizes university schedules, grading ledgers, and automated CT announcements — featuring real-world feedback from departmental CRs and students.',
+      year: '2026',
+      image: '/news-tbsgraduates.webp',
+      primaryLink: 'https://tbsgraduates.net/campus/butex-student-builds-unigrid-to-bring-class-routines-notes-and-notices-under-one-roof/',
+      links: [
+        { name: 'TBS Article', url: 'https://tbsgraduates.net/campus/butex-student-builds-unigrid-to-bring-class-routines-notes-and-notices-under-one-roof/' }
+      ]
+    },
+    {
       outlet: 'Textile Times',
-      badge: 'FEATURED ARTICLE',
+      badge: 'INDUSTRY SPOTLIGHT',
       title: 'BUTEX Student Develops UniGrid, an All-in-One App to Simplify Academic Life',
       bengaliTitle: "বুটেক্সিয়ানদের একাডেমিক জীবন সহজ করতে অল-ইন-ওয়ান অ্যাপ 'UniGrid' তৈরি করলেন ৫১ তম ব্যাচের শিক্ষার্থী মৃদুল",
       description: 'Featured for engineering UniGrid — an all-in-one digital platform designed to simplify academic activities for university students by centralizing class routines, departmental notices with file attachments, lecture slides, study materials, and automated class test reminders.',
       year: '2026',
-      image: '/news-textiletimes.png',
+      image: '/news-textiletimes.webp',
       primaryLink: 'https://lnkd.in/p/gjRUXt4s',
       links: [
         { name: 'LinkedIn', url: 'https://lnkd.in/p/gjRUXt4s' },
@@ -62,7 +89,7 @@ const Awards: React.FC = () => {
       bengaliTitle: "বুটেক্সিয়ানদের একাডেমিক জীবন সহজ করতে অল-ইন-ওয়ান অ্যাপ 'UniGrid' তৈরি করলেন ৫১ তম ব্যাচের শিক্ষার্থী মৃদুল",
       description: 'Campus media feature showcasing Mahmudul Hasan Mridul (51st Batch, Department of IPE, BUTEX) and his software engineering work on the UniGrid student ecosystem.',
       year: '2026',
-      image: '/news-thesevendigitpost.png',
+      image: '/news-thesevendigitpost.webp',
       primaryLink: 'https://www.facebook.com/share/p/1GkntcE2SL/',
       links: [
         { name: 'Facebook', url: 'https://www.facebook.com/share/p/1GkntcE2SL/' }
@@ -71,14 +98,14 @@ const Awards: React.FC = () => {
   ];
 
   return (
-    <section id="awards" className="py-32 bg-black min-h-screen relative overflow-hidden">
+    <section id="awards" className="scroll-mt-32 md:scroll-mt-36 pt-32 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-32 bg-black min-h-screen relative overflow-hidden w-full max-w-full">
       {/* Dynamic Background Elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10"></div>
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full -z-10 animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -z-10 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
         {/* Section Header */}
-        <div className="text-center mb-32">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
             Hall of Fame
           </div>
@@ -112,15 +139,15 @@ const Awards: React.FC = () => {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-8">
 
           {/* Olympiad Section */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h4 className="text-xl font-black text-white uppercase tracking-tight">Olympiad</h4>
+          <div>
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight">Olympiad</h4>
               <div className="h-px bg-gradient-to-r from-amber-400/30 to-transparent flex-grow"></div>
             </div>
-            <div className="space-y-4">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3 lg:gap-3.5">
               {olympiads.map((award, i) => (
                 <AwardCard key={i} award={award} type="olympiad" />
               ))}
@@ -128,12 +155,12 @@ const Awards: React.FC = () => {
           </div>
 
           {/* Club Section */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h4 className="text-xl font-black text-white uppercase tracking-tight">Club</h4>
+          <div>
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight">Club</h4>
               <div className="h-px bg-gradient-to-r from-amber-400/30 to-transparent flex-grow"></div>
             </div>
-            <div className="space-y-4">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3 lg:gap-3.5">
               {clubAwards.map((award, i) => (
                 <AwardCard key={i} award={award} type="club" />
               ))}
@@ -141,12 +168,12 @@ const Awards: React.FC = () => {
           </div>
 
           {/* Recognization Section */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h4 className="text-xl font-black text-white uppercase tracking-tight">Recognization</h4>
+          <div>
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight">Recognization</h4>
               <div className="h-px bg-gradient-to-r from-amber-400/30 to-transparent flex-grow"></div>
             </div>
-            <div className="space-y-4">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3 lg:gap-3.5">
               {recognitions.map((award, i) => (
                 <AwardCard key={i} award={award} type="recognization" />
               ))}
@@ -169,11 +196,11 @@ const Awards: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto auto-rows-fr">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 max-w-6xl mx-auto auto-rows-fr">
             {mediaCoverages.map((item, i) => (
               <div 
                 key={i}
-                className="group relative p-8 md:p-10 rounded-[2rem] border border-neutral-900 bg-neutral-900/20 hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden"
+                className="group relative p-3.5 sm:p-6 md:p-10 rounded-2xl sm:rounded-[2rem] border border-neutral-900 bg-neutral-900/20 hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between h-full overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
@@ -184,42 +211,43 @@ const Awards: React.FC = () => {
                       href={item.primaryLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block relative mb-6 rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0"
-                      style={{ aspectRatio: '4 / 5' }}
+                      className="block relative mb-3 sm:mb-6 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 w-full group/img cursor-pointer shadow-2xl shrink-0 aspect-square"
+                      style={{ aspectRatio: '1 / 1' }}
                       title="Click to view full feature"
                     >
-                      <img 
+                      <ImageWithPreview 
                         src={item.image} 
                         alt={item.title}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.01]"
-                        loading="lazy"
+                        containerClassName="w-full h-full flex items-center justify-center bg-neutral-950"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-[1.01]"
+                        loaderText="Loading clipping..."
                       />
-                      <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-white/0 group-hover/img:bg-white/[0.03] transition-colors pointer-events-none z-20"></div>
                     </a>
                   )}
 
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[9px] uppercase tracking-[0.2em]">
+                  <div className="flex items-center justify-between mb-2 sm:mb-4 gap-1">
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 font-black text-[7px] sm:text-[9px] uppercase tracking-[0.15em] sm:tracking-[0.2em] truncate">
                       {item.badge}
                     </span>
-                    <span className="text-neutral-500 font-bold text-xs">{item.year}</span>
+                    <span className="text-neutral-500 font-bold text-[9px] sm:text-xs shrink-0">{item.year}</span>
                   </div>
 
-                  <p className="text-xs uppercase tracking-widest font-black text-neutral-400 mb-2">
+                  <p className="text-[8px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-black text-neutral-400 mb-1 sm:mb-2 line-clamp-1">
                     {item.outlet}
                   </p>
 
-                  <h4 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-4 min-h-[56px] md:min-h-[64px] flex items-center">
+                  <h4 className="text-xs sm:text-lg md:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-1.5 sm:mb-4 line-clamp-3 sm:line-clamp-none min-h-[44px] sm:min-h-[56px] md:min-h-[64px] flex items-center">
                     {item.title}
                   </h4>
 
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light min-h-[84px] md:min-h-[96px] flex-1">
+                  <p className="text-neutral-400 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6 font-light line-clamp-3 sm:line-clamp-none flex-1">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="relative z-10 mt-auto pt-4 border-t border-neutral-800/80 flex items-center justify-between gap-3 min-h-[52px]">
-                  <div className="flex items-center gap-2">
+                <div className="relative z-10 mt-auto pt-2.5 sm:pt-4 border-t border-neutral-800/80 flex items-center justify-between gap-2 sm:gap-3 min-h-[38px] sm:min-h-[52px]">
+                  <div className="hidden sm:flex items-center gap-2 flex-wrap">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Read on:</span>
                     {item.links.map((link, idx) => (
                       <a
@@ -238,10 +266,10 @@ const Awards: React.FC = () => {
                     href={item.primaryLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0 w-full sm:w-auto justify-between sm:justify-start"
                   >
                     <span>View Feature</span>
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>
@@ -268,8 +296,14 @@ const Awards: React.FC = () => {
           <div className="max-w-5xl mx-auto">
             {exhibitionPhotos.map((photo, i) => (
               <a key={i} href={photo.link} target="_blank" rel="noopener noreferrer" className="block group relative rounded-[2.5rem] overflow-hidden border border-neutral-800 bg-neutral-900 aspect-[4/3] md:aspect-[16/9] shadow-2xl cursor-pointer">
-                <img src={photo.src} alt="Exhibition Photo" className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-16">
+                <ImageWithPreview 
+                  src={photo.src} 
+                  alt="Exhibition Photo" 
+                  containerClassName="w-full h-full"
+                  className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" 
+                  loaderText="Loading exhibition photo..."
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-16 z-20">
                   <span className="text-amber-400 font-black text-xs md:text-sm uppercase tracking-[0.3em] mb-3 md:mb-4 block">{photo.rank}</span>
                   <h4 className="text-white font-bold text-lg md:text-2xl leading-snug mb-3 md:mb-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">{photo.title}</h4>
                   <div className="flex items-center gap-3 md:gap-4 text-neutral-300 text-xs md:text-base font-medium translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">
@@ -302,15 +336,21 @@ interface AwardCardProps {
 }
 
 const AwardCard: React.FC<AwardCardProps> = ({ award }) => (
-  <div className="group relative p-6 rounded-[1.5rem] border border-neutral-900 bg-neutral-900/10 hover:border-amber-400/20 transition-all duration-500">
-    <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[1.5rem]"></div>
-    <div className="relative z-10 text-left">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-amber-400 font-black text-[8px] uppercase tracking-[0.2em] opacity-60">{award.rank}</span>
-        <span className="text-neutral-600 font-bold text-[8px] uppercase">{award.year}</span>
+  <div className="group relative p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl border border-neutral-900 bg-neutral-900/20 hover:border-amber-400/30 transition-all duration-300 flex flex-col justify-between h-full">
+    <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl sm:rounded-2xl pointer-events-none"></div>
+    <div className="relative z-10 text-left flex flex-col justify-between h-full">
+      <div>
+        <div className="flex items-center justify-between mb-1.5 sm:mb-2.5 gap-1">
+          <span className="text-amber-400 font-black text-[7px] sm:text-[8px] uppercase tracking-wider opacity-75 truncate">{award.rank}</span>
+          <span className="text-neutral-500 font-bold text-[7px] sm:text-[8px] uppercase shrink-0">{award.year}</span>
+        </div>
+        <h5 className="text-xs sm:text-sm lg:text-base font-bold text-white group-hover:text-amber-400 transition-colors leading-snug mb-1">
+          {award.title}
+        </h5>
       </div>
-      <h5 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors leading-tight mb-1">{award.title}</h5>
-      <p className="text-neutral-500 text-[11px] font-medium leading-relaxed">{award.event}</p>
+      <p className="text-neutral-400 lg:text-neutral-500 text-[10px] sm:text-[11px] font-medium leading-tight mt-1">
+        {award.event}
+      </p>
     </div>
   </div>
 );

@@ -1,0 +1,6 @@
+# Redirect from Netlify subdomain to custom domain
+https://mahmudulhasanmridul.netlify.app/* https://mhmridul.me/:splat 301!
+
+# SPA fallback for client-side routing
+/* /index.html 200
+
