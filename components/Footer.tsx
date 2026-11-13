@@ -114,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               ))}
             </div>
             <p className="text-neutral-500 text-[11px] uppercase font-black tracking-[0.4em] leading-relaxed max-w-[300px]">
-              Let's craft something <span className="text-amber-400 text-glow">extraordinary</span>.
+              Let's craft something <span className="text-amber-400 text-glow">extraordinary</span>
             </p>
           </div>
           <div className="flex flex-col items-center md:items-end">
