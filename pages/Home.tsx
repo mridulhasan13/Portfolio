@@ -150,8 +150,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <div className="grid grid-cols-2 gap-4 md:gap-6">
               {/* Leadership Cards */}
               <div className="group bg-neutral-900/50 rounded-3xl p-6 flex flex-col items-center justify-center border border-neutral-800 hover:border-amber-400/30 transition-all relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center p-0 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
-                  <img src={NDSCLogo} alt="NDSC Logo" className="w-[85%] h-[85%] object-contain transition-all" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center p-1 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
+                  <img src={NDSCLogo} alt="NDSC Logo" className="w-[90%] h-[90%] object-contain transition-all scale-110" />
                 </div>
                 <span className="text-white font-black text-center text-[10px] md:text-sm mb-1 leading-tight tracking-tight uppercase">Notre Dame Science Club</span>
                 <p className="text-amber-400 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-center mb-3">President (Publication)</p>
@@ -163,8 +163,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
 
               <div className="group bg-neutral-900/50 rounded-3xl p-6 flex flex-col items-center justify-center border border-neutral-800 hover:border-amber-400/30 transition-all relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center p-2 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
-                  <img src={NDPCLogo} alt="Notre Dame Photography Club Logo" className="w-[85%] h-[85%] object-contain transition-all" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center p-1 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
+                  <img src={NDPCLogo} alt="Notre Dame Photography Club Logo" className="w-[92%] h-[92%] object-contain transition-all scale-135" />
                 </div>
                 <span className="text-white font-black text-center text-[10px] md:text-sm mb-1 leading-tight tracking-tight uppercase">Notre Dame Photography Club</span>
                 <p className="text-amber-400 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-center mb-3">Secretary Creative Squad</p>
@@ -175,8 +175,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
 
               <div className="group bg-neutral-900/50 rounded-3xl p-6 flex flex-col items-center justify-center border border-neutral-800 hover:border-amber-400/30 transition-all relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center p-3 mb-4 shadow-2xl group-hover:scale-110 transition-transform">
-                  <img src={SHKSCNutritionClubLogo} alt="SHKSC Nutrition Club Logo" className="w-full h-full object-contain transition-all" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center p-1 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
+                  <img src={SHKSCNutritionClubLogo} alt="SHKSC Nutrition Club Logo" className="w-[90%] h-[90%] object-contain transition-all scale-125" />
                 </div>
                 <span className="text-white font-black text-center text-[10px] md:text-sm mb-1 leading-tight tracking-tight uppercase">SHKSC Nutrition Club</span>
                 <p className="text-amber-400 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-center mb-3">Vice-President</p>
@@ -187,8 +187,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
 
               <div className="group bg-neutral-900/50 rounded-3xl p-6 flex flex-col items-center justify-center border border-neutral-800 hover:border-amber-400/30 transition-all relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center p-3 mb-4 shadow-2xl group-hover:scale-110 transition-transform">
-                  <img src={SHKSCScienceClubLogo} alt="SHKSC Science Club Logo" className="w-full h-full object-contain transition-all" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center p-1 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
+                  <img src={SHKSCScienceClubLogo} alt="SHKSC Science Club Logo" className="w-[92%] h-[92%] object-contain transition-all scale-135" />
                 </div>
                 <span className="text-white font-black text-center text-[10px] md:text-sm mb-1 leading-tight tracking-tight uppercase">SHKSC Science Club</span>
                 <p className="text-amber-400 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-center mb-3">Assistant Gen. Secretary</p>
