@@ -49,6 +49,13 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
   const [hoveredCell, setHoveredCell] = useState<{ count: number; date: string; x: number; y: number } | null>(null);
 
   useEffect(() => {
+    // On desktop screens, default to full year for authentic GitHub desktop look
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      setRange('1y');
+    }
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
@@ -96,7 +103,7 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
   };
 
   return (
-    <div className={`w-full font-[-apple-system,BlinkMacSystemFont,"Segoe_UI","Noto_Sans",Helvetica,Arial,sans-serif] ${className}`}>
+    <div className={`w-full md:max-w-[760px] md:mx-auto font-[-apple-system,BlinkMacSystemFont,"Segoe_UI","Noto_Sans",Helvetica,Arial,sans-serif] ${className}`}>
       {/* Top Header Row matching GitHub */}
       <div className="flex items-center justify-between gap-2.5 mb-2.5 w-full">
         <h3 className="text-xs sm:text-sm md:text-base font-normal text-[#e6edf3] truncate">
@@ -192,7 +199,8 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
         <div className="w-full overflow-hidden">
           <svg
             viewBox={`0 0 ${totalSvgWidth} ${totalSvgHeight}`}
-            className="w-full h-auto block select-none"
+            style={{ maxWidth: range === '6m' ? `${totalSvgWidth}px` : undefined }}
+            className={`h-auto block select-none ${range === '6m' ? 'w-full md:w-auto md:mx-auto' : 'w-full'}`}
             preserveAspectRatio="xMidYMid meet"
           >
             {/* Month Header Labels */}
