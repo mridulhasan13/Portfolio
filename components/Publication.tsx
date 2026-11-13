@@ -19,7 +19,7 @@ const Publication: React.FC = () => {
             Research & <span className="gold-gradient italic">Publications</span>
           </h2>
           <p className="mt-4 sm:mt-6 text-neutral-400 max-w-2xl mx-auto font-light text-sm sm:text-base md:text-lg">
-            Peer-reviewed book chapters, life-cycle sustainability frameworks, and methodological research.
+            Peer-reviewed publications, book chapters, and academic research.
           </p>
         </div>
 

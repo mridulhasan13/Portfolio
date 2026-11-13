@@ -470,10 +470,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4">
             <div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left uppercase">
-                Scholarly <span className="gold-gradient italic">Research.</span>
+                Research & <span className="gold-gradient italic">Publications.</span>
               </h2>
               <p className="text-neutral-400 text-sm md:text-base font-light mt-3 max-w-2xl text-left">
-                Peer-reviewed academic contributions, life-cycle sustainability frameworks, and supply-chain risk assessment.
+                Peer-reviewed publications, book chapters, and academic research.
               </p>
             </div>
             <div>
