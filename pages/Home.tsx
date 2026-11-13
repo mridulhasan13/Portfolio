@@ -17,6 +17,7 @@ import GalleryImg1 from '../Website/1.webp';
 import GalleryImg15 from '../Website/15.webp';
 import DesignImgBreakdown from '../Design/70 Final logo Breakdown-01.webp';
 import DesignImgGold from '../Design/Gold Madel.webp';
+import ResearchCard from '../components/ResearchCard';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -459,6 +460,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </svg>
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Scholarly Research Section */}
+      <section className="py-16 md:py-24 bg-black border-b border-neutral-900 overflow-hidden relative w-full max-w-full">
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-amber-400/[0.03] blur-[150px] rounded-full -z-10 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+                Academic Scholarship
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
+                Scholarly <span className="gold-gradient italic">Research.</span>
+              </h2>
+              <p className="text-neutral-400 text-sm md:text-base font-light mt-3 max-w-2xl text-left">
+                Peer-reviewed academic contributions in textile engineering, supply-chain sustainability, and life-cycle risk assessment.
+              </p>
+            </div>
+            <div>
+              <button
+                onClick={() => onNavigate('education')}
+                className="group inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-bold text-xs uppercase tracking-wider transition-colors"
+              >
+                <span>View Full Academic Profile</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <ResearchCard />
         </div>
       </section>
 

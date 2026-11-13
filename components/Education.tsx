@@ -4,6 +4,7 @@ import { EducationItem } from '../types';
 import BUTEXLogo from '../Logo/BUTEX.webp';
 import NDCLogo from '../Logo/NDC.webp';
 import SHKSCLogo from '../Logo/SHKSC-Logo-14.10.2020.webp';
+import ResearchCard from './ResearchCard';
 
 const Education: React.FC = () => {
   const education: EducationItem[] = [
@@ -122,6 +123,23 @@ const Education: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Research & Publications Section */}
+        <div className="mt-20 sm:mt-28">
+          <div className="flex items-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="flex flex-col">
+              <span className="text-amber-400 font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-2">
+                Scholarly Research
+              </span>
+              <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight uppercase">
+                Publications & <span className="gold-gradient italic">Manuscripts</span>
+              </h3>
+            </div>
+            <div className="h-px bg-gradient-to-r from-neutral-800 to-transparent flex-grow"></div>
+          </div>
+
+          <ResearchCard />
         </div>
       </div>
     </section>
