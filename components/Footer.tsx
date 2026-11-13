@@ -68,6 +68,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     { name: 'HOME', id: 'home' },
     { name: 'ABOUT', id: 'about' },
     { name: 'ACADEMICS', id: 'education' },
+    { name: 'PUBLICATION', id: 'publication' },
     { name: 'EXPERIENCE', id: 'work-experience' },
     { name: 'SKILLS', id: 'skills' },
     { name: 'CREATIVES', id: 'creatives' },

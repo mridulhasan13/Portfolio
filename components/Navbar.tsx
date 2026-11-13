@@ -14,7 +14,34 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   const navItems = [
     { name: 'HOME', id: 'home' },
     { name: 'ABOUT', id: 'about' },
-    { name: 'ACADEMICS', id: 'education' },
+    { 
+      name: 'ACADEMICS', 
+      id: 'academics-dropdown',
+      isDropdown: true,
+      subItems: [
+        { 
+          name: 'Academics', 
+          id: 'education', 
+          desc: 'Institutional degrees & honors',
+          icon: (
+            <svg className="w-5 h-5 text-neutral-500 group-hover/item:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg>
+          )
+        },
+        { 
+          name: 'Publication', 
+          id: 'publication', 
+          desc: 'Scholarly research & book chapters',
+          icon: (
+            <svg className="w-5 h-5 text-neutral-500 group-hover/item:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          )
+        }
+      ]
+    },
     { 
       name: 'EXPERIENCE', 
       id: 'experience-dropdown',
@@ -91,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
             <div className="flex items-center space-x-1">
               {navItems.map((item) => {
                 if (item.isDropdown) {
-                  const isActive = activeSection === 'work-experience' || activeSection === 'projects';
+                  const isActive = item.subItems?.some(sub => sub.id === activeSection);
                   return (
                     <div
                       key={item.id}
@@ -225,7 +252,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
         >
           {navItems.map((item) => {
             if (item.isDropdown) {
-              const isActive = activeSection === 'work-experience' || activeSection === 'projects';
+              const isActive = item.subItems?.some(sub => sub.id === activeSection);
               return (
                 <div key={item.id} className="w-full flex flex-col items-center">
                   <button

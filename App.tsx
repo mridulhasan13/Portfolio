@@ -13,11 +13,12 @@ const Skills = lazy(() => import('./components/Skills'));
 const Awards = lazy(() => import('./components/Awards'));
 const Contact = lazy(() => import('./components/Contact'));
 const Creatives = lazy(() => import('./components/Creatives'));
+const Publication = lazy(() => import('./components/Publication'));
 
 const App: React.FC = () => {
   const getPageFromHash = () => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'about', 'education', 'work-experience', 'projects', 'skills', 'creatives', 'awards', 'contact'];
+    const validPages = ['home', 'about', 'education', 'work-experience', 'projects', 'skills', 'creatives', 'awards', 'contact', 'publication'];
     return validPages.includes(hash) ? hash : 'home';
   };
 
@@ -98,6 +99,7 @@ const App: React.FC = () => {
             case 'skills': return <Skills />;
             case 'creatives': return <Creatives />;
             case 'awards': return <Awards />;
+            case 'publication': return <Publication />;
             case 'contact': return <Contact />;
             default: return <Home onNavigate={handleNavigate} />;
           }
