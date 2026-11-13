@@ -127,10 +127,10 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
 
       {/* GitHub Native Card Container */}
       <div className="rounded-md bg-[#0d1117] border border-[#30363d] p-3.5 sm:p-4 shadow-sm">
-        <div className="w-full overflow-x-auto scrollbar-none">
+        <div className="w-full overflow-hidden">
           <svg
             viewBox={`0 0 ${totalSvgWidth} ${totalSvgHeight}`}
-            className="w-full h-auto block select-none min-w-[320px]"
+            className="w-full h-auto block select-none"
             preserveAspectRatio="xMidYMid meet"
           >
             {/* Month Header Labels */}
