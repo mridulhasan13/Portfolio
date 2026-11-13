@@ -29,12 +29,12 @@ export const researchProjectData: ResearchData = {
     {
       title: 'Visual Synthesis & Data Architecture',
       description:
-        'Designed 9 publication figures (life-cycle supply map, S-LCA workflows, stakeholder frameworks, roadmap) and built 5 comparative tables evaluating assessment tools, mitigation strategies, and certification standards.'
+        'Designed 9 publication figures (supply chain map, S-LCA workflow, stakeholder framework, roadmap) and built 5 comparative tables evaluating assessment tools, mitigation strategies, and certification standards.'
     },
     {
-      title: 'Manuscript Editing & Citation Indexing',
+      title: 'Manuscript Editing & Citations',
       description:
-        'Conducted complete technical and structural manuscript editing for academic consistency and managed the ~130-entry reference list formatted to publisher specification.'
+        'Conducted technical and structural manuscript editing for academic consistency and managed the 130+ reference entries formatted to publisher specification.'
     }
   ],
   keywords: [
@@ -84,30 +84,26 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
         </p>
       </div>
 
-      {/* Key Contributions: Clean, Minimal 2-Column Layout */}
-      <div className="pt-5 border-t border-neutral-800/80">
-        <h4 className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider mb-3">
+      {/* Key Contributions: Simple & Clean Academic Cards */}
+      <div className="pt-6 border-t border-neutral-800/80">
+        <h4 className="font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-500 mb-3.5">
           Direct Contributions
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-          <div>
-            <h5 className="text-sm font-medium text-white mb-1">
-              Visual Synthesis & Data Architecture
-            </h5>
-            <p className="text-xs text-neutral-400 leading-relaxed font-light">
-              Designed 9 publication figures (supply chain map, S-LCA workflow, stakeholder framework, roadmap) and built 5 comparative tables evaluating assessment tools, mitigation strategies, and certification standards.
-            </p>
-          </div>
-
-          <div>
-            <h5 className="text-sm font-medium text-white mb-1">
-              Manuscript Editing & Citations
-            </h5>
-            <p className="text-xs text-neutral-400 leading-relaxed font-light">
-              Conducted technical and structural manuscript editing for academic consistency and managed the 130-entry reference list formatted to publisher specification.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          {data.contributions.map((c, i) => (
+            <div
+              key={i}
+              className="p-4 sm:p-5 rounded-xl bg-neutral-900/40 border border-neutral-800/70"
+            >
+              <h5 className="text-sm font-semibold text-white mb-2">
+                {c.title}
+              </h5>
+              <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-light">
+                {c.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -129,13 +125,17 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
         </button>
 
         {showDetails && (
-          <div className="mt-3 text-xs text-neutral-400 leading-relaxed font-light space-y-1.5">
+          <div className="mt-3 p-4 rounded-xl bg-neutral-900/30 border border-neutral-800/60 text-xs text-neutral-400 leading-relaxed font-light space-y-2">
             <p>
-              <span className="text-neutral-300 font-medium">Assessment Framework:</span>{' '}
+              <span className="text-neutral-200 font-medium font-mono text-[11px] uppercase tracking-wider mr-2">
+                Assessment Framework:
+              </span>
               Literature review using Social Life Cycle Assessment (S-LCA) and the UNEP/SETAC guidelines across seven garment life-cycle stages.
             </p>
             <p>
-              <span className="text-neutral-300 font-medium">Tools & Governance:</span>{' '}
+              <span className="text-neutral-200 font-medium font-mono text-[11px] uppercase tracking-wider mr-2">
+                Tools & Governance:
+              </span>
               Evaluated SHDB, PSILCA, OpenLCA, corporate due-diligence schemes, digital product passports (DPP), and circular economy mitigation models.
             </p>
           </div>
