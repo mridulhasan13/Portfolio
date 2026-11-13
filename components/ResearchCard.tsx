@@ -57,14 +57,16 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
     <article
       className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-5 sm:p-8 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
     >
-      {/* Top Meta Line: Venue on left, Status on right */}
+      {/* Top Meta Line: Venue on left, Date & Status on right */}
       <div className="flex items-center justify-between gap-3 pb-4 border-b border-neutral-800/80 text-xs font-mono">
         <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[11px]">
           {data.type}
         </span>
-        <span className="text-amber-400 font-mono text-xs tracking-wider">
-          {data.status}
-        </span>
+        <div className="flex items-center gap-2 font-mono text-xs tracking-wider">
+          <span className="text-neutral-400">{data.started}</span>
+          <span className="text-neutral-600">·</span>
+          <span className="text-amber-400">{data.status}</span>
+        </div>
       </div>
 
       {/* Title & Contributor Role */}
