@@ -84,105 +84,42 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
         </p>
       </div>
 
-      {/* Key Contributions: Elevated 2-Column Academic Grid */}
-      <div className="pt-6 border-t border-neutral-800/80">
-        <div className="flex items-center justify-between mb-4">
-          <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-400">
-            Direct Contributions
-          </span>
-          <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
-            Core Scope
-          </span>
-        </div>
+      {/* Key Contributions: Clean, Minimal 2-Column Layout */}
+      <div className="pt-5 border-t border-neutral-800/80">
+        <h4 className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider mb-3">
+          Direct Contributions
+        </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Contribution 1: Figures & Tables */}
-          <div className="group relative p-5 rounded-2xl bg-neutral-900/30 border border-neutral-800/80 hover:border-amber-400/30 hover:bg-neutral-900/50 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-3.5">
-              <div className="w-8 h-8 rounded-lg bg-neutral-800/60 border border-neutral-700/60 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-              </div>
-              <div>
-                <h5 className="text-sm font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
-                  Visual Synthesis & Data Architecture
-                </h5>
-                <p className="text-[11px] font-mono text-neutral-500">
-                  9 Scientific Figures · 5 Comparative Tables
-                </p>
-              </div>
-            </div>
-
-            <p className="text-xs text-neutral-400 leading-relaxed font-light mb-3">
-              Turned dense life-cycle research into publication-ready visual models and structured analytical frameworks.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+          <div>
+            <h5 className="text-sm font-medium text-white mb-1">
+              Visual Synthesis & Data Architecture
+            </h5>
+            <p className="text-xs text-neutral-400 leading-relaxed font-light">
+              Designed 9 publication figures (supply chain map, S-LCA workflow, stakeholder framework, roadmap) and built 5 comparative tables evaluating assessment tools, mitigation strategies, and certification standards.
             </p>
-
-            <div className="space-y-1.5 text-[11px] text-neutral-300 font-light border-t border-neutral-800/60 pt-3">
-              <div className="flex items-start gap-2">
-                <span className="text-amber-400 text-xs leading-none mt-0.5">•</span>
-                <span>
-                  <strong className="text-white font-medium">9 Figures:</strong> Life-cycle supply chain map, S-LCA workflow, stakeholder framework, drivers diagram, and strategic roadmap.
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-amber-400 text-xs leading-none mt-0.5">•</span>
-                <span>
-                  <strong className="text-white font-medium">5 Tables:</strong> Assessment tools, methodologies, mitigation strategies, certification schemes, and stage-by-stage risks.
-                </span>
-              </div>
-            </div>
           </div>
 
-          {/* Contribution 2: Manuscript & Citations */}
-          <div className="group relative p-5 rounded-2xl bg-neutral-900/30 border border-neutral-800/80 hover:border-amber-400/30 hover:bg-neutral-900/50 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-3.5">
-              <div className="w-8 h-8 rounded-lg bg-neutral-800/60 border border-neutral-700/60 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <div>
-                <h5 className="text-sm font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
-                  Manuscript Editing & Citation Indexing
-                </h5>
-                <p className="text-[11px] font-mono text-neutral-500">
-                  Full Manuscript · 130+ Citations Indexed
-                </p>
-              </div>
-            </div>
-
-            <p className="text-xs text-neutral-400 leading-relaxed font-light mb-3">
-              Conducted comprehensive technical review for academic rigor, structural clarity, and consistency.
+          <div>
+            <h5 className="text-sm font-medium text-white mb-1">
+              Manuscript Editing & Citations
+            </h5>
+            <p className="text-xs text-neutral-400 leading-relaxed font-light">
+              Conducted technical and structural manuscript editing for academic consistency and managed the 130-entry reference list formatted to publisher specification.
             </p>
-
-            <div className="space-y-1.5 text-[11px] text-neutral-300 font-light border-t border-neutral-800/60 pt-3">
-              <div className="flex items-start gap-2">
-                <span className="text-amber-400 text-xs leading-none mt-0.5">•</span>
-                <span>
-                  <strong className="text-white font-medium">Technical Editing:</strong> Refined prose, terminology, and logical narrative for academic publication standards.
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-amber-400 text-xs leading-none mt-0.5">•</span>
-                <span>
-                  <strong className="text-white font-medium">130+ References:</strong> Cross-verified citations and formatted reference entries to strict publisher guidelines.
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Expandable Methodology / Scope Note */}
-      <div className="mt-6 pt-4 border-t border-neutral-800/60">
+      {/* Methodology & Scope */}
+      <div className="mt-5 pt-4 border-t border-neutral-800/60">
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700 text-xs font-mono text-neutral-400 hover:text-white transition-all group"
+          className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1.5 transition-colors"
         >
           <span>{showDetails ? 'Hide methodology & scope' : 'View methodology & scope'}</span>
           <svg
-            className={`w-3.5 h-3.5 text-neutral-500 group-hover:text-amber-400 transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`}
+            className={`w-3.5 h-3.5 transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -192,23 +129,15 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
         </button>
 
         {showDetails && (
-          <div className="mt-3.5 grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/80">
-              <span className="font-mono text-[10px] uppercase font-bold text-amber-400 tracking-wider block mb-1.5">
-                Assessment Framework
-              </span>
-              <p className="text-xs text-neutral-300 font-light leading-relaxed">
-                Literature review using Social Life Cycle Assessment (S-LCA) and the UNEP/SETAC guidelines evaluated across seven garment life-cycle stages.
-              </p>
-            </div>
-            <div className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/80">
-              <span className="font-mono text-[10px] uppercase font-bold text-amber-400 tracking-wider block mb-1.5">
-                Tools & Governance Scope
-              </span>
-              <p className="text-xs text-neutral-300 font-light leading-relaxed">
-                Evaluated SHDB, PSILCA, OpenLCA, corporate due-diligence frameworks, digital product passports (DPP), and circular economy mitigation models.
-              </p>
-            </div>
+          <div className="mt-3 text-xs text-neutral-400 leading-relaxed font-light space-y-1.5">
+            <p>
+              <span className="text-neutral-300 font-medium">Assessment Framework:</span>{' '}
+              Literature review using Social Life Cycle Assessment (S-LCA) and the UNEP/SETAC guidelines across seven garment life-cycle stages.
+            </p>
+            <p>
+              <span className="text-neutral-300 font-medium">Tools & Governance:</span>{' '}
+              Evaluated SHDB, PSILCA, OpenLCA, corporate due-diligence schemes, digital product passports (DPP), and circular economy mitigation models.
+            </p>
           </div>
         )}
       </div>
