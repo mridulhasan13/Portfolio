@@ -467,16 +467,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <section className="py-16 md:py-24 bg-black border-b border-neutral-900 overflow-hidden relative w-full max-w-full">
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-amber-400/[0.03] blur-[150px] rounded-full -z-10 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
-                Academic Scholarship
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left">
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight text-left uppercase">
                 Scholarly <span className="gold-gradient italic">Research.</span>
               </h2>
               <p className="text-neutral-400 text-sm md:text-base font-light mt-3 max-w-2xl text-left">
-                Peer-reviewed academic contributions in textile engineering, supply-chain sustainability, and life-cycle risk assessment.
+                Peer-reviewed academic contributions, life-cycle sustainability frameworks, and supply-chain risk assessment.
               </p>
             </div>
             <div>
@@ -492,7 +489,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          <ResearchCard />
+          <ResearchCard isOverview={true} onExplore={() => onNavigate('publication')} />
         </div>
       </section>
 
