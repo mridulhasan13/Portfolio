@@ -31,18 +31,11 @@ const Publication: React.FC = () => {
           <ResearchCard />
         </div>
 
-        {/* Academic Affiliation Note */}
-        <div className="mt-20 sm:mt-28 pt-12 sm:pt-16 border-t border-neutral-900 text-center max-w-2xl mx-auto">
-          <p className="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">
-            Institutional Affiliation
-          </p>
-          <p className="text-neutral-400 text-sm font-light">
-            Department of Industrial & Production Engineering (IPE) · Bangladesh University of Textiles (BUTEX)
-          </p>
-        </div>
+
       </div>
     </section>
   );
 };
 
 export default Publication;
+
