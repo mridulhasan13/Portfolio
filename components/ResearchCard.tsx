@@ -55,23 +55,23 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
 
   return (
     <article
-      className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-5 sm:p-8 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
+      className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-4 sm:p-7 md:p-8 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
     >
       {/* Top Meta Line: Venue on left, Date & Status on right */}
-      <div className="flex items-center justify-between gap-3 pb-4 border-b border-neutral-800/80 text-xs font-mono">
-        <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[11px]">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pb-3.5 sm:pb-4 border-b border-neutral-800/80 font-mono text-xs">
+        <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[10px] sm:text-[11px] whitespace-nowrap">
           {data.type}
         </span>
-        <div className="flex items-center gap-2 font-mono text-xs tracking-wider">
+        <div className="flex items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-xs tracking-wider whitespace-nowrap">
           <span className="text-neutral-400">{data.started}</span>
           <span className="text-neutral-600">·</span>
-          <span className="text-amber-400">{data.status}</span>
+          <span className="text-amber-400 font-medium">{data.status}</span>
         </div>
       </div>
 
       {/* Title & Contributor Role */}
       <div className="mt-4 mb-3.5">
-        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
+        <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
           {data.title}
         </h3>
         <p className="mt-1.5 text-xs sm:text-sm text-neutral-300 font-normal">
@@ -87,18 +87,18 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
       </div>
 
       {/* Key Contributions: Simple & Clean Academic Cards */}
-      <div className="pt-6 border-t border-neutral-800/80">
-        <h4 className="font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-500 mb-3.5">
+      <div className="pt-5 sm:pt-6 border-t border-neutral-800/80">
+        <h4 className="font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-500 mb-3 sm:mb-3.5">
           Direct Contributions
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3.5">
           {data.contributions.map((c, i) => (
             <div
               key={i}
-              className="p-4 sm:p-5 rounded-xl bg-neutral-900/40 border border-neutral-800/70"
+              className="p-3.5 sm:p-5 rounded-xl bg-neutral-900/40 border border-neutral-800/70"
             >
-              <h5 className="text-sm font-semibold text-white mb-2">
+              <h5 className="text-sm font-semibold text-white mb-1.5 sm:mb-2">
                 {c.title}
               </h5>
               <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-light">
@@ -127,7 +127,7 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
         </button>
 
         {showDetails && (
-          <div className="mt-3 p-4 rounded-xl bg-neutral-900/30 border border-neutral-800/60 text-xs text-neutral-400 leading-relaxed font-light space-y-2">
+          <div className="mt-3 p-3.5 sm:p-4 rounded-xl bg-neutral-900/30 border border-neutral-800/60 text-xs text-neutral-400 leading-relaxed font-light space-y-2">
             <p>
               <span className="text-neutral-200 font-medium font-mono text-[11px] uppercase tracking-wider mr-2">
                 Assessment Framework:
@@ -145,19 +145,19 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
       </div>
 
       {/* Keywords & Confidentiality Footer */}
-      <div className="mt-6 pt-5 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-neutral-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
         <div className="flex flex-wrap items-center gap-1.5">
           {data.keywords.map((kw, idx) => (
             <span
               key={idx}
-              className="px-2.5 py-0.5 rounded-md bg-neutral-900 border border-neutral-800 text-neutral-400 font-mono text-[10px]"
+              className="px-2 sm:px-2.5 py-0.5 rounded-md bg-neutral-900 border border-neutral-800 text-neutral-400 font-mono text-[10px] whitespace-nowrap"
             >
               {kw}
             </span>
           ))}
         </div>
 
-        <div className="font-mono text-[11px] text-neutral-500">
+        <div className="font-mono text-[11px] text-neutral-500 sm:text-right shrink-0 pt-1 sm:pt-0">
           {data.doi ? (
             <a
               href={`https://doi.org/${data.doi}`}
@@ -168,7 +168,7 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
               DOI: {data.doi}
             </a>
           ) : (
-            <span>Confidential · Under Peer Review</span>
+            <span>Under Peer Review</span>
           )}
         </div>
       </div>
