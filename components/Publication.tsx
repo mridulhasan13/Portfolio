@@ -14,10 +14,7 @@ const Publication: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Academic Scholarship
-          </div>
+
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
             Research & <span className="gold-gradient italic">Publications</span>
           </h2>
