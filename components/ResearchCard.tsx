@@ -55,10 +55,10 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
 
   return (
     <article
-      className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-6 sm:p-10 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
+      className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-5 sm:p-8 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
     >
       {/* Top Meta Line: Venue on left, Status on right */}
-      <div className="flex items-center justify-between gap-3 pb-5 border-b border-neutral-800/80 text-xs font-mono">
+      <div className="flex items-center justify-between gap-3 pb-4 border-b border-neutral-800/80 text-xs font-mono">
         <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[11px]">
           {data.type}
         </span>
@@ -68,18 +68,18 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
       </div>
 
       {/* Title & Contributor Role */}
-      <div className="mt-6 mb-5">
+      <div className="mt-4 mb-3.5">
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
           {data.title}
         </h3>
-        <p className="mt-2.5 text-xs sm:text-sm text-neutral-400 font-mono">
-          <span className="text-amber-400 font-semibold">{data.role}</span>
+        <p className="mt-1.5 text-xs sm:text-sm text-neutral-300 font-normal">
+          {data.role}
         </p>
       </div>
 
       {/* Abstract */}
-      <div className="mb-8">
-        <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-light">
+      <div className="mb-5 sm:mb-6">
+        <p className="text-xs sm:text-sm md:text-base text-neutral-400 leading-relaxed font-light">
           {data.abstract}
         </p>
       </div>
