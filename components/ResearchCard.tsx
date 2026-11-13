@@ -24,7 +24,7 @@ export const researchProjectData: ResearchData = {
   started: 'June 2026',
   role: 'Contributor · Scientific Figures, Comparative Tables, Editing & Citations',
   abstract:
-    'Textile and apparel supply chains span many countries, where workers frequently face unsafe conditions, low pay, long hours, and labor violations. This chapter provides a comprehensive review of where social hotspots arise across every stage of a garment\'s life cycle—from raw materials to end-of-life—evaluating assessment methodologies (S-LCA, SHDB, PSILCA, OpenLCA) and multi-stakeholder due-diligence frameworks that can mitigate these systemic risks.',
+    'Textile and apparel supply chains span many countries, where workers frequently face unsafe conditions, low pay, long hours, and labor violations. This chapter provides a comprehensive review of where social hotspots arise across every stage of a garment\'s life cycle, from raw materials to end-of-life, evaluating assessment methodologies (S-LCA, SHDB, PSILCA, OpenLCA) and multi-stakeholder due-diligence frameworks that can mitigate these systemic risks.',
   contributions: [
     {
       title: 'Visual Synthesis & Data Architecture',
@@ -114,7 +114,15 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
           onClick={() => setShowDetails(!showDetails)}
           className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1.5 transition-colors"
         >
-          <span>{showDetails ? '− Hide methodology scope' : '+ View methodology & scope'}</span>
+          <span>{showDetails ? 'Hide methodology & scope' : 'View methodology & scope'}</span>
+          <svg
+            className={`w-3.5 h-3.5 transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
 
         {showDetails && (
