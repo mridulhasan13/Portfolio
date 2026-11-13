@@ -34,6 +34,77 @@ if (GITHUB_TOKEN) {
   console.log('No GITHUB_TOKEN found. Fetching public repos only...');
 }
 
+function fetchContributionsGraphQL(token) {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({
+      query: `
+        query {
+          user(login: "${USERNAME}") {
+            contributionsCollection {
+              contributionCalendar {
+                totalContributions
+                weeks {
+                  contributionDays {
+                    contributionLevel
+                    contributionCount
+                    date
+                  }
+                }
+              }
+            }
+          }
+        }
+      `
+    });
+
+    const options = {
+      hostname: 'api.github.com',
+      path: '/graphql',
+      method: 'POST',
+      headers: {
+        'User-Agent': 'Node.js Fetch Script',
+        'Authorization': `bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(body);
+          if (parsed.errors) {
+            return reject(new Error(JSON.stringify(parsed.errors)));
+          }
+          const calendar = parsed.data.user.contributionsCollection.contributionCalendar;
+          const levelMap = {
+            'NONE': 0,
+            'FIRST_QUARTILE': 1,
+            'SECOND_QUARTILE': 2,
+            'THIRD_QUARTILE': 3,
+            'FOURTH_QUARTILE': 4
+          };
+          const weeks = calendar.weeks.map(w =>
+            w.contributionDays.map(d => levelMap[d.contributionLevel] ?? 0)
+          );
+          resolve({
+            totalContributions: calendar.totalContributions,
+            weeks
+          });
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.write(postData);
+    req.end();
+  });
+}
+
 function fetchJson(url) {
   return new Promise((resolve, reject) => {
     https.get(url, { headers }, (res) => {
@@ -178,6 +249,17 @@ async function main() {
 
     fs.writeFileSync('repos.json', JSON.stringify(projectsData, null, 2));
     console.log(`Successfully wrote ${projectsData.length} projects to repos.json`);
+
+    if (GITHUB_TOKEN) {
+      console.log('Fetching live GitHub contribution calendar via GraphQL API...');
+      try {
+        const contribData = await fetchContributionsGraphQL(GITHUB_TOKEN);
+        fs.writeFileSync('contributions.json', JSON.stringify(contribData, null, 2));
+        console.log(`Successfully updated contributions.json (${contribData.totalContributions} total contributions)`);
+      } catch (cErr) {
+        console.warn('Could not update contribution calendar via GraphQL:', cErr.message);
+      }
+    }
   } catch (err) {
     console.error('Error:', err.message);
   }
