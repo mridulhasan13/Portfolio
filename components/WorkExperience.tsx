@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import NooreLogo from '../Logo/Noore.webp';
 import SHKSCScienceClubLogo from '../Logo/SHKSC Science Club.webp';
 import NDSCLogo from '../Logo/Notre Dame Science Club.webp';
-import NDPCLogo from '../Logo/Notre Dame Photography Club.webp';
+import NDPCLogo from '../Logo/NDPC 1-01.webp';
 import SHKSCNutritionClubLogo from '../Logo/SHKSC Nutrition Club.webp';
 import PenmaniacsLogo from '../Logo/Penmaniacs.webp';
 import TrimasLogo from '../Logo/Trimas.webp';

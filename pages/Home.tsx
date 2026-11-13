@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import ImageWithPreview from '../components/ImageWithPreview';
 import NDSCLogo from '../Logo/Notre Dame Science Club.webp';
-import NDPCLogo from '../Logo/Notre Dame Photography Club.webp';
+import NDPCLogo from '../Logo/NDPC 1-01.webp';
 import SHKSCNutritionClubLogo from '../Logo/SHKSC Nutrition Club.webp';
 import SHKSCScienceClubLogo from '../Logo/SHKSC Science Club.webp';
 import TrimasLogo from '../Logo/Trimas.webp';
@@ -163,8 +163,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
 
               <div className="group bg-neutral-900/50 rounded-3xl p-6 flex flex-col items-center justify-center border border-neutral-800 hover:border-amber-400/30 transition-all relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-neutral-800 rounded-full flex items-center justify-center p-2 mb-4 shadow-2xl group-hover:scale-110 transition-transform">
-                  <img src={NDPCLogo} alt="NDPC Logo" className="w-full h-full object-contain group-hover:brightness-125 transition-all" />
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center p-2 mb-4 shadow-2xl group-hover:scale-110 transition-transform overflow-hidden border-2 border-amber-400/20">
+                  <img src={NDPCLogo} alt="Notre Dame Photography Club Logo" className="w-[85%] h-[85%] object-contain transition-all" />
                 </div>
                 <span className="text-white font-black text-center text-[10px] md:text-sm mb-1 leading-tight tracking-tight uppercase">Notre Dame Photography Club</span>
                 <p className="text-amber-400 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-center mb-3">Secretary Creative Squad</p>
