@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import fallbackData from '../contributions.json';
 
 interface GithubCalendarProps {
@@ -44,7 +44,23 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
   className = ''
 }) => {
   const [range, setRange] = useState<'6m' | '1y'>('6m');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [hoveredCell, setHoveredCell] = useState<{ count: number; date: string; x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownOpen]);
 
   const rawWeeks = fallbackData.weeks; // 53 weeks x 7 days
   const activeWeeks = range === '6m' ? rawWeeks.slice(rawWeeks.length - 26) : rawWeeks;
@@ -88,29 +104,69 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
           {range === '6m' ? 'last 6 months' : 'last year'}
         </h3>
 
-        <div className="flex items-center gap-2">
-          {/* GitHub style segmented switcher */}
-          <div className="inline-flex rounded-md p-0.5 bg-[#161b22] border border-[#30363d] text-xs">
+        <div className="flex items-center gap-3">
+          {/* Subtle Invisible-style Dropdown matching GitHub settings */}
+          <div className="relative" ref={dropdownRef}>
             <button
-              onClick={() => setRange('6m')}
-              className={`px-2.5 py-1 rounded text-xs transition-colors ${
-                range === '6m'
-                  ? 'bg-[#1f6feb] text-white font-medium'
-                  : 'text-[#7d8590] hover:text-[#e6edf3]'
-              }`}
+              type="button"
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="inline-flex items-center gap-1.5 text-xs text-[#7d8590] hover:text-[#58a6ff] transition-colors bg-transparent border-0 p-0 font-normal focus:outline-none cursor-pointer select-none"
             >
-              Last 6 Months
+              <span>{range === '6m' ? 'Last 6 months' : '2026 (Full year)'}</span>
+              <svg
+                className={`w-3 h-3 transition-transform duration-150 ${dropdownOpen ? 'rotate-180' : ''}`}
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M2.5 4.5l3.5 3.5 3.5-3.5" />
+              </svg>
             </button>
-            <button
-              onClick={() => setRange('1y')}
-              className={`px-2.5 py-1 rounded text-xs transition-colors ${
-                range === '1y'
-                  ? 'bg-[#1f6feb] text-white font-medium'
-                  : 'text-[#7d8590] hover:text-[#e6edf3]'
-              }`}
-            >
-              2026 (Full Year)
-            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-40 rounded-md bg-[#161b22] border border-[#30363d] shadow-xl py-1 z-30 text-xs">
+                <div className="px-3 py-1.5 text-[10px] font-semibold text-[#7d8590] uppercase tracking-wider border-b border-[#21262d]">
+                  Timeframe
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRange('6m');
+                    setDropdownOpen(false);
+                  }}
+                  className={`w-full text-left px-3 py-1.5 flex items-center justify-between hover:bg-[#1f242c] transition-colors ${
+                    range === '6m' ? 'text-[#e6edf3] font-medium' : 'text-[#7d8590]'
+                  }`}
+                >
+                  <span>Last 6 months</span>
+                  {range === '6m' && (
+                    <svg className="w-3.5 h-3.5 text-[#3fb950]" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" />
+                    </svg>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRange('1y');
+                    setDropdownOpen(false);
+                  }}
+                  className={`w-full text-left px-3 py-1.5 flex items-center justify-between hover:bg-[#1f242c] transition-colors ${
+                    range === '1y' ? 'text-[#e6edf3] font-medium' : 'text-[#7d8590]'
+                  }`}
+                >
+                  <span>2026 (Full year)</span>
+                  {range === '1y' && (
+                    <svg className="w-3.5 h-3.5 text-[#3fb950]" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
 
           <a
