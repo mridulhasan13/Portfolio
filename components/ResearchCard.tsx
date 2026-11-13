@@ -57,21 +57,13 @@ export const ResearchCard: React.FC<{ data?: ResearchData; className?: string }>
     <article
       className={`relative rounded-2xl sm:rounded-3xl bg-neutral-950/70 border border-neutral-800/80 p-6 sm:p-10 transition-all duration-300 hover:border-neutral-700 shadow-xl ${className}`}
     >
-      {/* Top Meta Line: Venue, Status, Timeline */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-neutral-800/80 text-xs font-mono">
-        <div className="flex items-center gap-2.5">
-          <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[11px]">
-            {data.type}
-          </span>
-          <span className="text-neutral-700">·</span>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 font-bold text-[10px] uppercase tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            <span>{data.statusText || data.status}</span>
-          </div>
-        </div>
-
-        <span className="text-neutral-500 text-[11px]">
-          Started {data.started}
+      {/* Top Meta Line: Venue on left, Status on right */}
+      <div className="flex items-center justify-between gap-3 pb-5 border-b border-neutral-800/80 text-xs font-mono">
+        <span className="font-semibold text-neutral-300 uppercase tracking-wider text-[11px]">
+          {data.type}
+        </span>
+        <span className="text-amber-400 font-mono text-xs tracking-wider">
+          {data.status}
         </span>
       </div>
 
