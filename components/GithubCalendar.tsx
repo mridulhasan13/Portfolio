@@ -27,7 +27,7 @@ const ALL_MONTHS = [
   { name: 'Aug', col: 39 },
   { name: 'Sep', col: 44 },
   { name: 'Oct', col: 48 },
-  { name: 'Nov', col: 52 }
+  { name: 'Nov', col: 49 }
 ];
 
 const SIX_MONTHS = [
@@ -89,7 +89,8 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
   const colPitch = cellSize + cellGap; // 13px
   const leftPadding = 32;
   const topPadding = 20;
-  const totalSvgWidth = leftPadding + numWeeks * colPitch;
+  const rightPadding = 24;
+  const totalSvgWidth = leftPadding + numWeeks * colPitch + rightPadding;
   const totalSvgHeight = topPadding + 7 * colPitch;
 
   const currentMonths = range === '6m' ? SIX_MONTHS : ALL_MONTHS;
@@ -103,7 +104,7 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
   };
 
   return (
-    <div className={`w-full md:max-w-[760px] md:mx-auto font-[-apple-system,BlinkMacSystemFont,"Segoe_UI","Noto_Sans",Helvetica,Arial,sans-serif] ${className}`}>
+    <div className={`w-full font-[-apple-system,BlinkMacSystemFont,"Segoe_UI","Noto_Sans",Helvetica,Arial,sans-serif] ${className}`}>
       {/* Top Header Row matching GitHub */}
       <div className="flex items-center justify-between gap-2.5 mb-2.5 w-full">
         <h3 className="text-xs sm:text-sm md:text-base font-normal text-[#e6edf3] truncate">
@@ -195,12 +196,11 @@ export const GithubCalendar: React.FC<GithubCalendarProps> = ({
       </div>
 
       {/* GitHub Native Card Container */}
-      <div className="rounded-md bg-[#0d1117] border border-[#30363d] p-3.5 sm:p-4 shadow-sm">
+      <div className="rounded-xl sm:rounded-2xl bg-[#0d1117] border border-[#30363d] p-4 sm:p-5 md:p-6 shadow-sm w-full">
         <div className="w-full overflow-hidden">
           <svg
             viewBox={`0 0 ${totalSvgWidth} ${totalSvgHeight}`}
-            style={{ maxWidth: range === '6m' ? `${totalSvgWidth}px` : undefined }}
-            className={`h-auto block select-none ${range === '6m' ? 'w-full md:w-auto md:mx-auto' : 'w-full'}`}
+            className={`h-auto block select-none ${range === '6m' ? 'w-full md:max-w-[620px] md:mx-auto' : 'w-full'}`}
             preserveAspectRatio="xMidYMid meet"
           >
             {/* Month Header Labels */}
