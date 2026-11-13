@@ -18,6 +18,7 @@ import GalleryImg15 from '../Website/15.webp';
 import DesignImgBreakdown from '../Design/70 Final logo Breakdown-01.webp';
 import DesignImgGold from '../Design/Gold Madel.webp';
 import ResearchCard from '../components/ResearchCard';
+import GithubCalendar from '../components/GithubCalendar';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -449,7 +450,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             ))}
           </div>
 
-          <div className="mt-16 flex justify-center">
+          {/* GitHub Activity Heatmap */}
+          <div className="mt-12 sm:mt-16">
+            <GithubCalendar username="mridulhasan13" />
+          </div>
+
+          <div className="mt-12 sm:mt-16 flex justify-center">
             <button
               onClick={() => onNavigate('projects')}
               className="group inline-flex items-center gap-4 text-white font-black text-[10px] uppercase tracking-[0.4em] hover:text-amber-400 transition-colors"

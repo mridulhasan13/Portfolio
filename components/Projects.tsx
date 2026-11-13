@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import rawProjects from '../repos.json';
+import GithubCalendar from './GithubCalendar';
 
 interface ProjectItem {
   name: string;
@@ -755,6 +756,11 @@ const Projects: React.FC = () => {
               );
             });
           })()}
+        </div>
+
+        {/* GitHub Activity Heatmap */}
+        <div className="mt-16 sm:mt-20">
+          <GithubCalendar username="mridulhasan13" />
         </div>
       </div>
     </section>
