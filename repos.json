@@ -148,6 +148,22 @@
     "isPrivate": true
   },
   {
+    "name": "bds",
+    "description": "",
+    "languages": [
+      "TypeScript 39.4%",
+      "JavaScript 27.9%",
+      "HTML 18.8%",
+      "CSS 13.9%",
+      "Dockerfile 0.0%"
+    ],
+    "url": "https://github.com/mridulhasan13/bds",
+    "demoUrl": "",
+    "playStoreUrl": "",
+    "updatedAt": "2026-11-25T13:33:45Z",
+    "isPrivate": true
+  },
+  {
     "name": "mridulhasan13.github.io",
     "description": "",
     "languages": [],
